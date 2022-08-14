@@ -1,0 +1,46 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>All Real Estates {{ instances.all.count }} instanses</h1>
+{% for instance in instances %}
+<p>
+   {% if instance.type == 'Квартира' %}
+   <a href="{% url "real_estates_urls:flat_detail_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Дом' %}
+   <a href="{% url "real_estates_urls:house_detail_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Участок' %}1
+   <a href="{% url "real_estates_urls:plot_of_land_detail_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Коммерция' %}
+   <a href="{% url "real_estates_urls:commerce_detail_url" pk=instance.pk %}" >
+   {% endif %}
+   {{ instance.pk }} {{ instance.creation_date }} {{ instance.date_of_change }} {{  instance.author.last_name }}
+   {{ instance.author.first_name }} {{ instance.type }} {{ instance.ploshad }} {{ instance.district }}
+   {{ instance.street }} {{ instance.agency_price }} {{ instance.type }}
+   </a>
+</p>
+{% endfor %}
+{% if is_paginated %}
+<ul class="pagination">
+   {% if page_obj.has_previous %}
+   <li>
+      <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+   </li>
+   {% endif %}
+   <li class="">
+      <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. {{ instances.count}}</span>
+   </li>
+   {% if page_obj.has_next %}
+   <li>
+      <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+   </li>
+   {% endif %}
+</ul>
+{% endif %}
+{{ filter.form.media.css }}
+
+<form method="get">
+   {{ filter.form.as_p }}
+   <input type="submit" />
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ filter.form.media.js }}
+{% endblock %}

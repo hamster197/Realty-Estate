@@ -1,0 +1,19 @@
+{% load static %}
+{% if user.is_authenticated %}
+   <p></p> <a href="{% url "accounts_urls:logout_url" %}" >Exit</a>
+    <a href="{% url "accounts_urls:password_change_url" %}" >Change password</a>
+    <a href="{% url "real_estates_urls:new_flat_url" %}" >New flat</a>
+    <a href="{% url "real_estates_urls:new_house_url" %}" >New house</a>
+    <a href="{% url "real_estates_urls:new_plot_of_land_url" %}" >New plot_of_land</a>
+    <a href="{% url "real_estates_urls:new_commerce_url" %}" >New commerce</a></p>
+    <p>
+    <a href="{% url "real_estates_urls:my_flat_list_url" %}" >My flat</a>
+    <a href="{% url "real_estates_urls:my_house_list_url" %}" >My house</a>
+    <a href="{% url "real_estates_urls:my_plot_of_landt_list_url" %}" >My plot_of_landt</a>
+    <a href="{% url "real_estates_urls:my_commerce_list_url" %}" >My commerce</a>
+    </p>
+{% endif %}
+
+{% block content %}
+
+{% endblock %}

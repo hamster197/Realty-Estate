@@ -1,0 +1,86 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>Detail</h1> {{ instance.author }} {{ user }}
+    {% if user == instance.author %}
+   {% if instance.type == 'Квартира' %}
+   <a href="{% url "real_estates_urls:edit_flat_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Дом' %}
+   <a href="{% url "real_estates_urls:edit_house_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Участок' %}
+   <a href="{% url "real_estates_urls:edit_plot_of_land_url" pk=instance.pk %}" >
+   {% elif instance.type == 'Коммерция' %}
+   <a href="{% url "real_estates_urls:edit_commerce_url" pk=instance.pk %}" >
+   {% endif %} Edit</a>
+    {% endif %}
+
+    <p>Автор {{ instance.author.first_name }} {{ instance.author.last_name }} {{ instance.author.departament }}</p>
+    {% if instance.author == user %}
+    <p>Имя собственника {{ instance.client_name }}</p>
+    <p>тел собственника {{ instance.client_tel }}</p>
+    {% endif %}
+    <p>Дата публикации {{ instance.creation_date }}</p>
+    <p>Дата изменения {{ instance.date_of_change }}</p>
+    <p>Договор {{ instance.contract  }} Номер договора {{ instance.contract_number }} До {{ instance.contract_date_end }}</p>
+    <p>Новостройка? {% if instance.new_building  %} Yes{% else %} No {% endif %}</p>
+    <p>Код видео с youtube {{ instance.youtube }}</p>
+    <p>Тип недвижимости {{ instance.type }}</p>
+    <p>Район {{ instance.district }}</p>
+    <p>Улица {{ instance.street }}</p>
+    {% if street_number %} <p>Номер дома {{ instance.street_number }}</p>{% endif %}
+    <p>Площадь(метры) {{ instance.ploshad }}</p>
+    {% if instance.author == user %}
+    <p>Цена собственника {{ instance.owners_price }}</p>
+    {% endif %}
+    <p>Цена агентства {{ instance.agency_price }}</p>
+    <p>Описание {{ instance.discription }}</p>
+    <p>Газ {{ instance.gaz }}</p>
+    {% if instance.cadastral_number %}
+    <p>Кадастровый номер {{ instance.cadastral_number }}</p>
+    {% endif %}
+    <p>Вид права: {{ instance.type_of_law }}</p>
+    <p>Использование участка: {{ instance.use_of_the_plot }}</p>
+    <p>Опубликовать на Домклик {% if instance.domclick_pub == True %}Yes {% else %} no {% endif %}</p>
+    {% if instance.flat.type == 'Квартира' %}
+         {% if user == instance.author and instance.flat.flat_number %}
+        <p>Номер квартиры {{ instance.flat.flat_number }}</p>
+         {% endif %}
+        <p>Этап сдачи {{ instance.flat.stage_of_delivery }}</p>
+        <p>Статус жилья {{ instance.flat.housing_status }}</p>
+        <p>Класс жилья {{ instance.flat.housing_class }}</p>
+        <p>Ремонт {{ instance.flat.repair }}</p>
+        <p>Кол-во комнат {{ instance.flat.rooms }}</p>
+        <p>Этаж {{ instance.flat.floor }}</p>
+        <p>Этажность {{ instance.flat.number_of_floors }}</p>
+        <p>Вид из окон {{ instance.flat.view_from_the_windows }}</p>
+        <p>Санузел {{ instance.flat.bathroom }}</p>
+        <p>Паркинг {{ instance.flat.parking }}</p>
+        <p>Наличие охраны: {% if instance.flat.security %} Yes{% else %} No {% endif %}</p>
+        <p>Мусоропровод {% if instance.flat.rubbish_chute %} Yes{% else %} No {% endif %}</p>
+        <p>Лифт {% if instance.flat.elevator %} Yes{% else %} No {% endif %}</p>
+        <p>Балкон {% if instance.flat.balcony %} Yes{% else %} No {% endif %}</p>
+    {% elif instance.house.type == 'Дом' %}
+        <p>Этажность {{ instance.house.number_of_floors }} </p>
+        <p>Комнат {{ instance.house.number_of_flats }}</p>
+        <p>Тип дома {{ instance.house.type_of_house }}</p>
+        <p>Площадь участка {{ instance.house.plot_area }}</p>
+    {% elif instance.plotofland.type == 'Учаток' %}
+        <p>Вид рельефа: {{ instance.plotofland.relief }} </p>
+        <p> Вид {{ instance.plotofland.view }} </p>
+    {% elif instance.type == 'Коммерция' %}
+        <p>Тип строения {{ instance.commerce.type_of_building }} </p>
+        <p>Тип Сделки {{ instance.commerce.type_deal }}</p>
+    {% endif %}
+
+
+{% if instance.longitude and instance.latitude %}
+{{ instance.longitude }}, {{ instance.latitude }} for map
+{% endif %}
+
+    <p>Главное фото <img src="{{ instance.image.url }}" /></p>
+    <h1>Galery</h1>
+    {% for image in instance.galery_real_estate_id.all %}
+        <p> <img src="{{ image.image.url }}" /></p>
+    {% endfor %}
+
+
+{% endblock %}

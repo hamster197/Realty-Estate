@@ -1,0 +1,12 @@
+ {% extends 'main.html' %}
+{% block content %}
+<h1>Login</h1>
+<form  method="post" enctype="multipart/form-data">
+   {% csrf_token %} {{ form.non_field_errors }}
+   <p>{{ form.username.label }} {{ form.username }} {{ form.username.errors }}</p>
+   <p>{{ form.password.label }} {{ form.password }} {{ form.password.errors }}</p>
+   <input type="submit" value="Войти" >
+</form>
+
+    <a href="{% url 'accounts_urls:reset_password_url'  %}">Forgot password</a>
+{% endblock %}

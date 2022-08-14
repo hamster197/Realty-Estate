@@ -1,0 +1,8 @@
+db.sqlite3
+sait_settings.py
+__pycache__
+
+/app/apps/accounts/migrations
+/app/apps/real_estate/migrations
+/.idea
+/image

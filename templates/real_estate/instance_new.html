@@ -1,0 +1,20 @@
+ {% extends 'main.html' %}
+{% block content %}
+    {{ form.media.css }}
+    <h1>New Estate</h1>
+    <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+    <table border="1">
+     {{ form.as_table }}
+     </table>
+      <input type="file" name="instance_files" multiple>
+<input type="submit"  value="Save ">
+    <p>Главное фото <img src="{{ instance.image.url }}" /></p>
+    <h1>Galery1</h1>
+    {% for image in instance.galery_real_estate_id.all %}
+        <p> <img src="{{ image.image.url }}" />
+        <button  name="_delete_image" value="{{ image.pk }}">Delete Image</button>
+    {% endfor %}
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ form.media.js }}
+{% endblock %}
