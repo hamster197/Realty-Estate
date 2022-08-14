@@ -1,7 +1,7 @@
 # Realty-Estate
 Small crm for estate agency(in development)
 # Instalation
-1. Create sait_setting.py with settings
+1. Create sait_settings.py with settings
 SAIT_KEY (SECRET_KEY)
 DATABASES_SETTINGS (YOU DATABASES SETTINGS)
 EMAIL_USER & EMAIL_PASSWORD (FOR MAILING)
