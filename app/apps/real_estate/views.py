@@ -59,6 +59,9 @@ class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
             self.queryset = Commerce.objects.filter(author=self.request.user)
         return self.queryset
 
+    def get_initial(self):
+        sity_instance = get_object_or_404(RealtyEstate, pk=self.kwargs['pk']).district.city
+        return {'city': sity_instance}
     def get_context_data(self, **kwargs):
         context = super(InstanceEdit, self).get_context_data(**kwargs)
         context['instance'] = get_object_or_404(RealtyEstate, pk=self.kwargs['pk'])
