@@ -122,6 +122,21 @@ LOGIN_REDIRECT_URL = reverse_lazy('real_estates_urls:all_real_estates_url')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('accounts_urls:first_page_url')
 
+# REDIS_HOST = 'localhost'
+# REDIS_PORT = '6379'
+# BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+# BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
+# CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+REDIS_HOST = '127.0.0.1'
+REDIS_PORT = '6379'
+# CELERY settings
+CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_BROKER_TRANSPORT_OPTION = {'visibility_timeout': 3600}
+CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+
 EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_HOST_USER =  EMAIL_USER
 EMAIL_HOST_PASSWORD = EMAIL_PASSWORD

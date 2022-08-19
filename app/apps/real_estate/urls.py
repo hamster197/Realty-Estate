@@ -14,8 +14,10 @@ urlpatterns = [
     path('', AllRealEstates.as_view(), name='all_real_estates_url'),
     path('my/flat/', MyRealtyEstates.as_view(filterset_class=MyFlatRealtyEstateFilter), name='my_flat_list_url'),
     path('my/house/', MyRealtyEstates.as_view(filterset_class=MyHouseRealtyEstateFilter), name='my_house_list_url'),
-    path('my/plot_of_land/', MyRealtyEstates.as_view(filterset_class=MyPlotOfLandRealtyEstateFilter), name='my_plot_of_landt_list_url'),
-    path('my/commerce/', MyRealtyEstates.as_view(filterset_class=MyCommerceRealtyEstateFilter), name='my_commerce_list_url'),
+    path('my/plot_of_land/', MyRealtyEstates.as_view(filterset_class=MyPlotOfLandRealtyEstateFilter),
+         name='my_plot_of_landt_list_url'),
+    path('my/commerce/', MyRealtyEstates.as_view(filterset_class=MyCommerceRealtyEstateFilter),
+         name='my_commerce_list_url'),
 
     path('flat/detail/<int:pk>/', MyRealtyDetail.as_view(model=Flat), name='flat_detail_url'),
     path('house/detail/<int:pk>/', MyRealtyDetail.as_view(model=House), name='house_detail_url'),
