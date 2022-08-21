@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator, MinLengthValidator
 from django.db import models
 
@@ -11,7 +12,7 @@ class CityQuide(models.Model):
 
     class Meta:
         verbose_name = 'Город'
-        verbose_name_plural = '.Справочник города'
+        verbose_name_plural = ' Справочник города'
 
 class DistrictQuide(models.Model):
     city = models.ForeignKey('real_estate.CityQuide', verbose_name='Город', on_delete=models.CASCADE,
@@ -23,7 +24,7 @@ class DistrictQuide(models.Model):
 
     class Meta:
         verbose_name = 'Район'
-        verbose_name_plural = '.Справочник районы'
+        verbose_name_plural = ' Справочник районы'
         unique_together =('city' ,'name')
 
 class RealtyEstate(models.Model):
@@ -31,8 +32,8 @@ class RealtyEstate(models.Model):
                                related_name='realty_estate_author_id',)
     client_name=models.CharField('Имя собственника', max_length=50,)
     client_tel = models.CharField(verbose_name='тел собственника', help_text ='+79881234567', max_length=12,)
-    creation_date = models.DateField('Дата публикации', blank=True, auto_now_add=True,)
-    date_of_change = models.DateField('Дата изменения', blank=True, auto_now=True,)
+    creation_date = models.DateField('Дата публикации', auto_now_add=True,)
+    date_of_change = models.DateField('Дата изменения', auto_now=True,)
     status_choises = (
         ('Опубликован', 'Опубликован'), ('Не опубликован', 'Не опубликован'), ('В архиве', 'В архиве'))
     status_obj = models.CharField('Публикация', max_length=45, choices=status_choises,)
@@ -74,6 +75,14 @@ class RealtyEstate(models.Model):
     image = models.ImageField(verbose_name='Главное фото', upload_to='image/%Y/%m/%d/real/main',)
 
     domclick_pub = models.BooleanField(verbose_name='Опубликовать на Домклик', default=True,)
+
+    def clean(self):
+        errors = {}
+        if self.owners_price is not None and self.agency_price is not None:
+            if (self.owners_price >= self.agency_price):
+                errors['owners_price'] = 'the owners price is more than agency price'
+        if errors:
+            raise ValidationError(errors)
 
     class Meta:
         verbose_name = 'Обьект недвижимости'
@@ -187,3 +196,29 @@ class Commerce(RealtyEstate):
         verbose_name = 'Коммерция'
         verbose_name_plural = 'Коммерция'
 
+class Client(models.Model):
+    creation_date = models.DateField(verbose_name='Дата создания', auto_now_add=True)
+    author = models.ForeignKey('accounts.MyUser', verbose_name='Автор', related_name='client_author_id',
+                               on_delete=models.CASCADE)
+    status = models.BooleanField('Клиент закрыт', default=False)
+    client_name = models.CharField(max_length=45,verbose_name='Клиент(ФИО)')
+    phone = models.CharField('Телефон клиента', help_text='9881112233', max_length=10,)
+    email = models.EmailField('email клиента', default='nomail@nomail.ru')
+    estate_type = models.CharField(verbose_name='Что ищет', max_length=45, choices=RealtyEstate.type_choises)
+    district = models.ManyToManyField(DistrictQuide, verbose_name='Район', related_name='client_distinkt_id',)
+    discription = models.TextField('Примечание')
+    min_price = models.IntegerField('Бюджет от:', validators=[MinValueValidator(300000)])
+    max_price = models.IntegerField('Бюджет до:', validators=[MinValueValidator(300000)])
+
+    def __str__(self):
+        return self.client_name
+    def clean(self):
+        errors = {}
+        if self.min_price is not None and self.max_price is not None:
+            if (self.min_price >= self.max_price):
+                errors['min_price'] = 'the min price is more than max price'
+        if errors:
+            raise ValidationError(errors)
+    class Meta:
+        verbose_name = ' Клиенты'
+        verbose_name_plural = ' Клиенты'

@@ -1,0 +1,35 @@
+ {% extends 'main.html' %}
+{% block content %}
+    <h1>Client detail</h1>
+    {% if client.author == user %}
+    <p><a href="{% url "real_estates_urls:client_edit_url" pk=client.pk %}" >Edit</a></p>
+    {% endif %}
+    <p>{{ client.creation_date }}</p>
+    <p>{{ client.author.first_name }} {{ client.author.last_name }}</p>
+    <p>{{ client.client_name }}</p>
+    {% if client.author == user %}
+    <p>{{ client.phone }}</p>
+    <p>{{ client.email }}</p>
+    {% endif %}
+    <p>{{ client.estate_type }}</p>
+    <p>{% for district in client.district.all %}{{ district }}, {% endfor %} </p>
+    <p>{{ client.discription }}</p>
+    <p>{{ client.min_price }}</p>
+    <p>{{ client.max_price }}</p>
+    {% if instances %}
+    <h1>Aviablse estates</h1>
+        {% for instance in instances %}
+        {% if instance.type == 'Квартира' %}
+            <a href="{% url "real_estates_urls:flat_detail_url" pk=instance.pk %}" >
+        {% elif instance.type == 'Дом' %}
+             <a href="{% url "real_estates_urls:house_detail_url" pk=instance.pk %}" >
+        {% elif instance.type == 'Участок' %}
+             <a href="{% url "real_estates_urls:plot_of_land_detail_url" pk=instance.pk %}" >
+        {% elif instance.type == 'Коммерция' %}
+            <a href="{% url "real_estates_urls:commerce_detail_url" pk=instance.pk %}" >
+         {% endif %}
+        <p>{{ instance.district }} {{ instance.street }} {{ instance.agency_price }} {{ instance.ploshad }}</p>
+        </a>
+        {% endfor %}
+    {% endif %}
+ {% endblock %}

@@ -2,11 +2,11 @@
 from django.urls import path
 
 from app.apps.real_estate.filters import MyFlatRealtyEstateFilter, MyCommerceRealtyEstateFilter, \
-    MyPlotOfLandRealtyEstateFilter, MyHouseRealtyEstateFilter
+    MyPlotOfLandRealtyEstateFilter, MyHouseRealtyEstateFilter, AllClientEstateFilter, MyClientEstateFilter
 from app.apps.real_estate.forms import CommerceEditForm, FlatEditForm, HouseEditForm, PlotOfLandEditForm
 from app.apps.real_estate.models import Flat, House, PlotOfLand, Commerce
 from app.apps.real_estate.views import AllRealEstates, InstanceNew, InstanceEdit, MyRealtyDetail, \
-    MyRealtyEstates, YandexFeed
+    MyRealtyEstates, YandexFeed, ClientNew, MyClientsList, AllClientsList, ClientDetail, ClientEdit
 
 app_name = 'real_estates_urls'
 
@@ -36,4 +36,10 @@ urlpatterns = [
     path('commerce/edit/<int:pk>/', InstanceEdit.as_view(form_class=CommerceEditForm), name='edit_commerce_url'),
 
     path('yandex.xml', YandexFeed.as_view(), name='yandex_url'),
+
+    path('client/new/', ClientNew.as_view(), name='client_new_url'),
+    path('client/edit/<int:pk>/', ClientEdit.as_view(), name='client_edit_url'),
+    path('client/my_list/', MyClientsList.as_view(filterset_class=MyClientEstateFilter), name='client_my_list_url'),
+    path('client/all_list/', AllClientsList.as_view(filterset_class=AllClientEstateFilter), name='client_all_list_url'),
+    path('client/<int:pk>/', ClientDetail.as_view(), name='client_detail_url'),
 ]

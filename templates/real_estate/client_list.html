@@ -1,0 +1,40 @@
+ {% extends 'main.html' %}
+{% block content %}
+    {{ form.media.css }}
+    <h1>{{ view.action }} Clients </h1>
+{% for client in clients_list %}
+<p>
+    <a href="{% url "real_estates_urls:client_detail_url" pk=client.pk %}" >
+    {{ client.name }} {{ client.creation_date }}
+    {% for district in client.district.all %} {{ district }}, {% endfor %}
+    {{ client.estate_type }} {{ client.min_price }} {{ client.max_price }}
+    </a>
+</p>
+{% endfor %}
+
+{% if is_paginated %}
+<ul class="pagination">
+   {% if page_obj.has_previous %}
+   <li>
+      <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+   </li>
+   {% endif %}
+   <li class="">
+      <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}. {{ instances.count}}</span>
+   </li>
+   {% if page_obj.has_next %}
+   <li>
+      <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+   </li>
+   {% endif %}
+</ul>
+{% endif %}
+
+{{ filter.form.media.css }}
+<form method="get">
+   {{ filter.form.as_p }}
+   <input type="submit" />
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ filter.form.media.js }}
+{% endblock %}

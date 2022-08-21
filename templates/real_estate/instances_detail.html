@@ -75,7 +75,15 @@
 {% if instance.longitude and instance.latitude %}
 {{ instance.longitude }}, {{ instance.latitude }} for map
 {% endif %}
-
+{% if clients %}
+<h1>Aviable clients</h1>
+    {% for client in clients %}
+        <a href="{% url "real_estates_urls:client_detail_url" pk=client.pk %}" >
+        <p>{{ client.author.first_name }} {{ client.author.last_name }}
+           {% for district in client.district.all %} {{ district }} {% endfor %} {{ client.max_price }}</p>
+        </a>
+    {% endfor %}
+{% endif %}
     <p>Главное фото <img src="{{ instance.image.url }}" /></p>
     <h1>Galery</h1>
     {% for image in instance.galery_real_estate_id.all %}

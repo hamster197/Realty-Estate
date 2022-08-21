@@ -3,7 +3,8 @@ from django.contrib import admin
 # Register your models here.
 from django.contrib.admin import ModelAdmin
 
-from app.apps.real_estate.models import CityQuide, DistrictQuide, Flat, House, PlotOfLand, Commerce, RealtyEstateGalery
+from app.apps.real_estate.models import CityQuide, DistrictQuide, Flat, House, PlotOfLand, Commerce, RealtyEstateGalery, \
+    Client
 
 admin.site.register(CityQuide)
 
@@ -42,3 +43,12 @@ class RealtyEstateGaleryFields(ModelAdmin):
     list_filter = ('realty_estate', )
 
 admin.site.register(RealtyEstateGalery, RealtyEstateGaleryFields)
+
+class ClientFields(ModelAdmin):
+    list_display = ('pk', 'creation_date', 'client_name', 'estate_type', 'get_districts', 'min_price', 'max_price', 'status',)
+    list_filter = ('status', 'author', )
+
+    def get_districts(self, obj):
+        return ",".join([p.name + ' '+str(p.city) for p in obj.district.all()])
+
+admin.site.register(Client, ClientFields)
