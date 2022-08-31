@@ -40,14 +40,8 @@ class RealtyEstateFilter(django_filters.FilterSet):
         parent = super(RealtyEstateFilter, self).qs
         return parent.filter(status_obj='Опубликован')
 
-class MyAllRealtyEstateFilter(RealtyEstateFilter):
-    @property
-    def qs(self):
-        parent = super(MyAllRealtyEstateFilter, self).qs
-        author = getattr(self.request, 'user', None)
-        return parent.filter(status_obj='Опубликован', author=author)
-
 class MyFlatRealtyEstateFilter(django_filters.FilterSet):
+
     district__city = ModelChoiceFilter(
         queryset=CityQuide.objects.all(),
         label="Город",
@@ -68,46 +62,29 @@ class MyFlatRealtyEstateFilter(django_filters.FilterSet):
         ),
     )
     class Meta:
-        model = RealtyEstate
+        model = Flat
         fields = {
-            'type': [],
-            #'district': [],
             'agency_price': ['lte', 'gte'],
         }
     @property
     def qs(self):
         parent = super(MyFlatRealtyEstateFilter, self).qs
         author = getattr(self.request, 'user', None)
-        return parent.filter(status_obj='Опубликован', author=author, type='Квартира')
+        return parent.filter(status_obj='Опубликован', author=author, )
 
 class MyHouseRealtyEstateFilter(MyFlatRealtyEstateFilter):
 
     class Meta(MyFlatRealtyEstateFilter.Meta):
         model = House
-    @property
-    def qs(self):
-        parent = super(MyFlatRealtyEstateFilter, self).qs
-        author = getattr(self.request, 'user', None)
-        return parent.filter(status_obj='Опубликован', author=author, type='Дом')
 
 class MyPlotOfLandRealtyEstateFilter(MyFlatRealtyEstateFilter):
     class Meta(MyFlatRealtyEstateFilter.Meta):
         model = PlotOfLand
-    @property
-    def qs(self):
-        parent = super(MyFlatRealtyEstateFilter, self).qs
-        author = getattr(self.request, 'user', None)
-        return parent.filter(status_obj='Опубликован', author=author, type='Участок')
 
 class MyCommerceRealtyEstateFilter(MyFlatRealtyEstateFilter):
 
     class Meta(MyFlatRealtyEstateFilter.Meta):
         model = Commerce
-    @property
-    def qs(self):
-        parent = super(MyFlatRealtyEstateFilter, self).qs
-        author = getattr(self.request, 'user', None)
-        return parent.filter(status_obj='Опубликован', author=author, type='Коммерция')
 
 class AllClientEstateFilter(django_filters.FilterSet):
     estate_type = ChoiceFilter(choices=RealtyEstate.type_choises)

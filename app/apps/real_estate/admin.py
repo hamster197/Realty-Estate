@@ -45,7 +45,8 @@ class RealtyEstateGaleryFields(ModelAdmin):
 admin.site.register(RealtyEstateGalery, RealtyEstateGaleryFields)
 
 class ClientFields(ModelAdmin):
-    list_display = ('pk', 'creation_date', 'client_name', 'estate_type', 'get_districts', 'min_price', 'max_price', 'status',)
+    list_display = ('pk', 'creation_date', 'client_name', 'estate_type', 'get_districts', 'min_price', 'max_price',
+                    'status', 'author',)
     list_filter = ('status', 'author', )
 
     def get_districts(self, obj):

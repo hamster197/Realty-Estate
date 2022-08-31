@@ -1,5 +1,5 @@
 
-from django.urls import path
+from django.urls import path, include
 
 from app.apps.real_estate.filters import MyFlatRealtyEstateFilter, MyCommerceRealtyEstateFilter, \
     MyPlotOfLandRealtyEstateFilter, MyHouseRealtyEstateFilter, AllClientEstateFilter, MyClientEstateFilter
@@ -42,4 +42,6 @@ urlpatterns = [
     path('client/my_list/', MyClientsList.as_view(filterset_class=MyClientEstateFilter), name='client_my_list_url'),
     path('client/all_list/', AllClientsList.as_view(filterset_class=AllClientEstateFilter), name='client_all_list_url'),
     path('client/<int:pk>/', ClientDetail.as_view(), name='client_detail_url'),
+
+    path('api/v1/', include('app.apps.real_estate.api.urls'), )
 ]

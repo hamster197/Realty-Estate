@@ -30,7 +30,7 @@ class DistrictQuide(models.Model):
 class RealtyEstate(models.Model):
     author = models.ForeignKey('accounts.MyUser', verbose_name='Автор', on_delete=models.CASCADE,
                                related_name='realty_estate_author_id',)
-    client_name=models.CharField('Имя собственника', max_length=50,)
+    client_name=  models.CharField('Имя собственника', max_length=50,)
     client_tel = models.CharField(verbose_name='тел собственника', help_text ='+79881234567', max_length=12,)
     creation_date = models.DateField('Дата публикации', auto_now_add=True,)
     date_of_change = models.DateField('Дата изменения', auto_now=True,)
@@ -58,7 +58,7 @@ class RealtyEstate(models.Model):
     owners_price = models.IntegerField('Цена собственника', validators=[MinValueValidator(300000)],)
     agency_price = models.IntegerField('Цена агентства', validators=[MinValueValidator(300000)],)
     discription = models.TextField('Описание', blank=True,)
-    gaz_choises = (('No','Нет'), ('Yes','Есть'), ('Can connect','Можно подключить'),
+    gaz_choises = (('Нет','Нет'), ('Есть','Есть'), ('Можно подключить','Можно подключить'),
                  ('В процессе подключения','В процессе подключения'))
     gaz = models.CharField('Газ', max_length=40, choices=gaz_choises,)
     cadastral_number = models.CharField(max_length=30, blank=True, verbose_name='Кадастровый номер',
@@ -83,20 +83,20 @@ class RealtyEstate(models.Model):
                 errors['owners_price'] = 'the owners price is more than agency price'
         if errors:
             raise ValidationError(errors)
-
+    def __str__(self):
+        return str(self.pk)
     class Meta:
         verbose_name = 'Обьект недвижимости'
         verbose_name_plural = 'Обьекты недвижимости'
         ordering = ['-date_of_change', '-pk']
-
-    def __str__(self):
-        return str(self.pk)
 
 class RealtyEstateGalery(models.Model):
     realty_estate = models.ForeignKey('real_estate.RealtyEstate', verbose_name='Обьект недвижимости',
                                       related_name='galery_real_estate_id', on_delete=models.CASCADE)
     image = models.ImageField(verbose_name='Картинка', upload_to='image/%Y/%m/%d/real/main',)
 
+    def __str__(self):
+        return self.image.url
     class Meta:
         verbose_name = 'Галерея'
         verbose_name_plural = 'Галерея'
@@ -147,6 +147,13 @@ class Flat(RealtyEstate):
            ('2 лоджии', '2 лоджии'), )
     balcony = models.CharField(max_length=15, choices=bch, verbose_name='Балкон:', default='нет',)
 
+    def clean(self):
+        errors = {}
+        if self.floor is not None and self.number_of_floors is not None:
+            if (self.floor > self.number_of_floors):
+                errors['floor'] = 'the floor is more than number of floors'
+        if errors:
+            raise ValidationError(errors)
     class Meta:
         verbose_name = 'Квартира'
         verbose_name_plural = 'Квартиры'

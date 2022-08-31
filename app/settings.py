@@ -43,6 +43,11 @@ INSTALLED_APPS = [
 
     'django_filters',
     'django_select2',
+    'rest_framework',
+    'rest_framework.authtoken',
+    # 'rest_framework_simplejwt',
+    'djoser',
+    'drf_yasg',
 
     'app.apps.real_estate',
     'app.apps.accounts',
@@ -50,6 +55,42 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.MyUser'
+
+REST_FRAMEWORK = {
+
+'DEFAULT_AUTHENTICATION_CLASSES': [
+    'rest_framework.authentication.TokenAuthentication',
+    'rest_framework.authentication.BasicAuthentication',
+    'rest_framework.authentication.SessionAuthentication',
+],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+
+'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
+    ),
+}
+
+DJOSER = {
+    'PERMISSIONS' : {
+        'activation': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'password_reset': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'password_reset_confirm': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'set_password': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'username_reset': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'username_reset_confirm': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'set_username': ['rest_framework.permissions.CurrentUserOrAdmin'],
+        'user_create': ['rest_framework.permissions.IsAdminUser'],
+        'user_delete': ['rest_framework.permissions.IsAdminUser'],
+        'user': ['rest_framework.permissions.IsAdminUser'],
+        'user_list': ['rest_framework.permissions.IsAdminUser'],
+        'token_create': ['rest_framework.permissions.AllowAny'],
+        'token_destroy': ['rest_framework.permissions.IsAuthenticated'],
+    },
+    'SERIALIZERS': {
+         'user': 'app.apps.accounts.api.serializers.UserRegistrationSerializer'
+    },
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,11 +163,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('real_estates_urls:all_real_estates_url')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('accounts_urls:first_page_url')
 
-# REDIS_HOST = 'localhost'
-# REDIS_PORT = '6379'
-# BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
-# BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
-# CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = '6379'
 # CELERY settings

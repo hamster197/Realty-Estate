@@ -1,6 +1,6 @@
 from django.contrib.auth.views import LogoutView, PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, \
     PasswordChangeView
-from django.urls import path, reverse_lazy
+from django.urls import path, reverse_lazy, include
 
 from app.apps.accounts.views import FirstPage
 
@@ -23,4 +23,6 @@ urlpatterns = [
     path('password_reset_confirm/<uidb64>/<token>/',
          PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confim_form.html', ),
          name='password_reset_confirm'),
+
+    path('api/v1/', include('app.apps.accounts.api.urls'),)
 ]
