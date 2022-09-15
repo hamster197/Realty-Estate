@@ -83,8 +83,10 @@ class RealtyEstate(models.Model):
                 errors['owners_price'] = 'the owners price is more than agency price'
         if errors:
             raise ValidationError(errors)
+
     def __str__(self):
         return str(self.pk)
+
     class Meta:
         verbose_name = 'Обьект недвижимости'
         verbose_name_plural = 'Обьекты недвижимости'

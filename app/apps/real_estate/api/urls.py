@@ -21,9 +21,9 @@ urlpatterns = [
     path('quide_sitys/', CityQuideViewSet.as_view(), name='quide_sitys_url'),
     path('quide_districts/', DistrictQuideViewSet.as_view(), name='quide_districts_url'),
 
-    path('available_estates_for_client/<pk>/', AvailableEstatesForClientViewSet.as_view(),
+    path('available_estates_for_client/<int:pk>/', AvailableEstatesForClientViewSet.as_view(),
          name='available_estates_for_client'),
-    path('available_client_for_estates/<pk>/', AvailableClientsForEstatesViewSet.as_view(),
+    path('available_client_for_estates/<int:pk>/', AvailableClientsForEstatesViewSet.as_view(),
          name='available_client_for_estates'),
 ]
 urlpatterns += router.urls

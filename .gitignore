@@ -4,5 +4,6 @@ __pycache__
 
 /app/apps/accounts/migrations
 /app/apps/real_estate/migrations
+/app/apps/deals/migrations
 /.idea
 /image

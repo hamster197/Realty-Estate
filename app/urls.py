@@ -47,5 +47,6 @@ urlpatterns = [
 
     path('', include('app.apps.accounts.urls')),
     path('real_estates/', include('app.apps.real_estate.urls')),
+    path('deals/', include('app.apps.deals.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

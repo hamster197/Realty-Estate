@@ -21,8 +21,9 @@ class UserAdmin(UserAdmin):
     fieldsets = (
         (None, {
             'fields': ('username', 'first_name', 'patronymic', 'last_name', 'phone', 'email', 'password',
-                       'contract', 'nach_otd', 'groups', 'departament', 'avatar', 'is_active',)
+                       'contract', 'city', 'department_boss', 'groups', 'departament', 'avatar', 'is_active',)
         }),
     )
 
 admin.site.register(MyUser, UserAdmin)
+

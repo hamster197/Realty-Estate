@@ -1,0 +1,42 @@
+ {% extends 'main.html' %}
+{% block content %}
+    <h1>Deal detail</h1>
+    <p>Дата создания сделки {{ instance.date_open_deal }}</p>
+    <p>Дата закрытия сделки {{ instance.date_close_deal }}</p>
+    <p>Название объекта {{ instance.name_of_object }}</p>
+    <p>Тип недвижимости {{ instance.type_of_pbject }}</p>
+    <p>Район {{ instance.district }}</p>
+    <p>ФИО клиента(Покупатель) {{ instance.client_name }}</p>
+    <p>тел.Клиента(Покупатель) {{ instance.client_phone }}</p>
+    <p>ФИО клиента(Продавца) {{ instance.seller_name }}</p>
+    <p>тел.Клиента(Продавца) {{ instance.seller_phone }}</p>
+    {% if  instance.brokers_name %}
+        <p>ФИО Посрединка(ч.риелт или др аг.) {{ instance.brokers_name }}</p>
+        <p>Тел.посредника {{ instance.brokers_tel }}</p>
+    {% endif %}
+    {% if instance.name_agency %}
+        <p>Название агенства {{ instance.name_agency }}</p>
+    {% endif %}
+    <p>Kанал продаж {{ instance.sales_chanel }}</p>
+    <p>Площадь {{ instance.square }}</p>
+    <p>Стоимость объекта {{ instance.price }}</p>
+    <p>Комисия {{ instance.commission }}</p>
+    <p>Ипотека {% if instance.mortgage  %} Yes {% else %} No{% endif %}</p>
+    <p>Расрочка {% if instance.installment  %} Yes {% else %} No{% endif %}</p>
+    <p>Примечание {{ instance.discription }}</p>
+    <p>Статус сделки {{ instance.status }}</p>
+    {% for reeltor in instance.realtor_in_deal_deal_id.all %}
+        {{ reeltor }} {{ reeltor.percent }}
+    {% endfor %}
+    {% for commision in instance.commision_deal_id.all %}
+        <p>{{ commision.commission_date }} {{ commision.commission_sum }}</p>
+    {% endfor %}
+    {% if user.groups.get.name == 'Генеральный директор' %}
+    <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+   {% if instance.status != 'Закрыта' and instance.status != 'Закрыта-Рассрочка' and instance.status != 'Срыв' %}
+    <input type="submit" name="_close" value="Close ">
+    <input type="submit" name="_disruption" value="Disruption ">
+   {% endif %}
+    </form>
+    {% endif %}
+ {% endblock %}

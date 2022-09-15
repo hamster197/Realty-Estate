@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     'app.apps.real_estate',
     'app.apps.accounts',
+    'app.apps.deals',
 
 ]
 

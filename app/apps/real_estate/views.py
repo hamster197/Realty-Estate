@@ -51,6 +51,7 @@ class InstanceNew(LoginRequiredMixin, InstanseSaveMixin, CreateView):
 class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
     template_name = 'real_estate/instance_new.html'
     action = 'Edit '
+
     def get_queryset(self):
         if self.form_class == FlatEditForm:
             self.queryset = Flat.objects.filter(author=self.request.user)
@@ -61,32 +62,38 @@ class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
         elif self.form_class == CommerceEditForm:
             self.queryset = Commerce.objects.filter(author=self.request.user)
         return self.queryset
+
     def get_initial(self):
         sity_instance = get_object_or_404(RealtyEstate, pk=self.kwargs['pk']).district.city
         return {'city': sity_instance}
+
     def get_context_data(self, **kwargs):
         context = super(InstanceEdit, self).get_context_data(**kwargs)
         context['instance'] = get_object_or_404(RealtyEstate, pk=self.kwargs['pk'])
         return context
+
     def post(self, request, *args, **kwargs):
         if '_delete_image' in self.request.POST:
             RealtyEstateGalery.objects.filter(pk=self.request.POST.get('_delete_image')).delete()
         return super().post(request, *args, **kwargs)
+
     def form_valid(self, form):
         messages.success(self.request, 'Your instance was updated successfully!')
         return super().form_valid(form)
+
     def form_invalid(self, form):
         messages.success(self.request, 'Your instance was not updated successfully!')
         return self.render_to_response(self.get_context_data(form=form))
+
     def get_success_url(self):
         if self.form_class == FlatEditForm:
             url = reverse_lazy('real_estates_urls:edit_flat_url', kwargs={'pk':self.kwargs['pk']})
         elif self.form_class == HouseEditForm:
-            url = reverse_lazy('real_estates_urls:edit_house_url', pk=self.kwargs['pk'])
+            url = reverse_lazy('real_estates_urls:edit_house_url', kwargs={'pk':self.kwargs['pk']})
         elif self.form_class == PlotOfLandEditForm:
-            url = reverse_lazy('real_estates_urls:edit_plot_of_land_url', pk=self.kwargs['pk'])
+            url = reverse_lazy('real_estates_urls:edit_plot_of_land_url', kwargs={'pk':self.kwargs['pk']})
         elif self.form_class == CommerceEditForm:
-            url = reverse_lazy('real_estates_urls:edit_commerce_url', pk=self.kwargs['pk'])
+            url = reverse_lazy('real_estates_urls:edit_commerce_url', kwargs={'pk':self.kwargs['pk']})
         return url
 
 class AllRealEstates(LoginRequiredMixin, FilterView):
@@ -103,8 +110,10 @@ class MyRealtyEstates(LoginRequiredMixin, FilterView):
 class MyRealtyDetail(LoginRequiredMixin, DetailView):
     template_name = 'real_estate/instances_detail.html'
     context_object_name = 'instance'
+
     def get_queryset(self):
         return RealtyEstate.objects.filter(status_obj='Опубликован')
+
     def get_context_data(self, **kwargs):
         context = super(MyRealtyDetail, self).get_context_data(**kwargs)
         context['clients'] = Client.objects.filter(estate_type=self.object.type,
@@ -115,8 +124,10 @@ class MyRealtyDetail(LoginRequiredMixin, DetailView):
 class YandexFeed(ListView):
     template_name = 'real_estate/yandex_feed.html'
     context_object_name = 'instances'
+
     def get_queryset(self):
         return RealtyEstate.objects.filter(status_obj='Опубликован')
+
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {'instances': self.get_queryset()},
                content_type="text/xml")
@@ -126,12 +137,14 @@ class ClientNew(LoginRequiredMixin, CreateView):
     form_class = ClientNewForm
     success_url = reverse_lazy('real_estates_urls:client_list_url')
     action = '(New)'
+
     def form_valid(self, form):
         client  = form.save(commit=False)
         client.author = self.request.user
         client.save()
         messages.success(self.request, 'Your new client was updated successfully!')
         return super().form_valid(form)
+
     def form_invalid(self, form):
         messages.success(self.request, 'Your new client was not updated successfully!')
         return self.render_to_response(self.get_context_data(form=form))
@@ -140,17 +153,22 @@ class ClientEdit(LoginRequiredMixin, UpdateView):
     template_name = 'real_estate/client_edit.html'
     form_class = ClientNewForm
     action = '(Edit)'
+
     def get_queryset(self):
         return Client.objects.filter(author=self.request.user)
+
     def get_initial(self):
         sity_instance = get_object_or_404(RealtyEstate, pk=self.kwargs['pk']).district.city
         return {'city': sity_instance}
+
     def form_valid(self, form):
         messages.success(self.request, 'Your new client was updated successfully!')
         return super().form_valid(form)
+
     def form_invalid(self, form):
         messages.success(self.request, 'Your new client was not updated successfully!')
         return self.render_to_response(self.get_context_data(form=form))
+
     def get_success_url(self):
         url = reverse_lazy('real_estates_urls:client_edit_url', kwargs={'pk':self.kwargs['pk']})
         return url
@@ -160,6 +178,7 @@ class MyClientsList(LoginRequiredMixin, FilterView):
     context_object_name = 'clients_list'
     action = 'My '
     paginate_by = 10
+
 class AllClientsList(MyClientsList):
     action = 'All  '
 

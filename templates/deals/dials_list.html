@@ -1,0 +1,28 @@
+ {% extends 'main.html' %}
+{% block content %}
+<h2>
+    <a href="{% url "deal_urls:deal_open_url" %}" >Open deals</a>
+    <a href="{% url "deal_urls:deal_installment_url" %}" >Installment deals</a>
+    <a href="{% url "deal_urls:deal_closed_url" %}" >Closed deals</a>
+    <a href="{% url "deal_urls:deal_closed_installment_url" %}" >Installment-Closed deals</a>
+    <a href="{% url "deal_urls:deal_disruption_url" %}" >Disruption deals</a>
+</h2>
+{% if filter.form %}
+<form method="get">
+   {{ filter.form.as_p }}
+   <input type="submit" />
+</form>
+{% endif %}
+<h1>{{ view.deal_status }} {{ deal_status }} deals list {{ instances.count }}</h1>
+    {% for instance in instances %}
+      <p>  <a href="{% url "deal_urls:deal_detail_url" pk=instance.pk %}" >
+        {{ instance.date_open_deal }} {{ instance.date_close_deal }} {{ instance.type_of_pbject }}
+            {{ instance.name_of_object }}  {{ instance.price }} rub
+            {% for subj in instance.realtor_in_deal_deal_id.all  %}
+                {{ subj }}
+            {% endfor %}</a>
+
+          <a href="{% url "deal_urls:deal_edit_url" pk=instance.pk %}" >Deal Edit</a>
+      </p>
+    {% endfor %}
+ {% endblock %}

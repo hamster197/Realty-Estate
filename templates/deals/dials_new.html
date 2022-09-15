@@ -1,0 +1,53 @@
+ {% extends 'main.html' %}
+{% block content %}
+    {{ form.media.css }}
+    <h1>{{ action }} Deal</h1>
+    {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+    <form  method="post" enctype="multipart/form-data">{% csrf_token %}
+    <table border="1">
+     {{ form.non_form_errors }}
+        {{ form.as_table }}
+
+                {{ deal_realtors_formset.management_form }}
+                {{ deal_realtors_formset.non_form_errors }}
+                {% for form in deal_realtors_formset.forms %}
+                <div class="d-flex py-1 inline {{ deal_realtors_formset.prefix }}">
+                    <div>{{ form.id }}{{ form.name.label }}: {{ form.name }} {{ form.name.errors }} {{ form.non_field_errors }} </div>
+                <div>{{ form.percent.label }}: {{ form.percent }} {{ form.percent.errors }}</div>
+                    <div class="ml-4">{{ form.value.label }}: {{ form.value }}</div>
+                        <div class="ml-4">{{ form.DELETE }} {{ form.DELETE.label }}</div>
+                </div>
+                {% endfor %}
+
+     {% if request.user.groups.get.name != 'Риелтор' %}{{ deal_commision_formset.management_form }}
+                    {{ deal_commision_formset.non_form_errors }}
+
+                {% for form in deal_commision_formset %}
+                <div class="d-flex py-1 inline {{ deal_commision_formset.prefix }}">
+                    <div>{{ form.id }}{{ form.commission_sum.label }} {{ form.commission_sum }} {{ form.commission_sum.errors }}
+                        {{ form.non_field_errors }} </div>
+                    <div class="ml-4">{{ form.value.label }}: {{ form.value }}</div>
+                        <div class="ml-4">{{ form.DELETE }} {{ form.DELETE.label }}</div>
+                </div>
+                {% endfor %}
+    {% endif %}
+     </table>
+
+<input type="submit"  value="Save ">
+
+    {% if form.status.value == 'Открыта' %}<a href="{% url "deal_urls:deal_open_url" %}" >Close Page</a>
+    {% elif form.status.value == 'Рассрочка' %}<a href="{% url "deal_urls:deal_installment_url" %}" >Close Page</a>
+    {% elif form.status.value == 'Закрыта-Рассрочка' %}<a href="{% url "deal_urls:deal_closed_installment_url" %}" >Close Page</a>
+    {% endif %}
+
+
+</form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ form.media.js }}
+{% endblock %}

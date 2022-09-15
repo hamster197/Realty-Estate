@@ -10,7 +10,7 @@
   </ul>
 {% endif %}
     <form  method="post" enctype="multipart/form-data">{% csrf_token %}
-    <table border="1">
+    <table border="1">{{ form.non_form_errors }} {{ form.errors }}
      {{ form.as_table }}
      </table>
       <input type="file" name="instance_files" multiple>

@@ -1,0 +1,22 @@
+ {% extends 'main.html' %}
+{% block content %}
+    <a href="{% url "deal_urls:deal_reiting_url" %}" >Reitings(all)</a>
+    <a href="{% url "deal_urls:deal_department_reiting_url" %}" >Reitings(by department)</a>
+    <a href="{% url "deal_urls:deal_city_reiting_url" %}" >Reitings(by city)</a>
+
+<h1>Deal reitings</h1>
+
+    {% if filter.form %}
+<form method="get">
+   {{ filter.form.as_p }}
+   <input type="submit" />
+</form>
+{% endif %}
+{% for instance in instances %}
+    <p>{{ instance.name__first_name }} {{ instance.name__last_name }} {{ instance.name__departament__name }}
+    {% if instance.name == user.pk or user.groups.get.name in 'Генеральный директор,Начальник филиала' %}
+        {{ instance.name__departament__city__name}} {{ instance.commision }} rub
+    {% endif %}
+    </p>
+{% endfor %}
+ {% endblock %}
