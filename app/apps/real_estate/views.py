@@ -68,7 +68,7 @@ class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
         return {'city': sity_instance}
 
     def get_context_data(self, **kwargs):
-        context = super(InstanceEdit, self).get_context_data(**kwargs)
+        context = super(InstanceEdit, self).get_context_data(**kwargs, )
         context['instance'] = get_object_or_404(RealtyEstate, pk=self.kwargs['pk'])
         return context
 
@@ -95,6 +95,7 @@ class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
         elif self.form_class == CommerceEditForm:
             url = reverse_lazy('real_estates_urls:edit_commerce_url', kwargs={'pk':self.kwargs['pk']})
         return url
+
 
 class AllRealEstates(LoginRequiredMixin, FilterView):
     template_name = 'real_estate/instances_all.html'

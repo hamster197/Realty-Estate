@@ -7,7 +7,7 @@ from app.apps.accounts.models import Departament
 
 class UserRegistrationSerializer(BaseUserRegistrationSerializer):
     class Meta(BaseUserRegistrationSerializer.Meta):
-        fields = ('pk',  'last_name', 'first_name',  'patronymic', 'email', 'phone', 'nach_otd', 'departament',
+        fields = ('pk',  'last_name', 'first_name',  'patronymic', 'email', 'phone', 'department_boss', 'departament',
                   'avatar',)
 
 

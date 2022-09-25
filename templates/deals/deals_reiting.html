@@ -13,7 +13,7 @@
 </form>
 {% endif %}
 {% for instance in instances %}
-    <p>{{ instance.name__first_name }} {{ instance.name__last_name }} {{ instance.name__departament__name }}
+    <p>{{ instance }}
     {% if instance.name == user.pk or user.groups.get.name in 'Генеральный директор,Начальник филиала' %}
         {{ instance.name__departament__city__name}} {{ instance.commision }} rub
     {% endif %}

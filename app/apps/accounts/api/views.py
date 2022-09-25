@@ -5,9 +5,6 @@ from app.apps.accounts.api.serializers import DepartamentSerializer
 from app.apps.accounts.models import Departament
 
 
-
-
-
 class DepartamentQuideViewSet(ListAPIView):
     """
            Перечисляет Отделы .

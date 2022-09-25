@@ -34,6 +34,12 @@ class DealEditForm(forms.ModelForm):
         model = Deal
         fields = '__all__'
 
+    def __init__(self,  *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(DealEditForm, self).__init__(*args, **kwargs)
+        if user.groups.get().name == 'Риелтор':
+            self.fields['status'].widget.attrs['disabled'] = True
+
 class BaseRealtorFormSet(BaseInlineFormSet):
     def clean(self):
         total_percentage = 0

@@ -31,6 +31,7 @@ class RealtyEstateForm(forms.ModelForm):
         model = None
         exclude = ('author', 'latitude', 'longitude', 'type', )
 
+
 class FlatEditForm(RealtyEstateForm):
 
     class Meta(RealtyEstateForm.Meta):
@@ -52,6 +53,7 @@ class CommerceEditForm(RealtyEstateForm):
 
     class Meta(RealtyEstateForm.Meta):
         model = Commerce
+
 
 class ClientNewForm(forms.ModelForm):
 

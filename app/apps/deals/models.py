@@ -83,7 +83,7 @@ class RealtorInTheDeal(models.Model):
        verbose_name_plural = 'Bсе риелторы в сделке'
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name) + ' ' + str(self.percent) + '% ' + str(self.realtor_commision_sum) + ' rub '
 
     def save(self, *args, **kwargs):
         agency_commision = get_object_or_404(DealSystemQuide, pk=1).agency_commision_percent
@@ -93,9 +93,12 @@ class RealtorInTheDeal(models.Model):
 
 class SubmittedCommission(models.Model):
     deal = models.ForeignKey(Deal, verbose_name='Сделка', related_name='commision_deal_id', on_delete=models.CASCADE)
-    commission_sum = models.IntegerField(verbose_name='Внесенно комисии', )
-    commission_date = models.DateField(verbose_name='Дата внесения комисии', auto_now_add=True)
+    commission_sum = models.IntegerField(verbose_name='Внесенно коммисии', )
+    commission_date = models.DateField(verbose_name='Дата внесения коммисии', auto_now_add=True)
 
     class Meta:
        verbose_name = 'Комисия'
        verbose_name_plural = 'Комисия'
+
+    def __str__(self):
+        return str(self.commission_date) + ' ' + str(self.commission_sum) + ' rub '

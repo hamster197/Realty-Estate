@@ -2,7 +2,7 @@ import django_filters
 from django_filters import DateFromToRangeFilter, ModelChoiceFilter
 from django_filters.widgets import RangeWidget
 from django.utils import timezone
-from django.db.models import Sum, Count
+from django.db.models import Sum
 
 from app.apps.accounts.models import Departament
 from app.apps.deals.models import Deal, RealtorInTheDeal
@@ -31,14 +31,18 @@ class DealFilterMixin(django_filters.FilterSet):
 
             if author.groups.count() == 0:
                 return parent.none()
+
             elif author.groups.get().name == 'Генеральный директор':
                 return parent.filter(**kwargs)
+
             elif author.groups.get().name == 'Начальник филиала':
                 return parent.filter(**kwargs, realtor_in_deal_deal_id__name__departament__city=author.departament.city)
+
             elif author.department_boss:
                 department = []
                 department.append(author.departament,)
                 return parent.filter(**kwargs, realtor_in_deal_deal_id__name__departament__in=department)
+
             elif author.groups.get().name == 'Риелтор':
                 return parent.filter(**kwargs, realtor_in_deal_deal_id__name=author)
         else:
@@ -70,8 +74,7 @@ class DealReitingFilterMixin(django_filters.FilterSet):
 
     class Meta:
         model = RealtorInTheDeal
-        fields = {
-        }
+        fields = {}
 
     @property
     def qs(self, ):
@@ -83,12 +86,11 @@ class DealReitingFilterMixin(django_filters.FilterSet):
             lookup_gte = "%s__gte" % (field_name)
             lookup_lte = "%s__lte" % (field_name)
             kwargs = {lookup_gte: start_date, lookup_lte: end_date}
-            return parent.filter(**kwargs, deal__status='Закрыта',)\
-            .values('name__first_name', 'name__last_name', 'name__departament__name', 'name__departament__city__name',
-                    'name').annotate(commision=Sum('realtor_commision_sum', ))
+            return parent.filter(**kwargs, deal__status='Закрыта',).annotate(commision=Sum('realtor_commision_sum',)).order_by('-commision')#\
+
         else:
-            return parent.values('name__first_name', 'name__last_name', 'name__departament__name', 'name__departament__city__name',
-                    'name').annotate(commision=Sum('realtor_commision_sum', ))
+            return parent.annotate(commision=Sum('realtor_commision_sum',)).order_by('-commision')
+
 
 class DealDepartmentReitingFilter(DealReitingFilterMixin):
     name__departament = ModelChoiceFilter(queryset=Departament.objects.all().distinct(), to_field_name='pk',

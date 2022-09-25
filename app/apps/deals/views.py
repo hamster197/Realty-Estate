@@ -3,13 +3,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 # Create your views here.
 from django.shortcuts import redirect, get_object_or_404
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django_filters.views import FilterView
 
 from app.apps.deals.core import OpenDealList
-from app.apps.deals.filters import DealClosedFilter, DealInstallmentClosedFilter, DealDisruptionFilter, \
-    DealReitingFilterMixin
+from app.apps.deals.filters import DealClosedFilter, DealInstallmentClosedFilter, DealDisruptionFilter
 from app.apps.deals.forms import DealFormset, DealEditForm, DealCommissionFormset
 from app.apps.deals.models import RealtorInTheDeal
 from app.apps.real_estate.models import RealtyEstate
@@ -62,6 +61,11 @@ class DealNew(LoginRequiredMixin, CreateView):
     action = '(New)'
     template_name = 'deals/dials_new.html'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
+
     def form_valid(self, form):
         self.object = form.save()
         RealtorInTheDeal.objects.create(deal=self.object, name=self.request.user, percent=10)
@@ -82,6 +86,11 @@ class DealEdit(LoginRequiredMixin, UpdateView):
     def get_initial(self):
         sity_instance = get_object_or_404(RealtyEstate, pk=self.kwargs['pk']).district.city
         return {'city': sity_instance}
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs.update({'user': self.request.user})
+        return kwargs
 
     def get_context_data(self, **kwargs):
         context = super(DealEdit, self).get_context_data(**kwargs)
@@ -131,8 +140,7 @@ class DealEdit(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('deal_urls:deal_edit_url', kwargs={'pk':self.kwargs['pk']})
 
-class RealReiting(LoginRequiredMixin, FilterView):
-    #filterset_class = DealReitingFilterMixin
+class DealReiting(LoginRequiredMixin, FilterView):
     template_name = 'deals/deals_reiting.html'
     context_object_name = 'instances'
 

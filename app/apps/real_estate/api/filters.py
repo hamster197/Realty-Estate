@@ -1,5 +1,5 @@
 import django_filters
-from django_filters import ChoiceFilter, ModelChoiceFilter
+from django_filters import ModelChoiceFilter
 
 from app.apps.real_estate.models import RealtyEstate, House, Flat, DistrictQuide, PlotOfLand, Commerce, Client
 
