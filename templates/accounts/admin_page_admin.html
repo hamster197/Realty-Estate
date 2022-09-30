@@ -1,0 +1,11 @@
+{% load static %}
+{% block content_admin %}
+
+<a href="{% url "accounts_urls:users_list_url" %}" >Users adminstration</a>
+<a href="{% url "accounts_urls:users_subject_transfer_url" %}" >Users Realty & Clients trasfer</a>
+<a href="{% url "accounts_urls:sitys_quide_url" %}" >Sity quide</a>
+<a href="{% url "accounts_urls:departments_quide_url" %}" >Departments quide</a>
+<a href="{% url "accounts_urls:district_quide_url" %}" >District quide</a>
+<a href="{% url "accounts_urls:sales_chanels_quide_url" %}" >Sales chanels quide</a>
+
+{% endblock %}

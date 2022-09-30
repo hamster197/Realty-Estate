@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'accounts/admin_page_admin.html' %}
+<h1>User Realty & Clients trasfer</h1>
+<ul class="messages">
+   {% for message in messages %}
+   <li class="{{ message.tags }}">{{ message|striptags  }}</li>
+   {% endfor %}
+</ul>
+<form  method="post" enctype="multipart/form-data"> {% csrf_token %}
+    {{ form.as_p }}
+       <input type="submit" name="_transfer_realty" value="Trasfer realtys" >
+</form>
+{% if reaty_clients_form %}
+<form  method="post" enctype="multipart/form-data"> {% csrf_token %}
+    {{ reaty_clients_form.as_p }}
+       <input type="submit" name="_transfer_clients" value="Trasfer Clients" >
+</form>
+{% endif %}
+
+
+{% endblock %}

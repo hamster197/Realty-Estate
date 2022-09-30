@@ -5,7 +5,7 @@ from django.db import models
 # Create your models here.
 
 class CityQuide(models.Model):
-    name = models.CharField(verbose_name='Название', max_length=45,)
+    name = models.CharField(verbose_name='Название', max_length=45, unique=True,)
 
     def __str__(self):
         return self.name

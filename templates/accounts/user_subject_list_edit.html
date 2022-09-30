@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'accounts/admin_page_admin.html' %}
+
+    <h1>{{ view.action }} edit</h1>
+<form class="" method="post">
+   {% csrf_token %}
+   {{ formset.management_form }}
+   {% for form in formset %}
+   <p>{{ form.as_p }}</p>
+   {% endfor %}
+   <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+{% endblock %}

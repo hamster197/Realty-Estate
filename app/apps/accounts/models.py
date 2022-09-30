@@ -4,7 +4,6 @@ from django.db import models
 
 # Create your models here.
 from app.apps.real_estate.models import CityQuide
-from django.core.exceptions import ValidationError
 
 class Departament(models.Model):
     city = models.ForeignKey('real_estate.CityQuide', verbose_name='Город', on_delete=models.CASCADE,
@@ -17,6 +16,7 @@ class Departament(models.Model):
     class Meta:
         verbose_name = 'Отдел'
         verbose_name_plural = 'Отделы'
+        unique_together = ('city', 'name')
 
 class MyUser(AbstractUser):
     patronymic = models.CharField(verbose_name='Oтчество', max_length=45, blank=False,)
@@ -43,13 +43,7 @@ class MyUser(AbstractUser):
         else:
             return self.first_name + ' ' + self.last_name
 
-    def clean(self):
-        errors = {}
-        if self.pk and self.groups.exists():
-            if self.city == None and self.groups.get().name == 'Начальник филиала':
-                errors['city'] = 'Выберите город для группы Начальник филиала(обязательное поле)'
-        if errors:
-            raise ValidationError(errors)
+
 
 
 

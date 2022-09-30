@@ -12,4 +12,4 @@ class DepartamentQuideViewSet(ListAPIView):
     """
     queryset = Departament.objects.all()
     serializer_class = DepartamentSerializer
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated, )

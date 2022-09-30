@@ -15,7 +15,7 @@ class DealSystemQuide(models.Model):
        verbose_name_plural = 'Настройки сделок'
 
 class SalesChanelQuide(models.Model):
-    name = models.CharField(verbose_name='Kанал продаж', max_length=45)
+    name = models.CharField(verbose_name='Kанал продаж', max_length=45, unique=True)
 
     def __str__(self):
         return self.name

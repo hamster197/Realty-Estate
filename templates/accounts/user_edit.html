@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% include 'accounts/admin_page_admin.html' %}
+<h1>User {{ action }}</h1>
+<ul class="messages">
+   {% for message in messages %}
+   <li class="{{ message.tags }}">{{ message|striptags  }}</li>
+   {% endfor %}
+</ul>
+<form  method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+{{ form.non_field_errors }}
+{% for field in form %}
+    <div class="fieldWrapper">
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
+    </div>
+{% endfor %}
+   <input type="submit" value="Save Profile" >
+</form>
+{% if password_form %}
+    <form  method="post" enctype="multipart/form-data">
+   {% csrf_token %}
+    {{ password_form.as_p }}
+   <input type="submit" name="_change_password" value="Change Password" >
+</form>
+{% endif %}
+    
+{% endblock %}
