@@ -86,7 +86,8 @@ class DealReitingFilterMixin(django_filters.FilterSet):
             lookup_gte = "%s__gte" % (field_name)
             lookup_lte = "%s__lte" % (field_name)
             kwargs = {lookup_gte: start_date, lookup_lte: end_date}
-            return parent.filter(**kwargs, deal__status='Закрыта',).annotate(commision=Sum('realtor_commision_sum',)).order_by('-commision')#\
+            return parent.filter(**kwargs, deal__status='Закрыта',).annotate(commision=Sum('realtor_commision_sum',))\
+                .order_by('-commision')
 
         else:
             return parent.annotate(commision=Sum('realtor_commision_sum',)).order_by('-commision')

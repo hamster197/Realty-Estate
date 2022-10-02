@@ -13,6 +13,7 @@
    <input type="submit" />
 </form>
 {% endif %}
+    <p> {{ rezult_string }} </p>
 <h1>{{ view.deal_status }} {{ deal_status }} deals list {{ instances.count }}</h1>
     {% for instance in instances %}
       <p>  <a href="{% url "deal_urls:deal_detail_url" pk=instance.pk %}" >

@@ -1,14 +1,16 @@
+from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 
 # Create your models here.
+from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 
 from app.apps.accounts.models import MyUser
 from app.apps.real_estate.models import RealtyEstate, DistrictQuide
 
 class DealSystemQuide(models.Model):
-    agency_commision_percent = models.IntegerField(verbose_name='Коммисия агенства',)
+    agency_commision_percent = models.IntegerField(verbose_name='Коммисия агента',)
 
     class Meta:
        verbose_name = 'Настройки сделок'

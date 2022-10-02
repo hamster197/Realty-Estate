@@ -42,4 +42,3 @@ class DealSystemQuideInline(admin.ModelAdmin):
         return False
 
 admin.site.register(DealSystemQuide, DealSystemQuideInline)
-

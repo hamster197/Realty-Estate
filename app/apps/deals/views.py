@@ -1,13 +1,15 @@
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
+from django.utils import timezone
+
 # Create your views here.
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, DetailView, UpdateView
 from django_filters.views import FilterView
 
-from app.apps.deals.core import OpenDealList
+from app.apps.deals.core import OpenDealList, AllDealsCounter
 from app.apps.deals.filters import DealClosedFilter, DealInstallmentClosedFilter, DealDisruptionFilter
 from app.apps.deals.forms import DealFormset, DealEditForm, DealCommissionFormset
 from app.apps.deals.models import RealtorInTheDeal
@@ -24,6 +26,13 @@ class DealsOpenList(LoginRequiredMixin, ListView):
         deal_status.append(self.deal_status)
         return OpenDealList(self.request.user, deal_status)
 
+    def get_context_data(self, **kwargs):
+        context = super(DealsOpenList, self).get_context_data(**kwargs)
+        start_date = timezone.now().replace(hour=0, minute=0, second=0, day=1)
+        end_date = timezone.now().replace(hour=23, minute=59, second=59)
+        context['rezult_string'] = AllDealsCounter(start_date, end_date)
+        return context
+
 
 class DealsNotOpenList(LoginRequiredMixin, FilterView):
     template_name = 'deals/dials_list.html'
@@ -37,6 +46,17 @@ class DealsNotOpenList(LoginRequiredMixin, FilterView):
             context['deal_status'] = 'Закрыта-Рассрочка'
         elif self.filterset_class == DealDisruptionFilter:
             context['deal_status'] = 'Срыв'
+            #self.get_filterset_kwargs()
+
+        start_date = timezone.now().replace(hour=0, minute=0, second=0, day=1)
+        end_date = timezone.now().replace(hour=23, minute=59, second=59)
+        if self.get_filterset_kwargs(self.filterset_class).get('data'):
+            if self.get_filterset_kwargs(self.filterset_class).get('data').get('date_close_deal_min'):
+                start_date = self.get_filterset_kwargs(self.filterset_class).get('data').get('date_close_deal_min')
+            if self.get_filterset_kwargs(self.filterset_class).get('data').get('date_close_deal_max'):
+                end_date = self.get_filterset_kwargs(self.filterset_class).get('data').get('date_close_deal_max')
+        context['rezult_string'] = AllDealsCounter(start_date, end_date)
+
         return context
 
 class DealDetail(LoginRequiredMixin, DetailView):
