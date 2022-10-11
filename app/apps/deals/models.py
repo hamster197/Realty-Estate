@@ -1,9 +1,7 @@
-from django.core.exceptions import ValidationError
 from django.core.validators import MinValueValidator
 from django.db import models
 
 # Create your models here.
-from django.db.models import Sum
 from django.shortcuts import get_object_or_404
 
 from app.apps.accounts.models import MyUser

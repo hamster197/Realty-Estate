@@ -17,7 +17,7 @@ urlpatterns = [
 
     path('open_deals/', DealsOpenViewSet.as_view(deal_status='Открыта'), name='open_deals_list_url'),
     path('installment/', DealsOpenViewSet.as_view(deal_status='Рассрочка'), name='installment_deals_list_url'),
-    path('closed/', DealsCloseViewSet.as_view(filterset_class=DealClosedFilter,deal_status='Закрыта'),
+    path('closed/', DealsCloseViewSet.as_view(filterset_class=DealClosedFilter, deal_status='Закрыта'),
          name='closed_deals_list_url'),
     path('closed_installment/', DealsCloseViewSet.as_view(deal_status='Закрыта-Рассрочка'),
          name='closed_installment_deals_list_url'),

@@ -1,17 +1,16 @@
 from django.contrib.auth.views import LoginView
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import redirect
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib import messages
 # Create your views here.
 from django.urls import reverse_lazy
-from django.views.generic import UpdateView, CreateView, FormView, TemplateView
+from django.views.generic import UpdateView, CreateView, TemplateView
 
 from django_filters.views import FilterView
 from extra_views import ModelFormSetView
 
 from app.apps.accounts.filters import UserListFilter
 from app.apps.accounts.forms import *
-from app.apps.accounts.models import Departament
 from app.apps.deals.models import SalesChanelQuide
 from app.apps.real_estate.models import RealtyEstate, Client, CityQuide
 
@@ -122,12 +121,6 @@ class QuidesEdit(PermissionRequiredMixin, ModelFormSetView):
     action = ''
     exclude = []
 
-    def get_queryset(self):
-        print(self.model)
-        if self.model != CityQuide and self.model != SalesChanelQuide:
-            return super(QuidesEdit, self).get_queryset().order_by('city', 'name')
-        else:
-            return super(QuidesEdit, self).get_queryset().order_by('name')
 
 
 

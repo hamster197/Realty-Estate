@@ -13,6 +13,7 @@ class CityQuide(models.Model):
     class Meta:
         verbose_name = 'Город'
         verbose_name_plural = ' Справочник города'
+        ordering = ('name',)
 
 class DistrictQuide(models.Model):
     city = models.ForeignKey('real_estate.CityQuide', verbose_name='Город', on_delete=models.CASCADE,
@@ -26,6 +27,7 @@ class DistrictQuide(models.Model):
         verbose_name = 'Район'
         verbose_name_plural = ' Справочник районы'
         unique_together =('city' ,'name')
+        ordering = ('city', 'name')
 
 class RealtyEstate(models.Model):
     author = models.ForeignKey('accounts.MyUser', verbose_name='Автор', on_delete=models.CASCADE,

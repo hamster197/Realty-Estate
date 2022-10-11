@@ -17,6 +17,7 @@ class Departament(models.Model):
         verbose_name = 'Отдел'
         verbose_name_plural = 'Отделы'
         unique_together = ('city', 'name')
+        ordering = ('city', 'name')
 
 class MyUser(AbstractUser):
     patronymic = models.CharField(verbose_name='Oтчество', max_length=45, blank=False,)
