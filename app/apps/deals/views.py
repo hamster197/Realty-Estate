@@ -46,7 +46,6 @@ class DealsNotOpenList(LoginRequiredMixin, FilterView):
             context['deal_status'] = 'Закрыта-Рассрочка'
         elif self.filterset_class == DealDisruptionFilter:
             context['deal_status'] = 'Срыв'
-            #self.get_filterset_kwargs()
 
         start_date = timezone.now().replace(hour=0, minute=0, second=0, day=1)
         end_date = timezone.now().replace(hour=23, minute=59, second=59)

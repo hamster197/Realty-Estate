@@ -2,10 +2,11 @@ from django.contrib.auth.views import LogoutView, PasswordResetView, PasswordRes
     PasswordChangeView
 from django.urls import path, include
 
+#from app.apps.accounts.models import Departament
 from app.apps.accounts.models import Departament
 from app.apps.accounts.views import *
 from app.apps.deals.models import SalesChanelQuide
-from app.apps.real_estate.models import DistrictQuide
+from app.apps.real_estate.models import DistrictQuide, CityQuide
 
 app_name = 'accounts_urls'
 
@@ -28,7 +29,7 @@ urlpatterns = [
          name='password_reset_confirm'),
 
     path('users/list/', UsersList.as_view(), name='users_list_url'),
-    path('users/edit/<pk>/', UserUpdate.as_view(), name='users_edit_url'),
+    path('users/edit/<int:pk>/', UserUpdate.as_view(), name='users_edit_url'),
     path('users/new/', UserCreate.as_view(), name='users_new_url'),
     path('users/transfer/', AdminSubjectTransfer.as_view(), name='users_subject_transfer_url'),
 

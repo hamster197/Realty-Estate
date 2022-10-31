@@ -1,0 +1,40 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>{{ view.action }} statistic</h1>
+
+<form action="" method="GET">
+{% csrf_token %}
+
+    <input type="date" name="date_start" required>
+    <input type="date" name="date_end" required>
+       <i class="ti-search"></i><input class="button" type='submit' value="Search Data">
+</form>
+
+
+    \ realtes without contract(all) \realtes without contract(New)
+    \ realtes with contract(all) \ realtes with contract(new)
+    \ open_deals_sum \ open_deals_count \ close_deals_sum \ close_deals_count \
+
+    {% for instanse in instanses %}
+        {% if view.action == 'Cityes' %}
+        <a href="{% url "boss_statistics_urls:departments_list_url" pk=instanse.pk %}" >
+        {% elif view.action == 'Departments' %}
+        <a href="{% url "boss_statistics_urls:realtors_list_url" pk=instanse.pk %}" >
+        {% elif view.action == 'Realtors' %}
+        <a href="{% url "boss_statistics_urls:realtor_detail_url" pk=instanse.pk %}" >
+        {% endif %}
+        <p>
+        {{ instanse }} (works with {{ instanse.date_joined }}) \ {{ instanse.not_contract_realtys_all }} \
+            {{ instanse.not_contract_realtys_new }} \
+        {{ instanse.contract_realtys_all }} \ {{ instanse.contract_realtys_new }}
+        {% if instanse.open_deals_sum %}{{ instanse.open_deals_sum }}{% else %}0{% endif %} {{ instanse.open_deals_count }} \
+        {% if instanse.close_deals_sum %}{{ instanse.close_deals_sum }}{% else %}0{% endif %} {{ instanse.close_deals_count }}
+        </p>
+        </a>
+
+    {% endfor %}
+
+
+
+
+{% endblock %}

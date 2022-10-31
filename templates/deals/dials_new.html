@@ -1,7 +1,7 @@
  {% extends 'main.html' %}
 {% block content %}
     {{ form.media.css }}
-    <h1>{{ action }} Deal</h1>
+    <h1>{{ view.action }} Deal</h1>
     {% if messages %}
   <ul class="messages">
     {% for message in messages %}

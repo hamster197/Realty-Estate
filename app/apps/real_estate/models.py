@@ -32,7 +32,7 @@ class DistrictQuide(models.Model):
 class RealtyEstate(models.Model):
     author = models.ForeignKey('accounts.MyUser', verbose_name='Автор', on_delete=models.CASCADE,
                                related_name='realty_estate_author_id',)
-    client_name=  models.CharField('Имя собственника', max_length=50,)
+    client_name =  models.CharField('Имя собственника', max_length=50,)
     client_tel = models.CharField(verbose_name='тел собственника', help_text ='+79881234567', max_length=12,)
     creation_date = models.DateField('Дата публикации', auto_now_add=True,)
     date_of_change = models.DateField('Дата изменения', auto_now=True,)

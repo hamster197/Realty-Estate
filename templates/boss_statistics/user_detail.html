@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% block content %}
+<a href="{% url "boss_statistics_urls:realtor_detail_url" pk=instanse.pk %}" >Flats</a>
+<a href="{% url "boss_statistics_urls:realtor_clients_url" pk=instanse.pk %}" >Clients</a>
+<a href="{% url "boss_statistics_urls:realtor_detail_calls" pk=instanse.pk %}" >Phone calls</a>
+<p>{{ instanse }} Employee position {{ instanse.groups.get }} {% if instanse.department_boss %}Department boss{% endif %}</p>
+<p>{{ instanse.phone }}</p>
+<p>{{ instanse.avatar.url }}</p>
+<h1>{{ view.action }}</h1>
+{% for object in context %}
+{% if view.action == 'Clients' %}
+<a href="{% url "real_estates_urls:client_detail_url" pk=object.pk %}" >
+<p>{{ object.creation_date }} {{ object.client_name }}
+   {% for subj in object.district.all %}
+   {{ subj }}
+   {% endfor %}
+   {{ object.max_price }}
+</p>
+</a>
+{% endif %}
+{% if view.action == 'Estates' %}
+{% if object.type == 'Квартира' %}
+<a href="{% url "real_estates_urls:flat_detail_url" pk=object.pk %}" >
+{% elif object.type == 'Дом' %}
+<a href="{% url "real_estates_urls:house_detail_url" pk=object.pk %}" >
+{% elif object.type == 'Участок' %}1
+<a href="{% url "real_estates_urls:plot_of_land_detail_url" pk=object.pk %}" >
+{% elif object.type == 'Коммерция' %}
+<a href="{% url "real_estates_urls:commerce_detail_url" pk=object.pk %}" >
+{% endif %}
+<p>{{ object.creation_date }} {{ object.status }} {{ object.type }} {{ object.contract }} {{ object.district }}
+   {{ object.agency_price }}
+</p>
+</a>
+{% endif %}
+{% endfor %}
+{% if view.action == 'Calls' %}
+<form action="" method="GET">
+   {% csrf_token %}
+   <input type="date" name="date_start" required>
+   <input type="date" name="date_end" required>
+   <i class="ti-search"></i><input class="button" type='submit' value="Search Data">
+</form>
+<table class="table">
+   <thead>
+      <tr>
+         <th scope="col">Входящий</th>
+         <th scope="col">Продолжительность</th>
+         <th scope="col"></th>
+      </tr>
+   </thead>
+   <tbody>
+      {% for phone_call in calls_array %}
+      {% if phone_call.0 == 'Для заданного идентификатора нет абонента' %}{{ phone_call.0 }}
+      {% else %}
+      <tr>
+         <th scope="row">{{ phone_call.0 }}</th>
+         <td>{{ phone_call.1 }} мин.</td>
+         <td><a href="{{ phone_call.2 }}" class="button" target="_blank">Скачать</a></td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+   </tbody>
+</table>
+{% endif %}
+{% endblock %}

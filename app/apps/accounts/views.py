@@ -11,8 +11,8 @@ from extra_views import ModelFormSetView
 
 from app.apps.accounts.filters import UserListFilter
 from app.apps.accounts.forms import *
-from app.apps.deals.models import SalesChanelQuide
-from app.apps.real_estate.models import RealtyEstate, Client, CityQuide
+
+from app.apps.real_estate.models import RealtyEstate, Client
 
 
 class FirstPage(LoginView):
@@ -120,6 +120,8 @@ class QuidesEdit(PermissionRequiredMixin, ModelFormSetView):
     template_name = 'accounts/user_subject_list_edit.html'
     action = ''
     exclude = []
+
+
 
 
 

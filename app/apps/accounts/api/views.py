@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.generics import ListAPIView
+from rest_framework.generics import ListAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
@@ -86,12 +86,12 @@ class SalesChanelQuideViewSet(ModelViewSet):
 
 class UserSubjectTransfer(APIView):
     """
-           переносит клиентов(clients_trasfer/)/обьекты(/estates_trasfer/) между пользователями
+           переносит клиентов(trasfer/clients)/обьекты(/trasfer/estates)/недвижимость между пользователями
            permission_classes = (IsAdminUser, ),
     """
     serializer_class = SubjectTransferSerializer
-    permission_classes = (IsAdminUser, )
-    action = ''
+    permission_classes = (IsAdminUser,)
+    http_method_names = ['post', ]
 
     def post(self, request, **kwargs):
         serializer = SubjectTransferSerializer(data=request.data)
@@ -100,14 +100,15 @@ class UserSubjectTransfer(APIView):
         if serializer.is_valid():
             user_from = get_object_or_404(MyUser, pk=serializer.data['user_from'])
             user_to = get_object_or_404(MyUser, pk=serializer.data['user_to'])
-            if self.action == 'estates trasfer':
+            if self.kwargs['action'] == 'estates':
                 subj = RealtyEstate.objects.filter(author=user_from)
                 counter = str(subj.count())
                 subj.update(author=user_to)
-            if self.action == 'clients trasfer':
+            if self.kwargs['action'] == 'clients':
+                print(self.kwargs['action'])
                 subj = Client.objects.filter(author=user_from)
                 counter = str(subj.count())
                 subj.update(author=user_to)
         else:
             error = serializer.errors['non_field_errors'][0]
-        return Response(counter + ' ' + self.action + error)
+        return Response(counter + ' ' + self.kwargs['action'] + error)

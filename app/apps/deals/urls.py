@@ -16,7 +16,7 @@ urlpatterns = [
     path('detail/<int:pk>/', DealDetail.as_view(), name='deal_detail_url'),
 
     path('new/', DealNew.as_view(), name='deal_new_url'),
-    path('edit/<pk>/', DealEdit.as_view(), name='deal_edit_url'),
+    path('edit/<int:pk>/', DealEdit.as_view(), name='deal_edit_url'),
 
     path('reiting/', DealReiting.as_view(filterset_class=DealReitingFilterMixin), name='deal_reiting_url'),
     path('reiting/department/', DealReiting.as_view(filterset_class=DealDepartmentReitingFilter),

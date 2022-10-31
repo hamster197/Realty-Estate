@@ -21,9 +21,16 @@
     <a href="{% url "deal_urls:deal_open_url" %}" >Deals List</a>
 
     <a href="{% url "deal_urls:deal_reiting_url" %}" >Reitings</a>
-{% if request.user.is_staff %}
+{% if user.is_staff %}
     <a href="{% url "accounts_urls:users_list_url" %}" >Admin adminstration</a>
 {% endif %}
+{% if user.groups.get.name != 'Риелтор'  %}
+    <a href="{% url "boss_statistics_urls:sityes_list_url" %}" >Boss statistic</a>
+{% endif %}
+{% if user.department_boss %}
+    <a href="{% url "boss_statistics_urls:realtors_list_url" pk=user.departament.pk %}" >Department statistic</a>
+{% endif %}
+    <a href="{% url "boss_statistics_urls:realtors_list_all" %}" >Reiting</a>
 
     </p>
 {% endif %}

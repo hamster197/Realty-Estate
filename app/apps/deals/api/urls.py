@@ -23,7 +23,7 @@ urlpatterns = [
          name='closed_installment_deals_list_url'),
     path('disruption/', DealsCloseViewSet.as_view(deal_status='Срыв'), name='disruption_deals_list_url'),
 
-    path('edit/<pk>/', DealsUpdateViewSet.as_view(), name='edit_deals_url'),
+    path('edit/<int:pk>/', DealsUpdateViewSet.as_view(), name='edit_deals_url'),
 
     path('dials_reiting/all/', DealReitingViewSet.as_view(filterset_class=DealReitingFilterMixin),
          name='dials_reiting_all_url'),

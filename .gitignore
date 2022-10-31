@@ -3,6 +3,7 @@ sait_settings.py
 __pycache__
 
 /app/apps/accounts/migrations
+/app/apps/boss_statistics/migrations
 /app/apps/real_estate/migrations
 /app/apps/deals/migrations
 /.idea

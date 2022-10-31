@@ -20,8 +20,10 @@ urlpatterns = [
 
     path('groups_list/', GroupQuideViewSet.as_view(), name='groups_list_url'),
 
-    path('estates_trasfer/', UserSubjectTransfer.as_view(action='estates trasfer'), name='estates_trasfer_url'),
-    path('clients_trasfer/', UserSubjectTransfer.as_view(action='clients trasfer'), name='clients_trasfer_url'),
+    # path('estates_trasfer/', UserSubjectTransfer.as_view(action='estates trasfer'), name='estates_trasfer_url'),
+    # path('clients_trasfer/', UserSubjectTransfer.as_view(action='clients trasfer'), name='clients_trasfer_url'),
+    path('trasfer/<action>/', UserSubjectTransfer.as_view(), name='estates_trasfer_url'),
+
 ]
 
 urlpatterns += router.urls

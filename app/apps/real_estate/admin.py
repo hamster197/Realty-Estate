@@ -20,7 +20,7 @@ class RealtyEstateGaleryAdmin(admin.StackedInline):
 class EstateFields(ModelAdmin):
     inlines = [RealtyEstateGaleryAdmin]
     list_display = ('pk', 'get_first_name', 'get_last_name', 'type', 'district', 'street', 'ploshad', 'agency_price')
-    list_filter = ('author', 'status_obj',)
+    list_filter = ('author', 'status_obj', 'contract',)
 
     def get_first_name(self, obj):
         return obj.author.first_name
@@ -53,3 +53,5 @@ class ClientFields(ModelAdmin):
         return ",".join([p.name + ' '+str(p.city) for p in obj.district.all()])
 
 admin.site.register(Client, ClientFields)
+
+
