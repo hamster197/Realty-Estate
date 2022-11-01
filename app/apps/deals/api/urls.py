@@ -2,8 +2,7 @@ from django.urls import path
 from rest_framework import routers
 
 from app.apps.deals.api.views import *
-from app.apps.deals.filters import DealClosedFilter, DealDepartmentReitingFilter, DealCityReitingFilter, \
-    DealReitingFilterMixin
+from app.apps.deals.filters import DealClosedFilter
 
 router = routers.SimpleRouter()
 
@@ -25,12 +24,6 @@ urlpatterns = [
 
     path('edit/<int:pk>/', DealsUpdateViewSet.as_view(), name='edit_deals_url'),
 
-    path('dials_reiting/all/', DealReitingViewSet.as_view(filterset_class=DealReitingFilterMixin),
-         name='dials_reiting_all_url'),
-    path('dials_reiting/department/', DealReitingViewSet.as_view(filterset_class=DealDepartmentReitingFilter),
-         name='dials_reiting_department_url'),
-    path('dials_reiting/city/', DealReitingViewSet.as_view(filterset_class=DealCityReitingFilter),
-         name='dials_reiting_ciry_url'),
 ]
 
 urlpatterns += router.urls

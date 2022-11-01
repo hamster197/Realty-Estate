@@ -35,18 +35,6 @@ class SubmittedCommissionSerializer(ModelSerializer):
         model = SubmittedCommission
         exclude = ('commission_date',)
 
-class DealReitingSerializer(ModelSerializer):
-    name = StringRelatedField()
-
-    class Meta:
-        depth = 1
-        model = RealtorInTheDeal
-        exclude = ('id', 'percent', 'deal', )
-
-    def __init__(self, *args, **kwargs):
-        super(DealReitingSerializer, self).__init__(*args, **kwargs)
-        if self.context['request'].user.groups.get().name == 'Риелтор':
-            self.Meta.exclude = ['id', 'percent', 'deal','realtor_commision_sum']
 
 
 

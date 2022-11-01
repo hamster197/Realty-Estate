@@ -159,7 +159,5 @@ class DealEdit(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('deal_urls:deal_edit_url', kwargs={'pk':self.kwargs['pk']})
 
-class DealReiting(LoginRequiredMixin, FilterView):
-    template_name = 'deals/deals_reiting.html'
-    context_object_name = 'instances'
+
 

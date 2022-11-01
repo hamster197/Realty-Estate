@@ -24,11 +24,14 @@
         <a href="{% url "boss_statistics_urls:realtor_detail_url" pk=instanse.pk %}" >
         {% endif %}
         <p>
-        {{ instanse }} (works with {{ instanse.date_joined }}) \ {{ instanse.not_contract_realtys_all }} \
+        {{ instanse }} (works with {{ instanse.date_joined }})
+        {% if view.action != 'All Realtors' %}
+            \ {{ instanse.not_contract_realtys_all }} \
             {{ instanse.not_contract_realtys_new }} \
         {{ instanse.contract_realtys_all }} \ {{ instanse.contract_realtys_new }}
         {% if instanse.open_deals_sum %}{{ instanse.open_deals_sum }}{% else %}0{% endif %} {{ instanse.open_deals_count }} \
         {% if instanse.close_deals_sum %}{{ instanse.close_deals_sum }}{% else %}0{% endif %} {{ instanse.close_deals_count }}
+        {% endif %}
         </p>
         </a>
 

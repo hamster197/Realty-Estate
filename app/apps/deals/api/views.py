@@ -1,4 +1,3 @@
-from django.db.models import Sum
 from rest_framework.generics import ListAPIView, ListCreateAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from django.utils import timezone
@@ -96,22 +95,7 @@ class SubmittedCommissionViewSet(ModelViewSet):
     permission_classes = (IsAuthenticated, IsBoss)
     filterset_class = SubmittedCommissionFilter
 
-class DealReitingViewSet(ListAPIView):
-    """
-            Рейтинги риелторов в сделке в сделке.
-            Текуший за этот месяц
-            Фильтрует датам отделам и филиалам
-            permission_classes = (IsAuthenticated, )
-    """
-    permission_classes = (IsAuthenticated,)
-    filterset_class = ''
-    start_date = timezone.now().replace(hour=0, minute=0, second=0, day=1)
-    end_date = timezone.now().replace(hour=23, minute=59, second=59)
 
-    queryset = RealtorInTheDeal.objects.filter(deal__status='Закрыта',
-                                    deal__date_close_deal__gte=start_date, deal__date_close_deal__lte=end_date, )\
-        .annotate(commision=Sum('realtor_commision_sum', )).order_by('-commision')
-    serializer_class = DealReitingSerializer
 
 
 

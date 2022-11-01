@@ -1,7 +1,6 @@
 
 from django.urls import path, include
 
-from app.apps.deals.filters import *
 from app.apps.deals.views import *
 
 app_name = 'deal_urls'
@@ -17,12 +16,6 @@ urlpatterns = [
 
     path('new/', DealNew.as_view(), name='deal_new_url'),
     path('edit/<int:pk>/', DealEdit.as_view(), name='deal_edit_url'),
-
-    path('reiting/', DealReiting.as_view(filterset_class=DealReitingFilterMixin), name='deal_reiting_url'),
-    path('reiting/department/', DealReiting.as_view(filterset_class=DealDepartmentReitingFilter),
-         name='deal_department_reiting_url'),
-    path('reiting/city/', DealReiting.as_view(filterset_class=DealCityReitingFilter),
-         name='deal_city_reiting_url'),
 
     path('api/v1/', include('app.apps.deals.api.urls'), )
 ]

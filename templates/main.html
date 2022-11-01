@@ -20,7 +20,7 @@
     <a href="{% url "deal_urls:deal_new_url" %}" >Deal New </a>
     <a href="{% url "deal_urls:deal_open_url" %}" >Deals List</a>
 
-    <a href="{% url "deal_urls:deal_reiting_url" %}" >Reitings</a>
+
 {% if user.is_staff %}
     <a href="{% url "accounts_urls:users_list_url" %}" >Admin adminstration</a>
 {% endif %}
