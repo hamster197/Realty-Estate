@@ -1,5 +1,5 @@
 
-from django.urls import path
+from django.urls import path, include
 
 from app.apps.boss_statistics.views import *
 
@@ -15,5 +15,5 @@ urlpatterns = [
     path('realtor_detail_clients/<int:pk>/', UserDetailBossStat.as_view(action='Clients',), name='realtor_clients_url'),
     path('realtor_detail_calls/<int:pk>/', UserDetailBossStat.as_view(action='Calls',), name='realtor_detail_calls'),
 
-    #path('api/v1/', include('app.apps.accounts.api.urls'),)
+    path('api/v1/', include('app.apps.boss_statistics.api.urls'),)
 ]

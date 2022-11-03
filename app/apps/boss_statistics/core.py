@@ -9,19 +9,22 @@ contract_types = ['Агентский', 'Эксклюзив']
 close_deals_statuses = ['Закрыта', 'Закрыта-Рассрочка']
 
 def get_dates(self):
-    if not self.request.GET.get('date_start') or not self.request.GET.get('date_end'):
-        date_start = timezone.now().date()
-        date_end = timezone.now().date()
-    else:
+    date_start = timezone.now().date()
+    date_end = timezone.now().date()
+    if self.request.GET.get('date_start') and self.request.GET.get('date_end'):
         date_start = self.request.GET.get('date_start')
         date_end = self.request.GET.get('date_end')
+    if self.kwargs:
+        if 'date_start' and 'date_end' in self.kwargs:
+            date_start = self.kwargs['date_start']
+            date_end = self.kwargs['date_end']
 
     return date_start, date_end
 
 def get_city_queryset(self):
+
     date_start = get_dates(self)[0]
     date_end = get_dates(self)[1]
-
     queryset = CityQuide.objects.none()
     if self.request.user.groups.get().name == 'Генеральный директор':
         queryset = CityQuide.objects.all()
@@ -78,6 +81,7 @@ def get_city_queryset(self):
                                  open_deals_sum=open_deals_sum, open_deals_count=open_deals_count,
                                  close_deals_sum=close_deals_sum,
                                  close_deals_count=close_deals_count, )
+
     return queryset
 
 def get_departments_queryset(self):
@@ -216,7 +220,7 @@ def get_realtors_queryset(self):
         queryset = queryset.order_by('-close_deals_sum')
     return queryset
 
-def get_user_phone_call(self):
+def get_user_phone_call(self, pk):
     date_start = get_dates(self)[0]
     date_end = get_dates(self)[1]
     user = self.object

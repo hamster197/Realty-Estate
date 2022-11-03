@@ -105,7 +105,6 @@ class UserSubjectTransfer(APIView):
                 counter = str(subj.count())
                 subj.update(author=user_to)
             if self.kwargs['action'] == 'clients':
-                print(self.kwargs['action'])
                 subj = Client.objects.filter(author=user_from)
                 counter = str(subj.count())
                 subj.update(author=user_to)

@@ -2,7 +2,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 from django.views.generic import ListView, DetailView
-from datetime import datetime
 from app.apps.accounts.models import MyUser
 from app.apps.boss_statistics.core import get_city_queryset, get_departments_queryset, get_realtors_queryset, \
     get_user_phone_call
@@ -15,8 +14,6 @@ class InstanseBossStat(LoginRequiredMixin, ListView):
     action = ''
 
     def get_queryset(self):
-        # if 'Realtors' in self.action:
-        #     print('1')
         if self.action == 'Cityes':
             return get_city_queryset(self)
         if self.action == 'Departments':
@@ -49,6 +46,6 @@ class UserDetailBossStat(LoginRequiredMixin, DetailView):
         if self.action == 'Clients':
             context['context'] = Client.objects.filter(author=self.object, status=False)
         if self.action == 'Calls':
-            context['calls_array'] = get_user_phone_call(self)
+            context['calls_array'] = get_user_phone_call(self, self.kwargs['pk'])
 
         return context
