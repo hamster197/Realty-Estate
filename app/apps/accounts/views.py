@@ -1,4 +1,7 @@
+from django.utils.translation import gettext_lazy as _
+
 from django.contrib.auth.views import LoginView
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.contrib import messages
@@ -9,11 +12,19 @@ from django.views.generic import UpdateView, CreateView, TemplateView
 from django_filters.views import FilterView
 from extra_views import ModelFormSetView
 
+from app import settings
 from app.apps.accounts.filters import UserListFilter
 from app.apps.accounts.forms import *
 
 from app.apps.real_estate.models import RealtyEstate, Client
 
+
+def set_language(request):
+    lang = request.GET.get('l', 'en')
+    request.session[settings.LANGUAGE_SESSION_KEY] = lang
+    response = HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, lang)
+    return response
 
 class FirstPage(LoginView):
     template_name = 'accounts/first_page.html'
@@ -47,17 +58,17 @@ class UserUpdate(PermissionRequiredMixin, UpdateView):
             form = UserEditForm(instance=self.get_object())
             password_form = PswChangeForm(self.get_object(), self.request.POST,)
             if password_form.is_valid():
-                messages.success(self.request, 'User Passsword was updated successfully!')
+                messages.success(self.request, _('User Passsword was updated successfully!'))
                 password_form.save()
             else:
-                messages.error(self.request, 'User Passsword was not updated successfully!')
+                messages.error(self.request, _('User Passsword was not updated successfully!'))
             return self.render_to_response({'form': form, 'password_form': password_form})
 
         return super().post(request, *args, **kwargs)
 
 
     def form_valid(self, form):
-        messages.success(self.request, 'User was updated successfully!')
+        messages.success(self.request, _('User was updated successfully!'))
         return super().form_valid(form)
 
     def get_success_url(self):

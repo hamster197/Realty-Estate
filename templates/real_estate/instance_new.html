@@ -1,7 +1,12 @@
  {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
     {{ form.media.css }}
-    <h1>{{ view.action }}Estate</h1>
+    <h1>{{ view.action }}
+        {% if view.action == 'New ' %} {% trans 'New ' %}
+        {% elif view.action == 'Edit ' %} {% trans 'Edit ' %}
+        {% endif %} {% trans ' Estate' %}
+    </h1>
     {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -14,12 +19,12 @@
      {{ form.as_table }}
      </table>
       <input type="file" name="instance_files" multiple>
-<input type="submit"  value="Save ">
+<input type="submit"  value="{% trans 'Save ' %} ">
     <p>Главное фото <img src="{{ instance.image.url }}" /></p>
     <h1>Galery1</h1>
     {% for image in instance.galery_real_estate_id.all %}
         <p> <img src="{{ image.image.url }}" />
-        <button  name="_delete_image" value="{{ image.pk }}">Delete Image</button>
+        <button  name="_delete_image" value="{{ image.pk }}">{% trans 'Delete Image' %}</button>
     {% endfor %}
 </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

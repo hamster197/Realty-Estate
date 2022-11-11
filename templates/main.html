@@ -1,36 +1,47 @@
 {% load static %}
+{% load i18n %}
+
+<p>{{  LANGUAGE_CODE }} </p>
+{% get_available_languages as LANGUAGES %}
+{% for lang in LANGUAGES %}
+{% if LANGUAGE_CODE == lang.0 %}
+{{lang.1}} ({{lang.0}})
+{% else %}
+<a href="{% url 'accounts_urls:set_language' %}?l={{ lang.0 }}">{{ lang.1 }} ({{ lang.0 }})</a>
+{% endif %} |
+{% endfor %}
 {% if user.is_authenticated %}
-   <p><a href="{% url "accounts_urls:logout_url" %}" >Exit</a>
-    <a href="{% url "accounts_urls:password_change_url" %}" >Change password</a>
-    <a href="{% url "real_estates_urls:new_flat_url" %}" >New flat</a>
-    <a href="{% url "real_estates_urls:new_house_url" %}" >New house</a>
-    <a href="{% url "real_estates_urls:new_plot_of_land_url" %}" >New plot_of_land</a>
-    <a href="{% url "real_estates_urls:new_commerce_url" %}" >New commerce</a>
-    <a href="{% url "real_estates_urls:client_new_url" %}" >New client</a>
+   <p><a href="{% url "accounts_urls:logout_url" %}" >{% trans 'Exit' %}</a>
+    <a href="{% url "accounts_urls:password_change_url" %}" > {% trans 'Change_password' %}</a>
+    <a href="{% url "real_estates_urls:new_flat_url" %}" > q{% trans 'New_flat' %}q</a>
+    <a href="{% url "real_estates_urls:new_house_url" %}" > {% trans 'New_house' %}</a>
+    <a href="{% url "real_estates_urls:new_plot_of_land_url" %}" > {% trans 'New_plot_of_land' %}</a>
+    <a href="{% url "real_estates_urls:new_commerce_url" %}" > {% trans 'New_commerce' %}</a>
+    <a href="{% url "real_estates_urls:client_new_url" %}" > {% trans 'New_client' %}</a>
     </p>
     <p>
-    <a href="{% url "real_estates_urls:my_flat_list_url" %}" >My flat</a>
-    <a href="{% url "real_estates_urls:my_house_list_url" %}" >My house</a>
-    <a href="{% url "real_estates_urls:my_plot_of_landt_list_url" %}" >My plot_of_landt</a>
-    <a href="{% url "real_estates_urls:my_commerce_list_url" %}" >My commerce</a>
+    <a href="{% url "real_estates_urls:my_flat_list_url" %}" > {% trans 'My_flat' %}</a>
+    <a href="{% url "real_estates_urls:my_house_list_url" %}" > {% trans 'My_house' %}</a>
+    <a href="{% url "real_estates_urls:my_plot_of_landt_list_url" %}" > {% trans 'My_plot_of_landt' %}</a>
+    <a href="{% url "real_estates_urls:my_commerce_list_url" %}" > {% trans 'My_commerce' %}</a>
 
-    <a href="{% url "real_estates_urls:client_my_list_url" %}" >My clients</a>
-    <a href="{% url "real_estates_urls:client_all_list_url" %}" >All clients</a>
+    <a href="{% url "real_estates_urls:client_my_list_url" %}" > {% trans 'My_clients' %}</a>
+    <a href="{% url "real_estates_urls:client_all_list_url" %}" > {% trans 'All_clients' %}</a>
 
-    <a href="{% url "deal_urls:deal_new_url" %}" >Deal New </a>
-    <a href="{% url "deal_urls:deal_open_url" %}" >Deals List</a>
+    <a href="{% url "deal_urls:deal_new_url" %}" > {% trans 'Deal_New' %}</a>
+    <a href="{% url "deal_urls:deal_open_url" %}" > {% trans 'Deals_List' %}</a>
 
 
 {% if user.is_staff %}
-    <a href="{% url "accounts_urls:users_list_url" %}" >Admin adminstration</a>
+    <a href="{% url "accounts_urls:users_list_url" %}" > {% trans 'Admin_adminstration' %}</a>
 {% endif %}
 {% if user.groups.get.name != 'Риелтор'  %}
-    <a href="{% url "boss_statistics_urls:sityes_list_url" %}" >Boss statistic</a>
+    <a href="{% url "boss_statistics_urls:sityes_list_url" %}" > {% trans 'Boss_statistic' %}</a>
 {% endif %}
 {% if user.department_boss %}
-    <a href="{% url "boss_statistics_urls:realtors_list_url" pk=user.departament.pk %}" >Department statistic</a>
+    <a href="{% url "boss_statistics_urls:realtors_list_url" pk=user.departament.pk %}" > {% trans 'Department_statistic' %}</a>
 {% endif %}
-    <a href="{% url "boss_statistics_urls:realtors_list_all" %}" >Reiting</a>
+    <a href="{% url "boss_statistics_urls:realtors_list_all" %}" > {% trans 'Reiting' %}</a>
 
     </p>
 {% endif %}

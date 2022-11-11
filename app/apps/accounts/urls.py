@@ -11,6 +11,8 @@ from app.apps.real_estate.models import DistrictQuide, CityQuide
 app_name = 'accounts_urls'
 
 urlpatterns = [
+    path('set-language/', set_language, name='set_language'),
+
     path('', FirstPage.as_view(), name='first_page_url'),
     path('logout/', LogoutView.as_view(), name='logout_url'),
 

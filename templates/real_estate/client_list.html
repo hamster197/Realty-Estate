@@ -1,13 +1,20 @@
  {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
     {{ form.media.css }}
-    <h1>{{ view.action }} Clients </h1>
+    <h1>
+        {% if view.action == 'My ' %} {% trans 'My ' %}
+        {% elif view.action == 'All  ' %} {% trans 'All  ' %}
+        {% endif %} {% trans 'Clients' %}
+    </h1>
 {% for client in clients_list %}
 <p>
     <a href="{% url "real_estates_urls:client_detail_url" pk=client.pk %}" >
-    {{ client.name }} {{ client.creation_date }}
+    {% trans 'Client_name' %}{{ client.name }} {% trans 'Creation_date' %} {{ client.creation_date }}
+    {% trans 'Districts' %}
     {% for district in client.district.all %} {{ district }}, {% endfor %}
-    {{ client.estate_type }} {{ client.min_price }} {{ client.max_price }}
+    {% trans 'Estate_type' %} {{ client.estate_type }} {% trans 'Min_price' %} {{ client.min_price }}
+        {% trans 'Max_price' %} {{ client.max_price }}
     </a>
 </p>
 {% endfor %}
@@ -16,7 +23,7 @@
 <ul class="pagination">
    {% if page_obj.has_previous %}
    <li>
-      <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+      <span><a href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></span>
    </li>
    {% endif %}
    <li class="">
@@ -24,7 +31,7 @@
    </li>
    {% if page_obj.has_next %}
    <li>
-      <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+      <span><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %} </a></span>
    </li>
    {% endif %}
 </ul>

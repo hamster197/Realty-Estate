@@ -1,0 +1,809 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-09 14:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: accounts/admin_page_admin.html:5
+msgid "admin_page_Users_adminstration"
+msgstr "Users adminstration"
+
+#: accounts/admin_page_admin.html:6
+msgid "admin_page_Users_Realty_and_Clients_trasfer"
+msgstr "Users Realty and Clients trasfer"
+
+#: accounts/admin_page_admin.html:7
+msgid "admin_page_Sityes_quide"
+msgstr "Sityes quide"
+
+#: accounts/admin_page_admin.html:8
+msgid "admin_page_Departments_quide"
+msgstr "Departments quide"
+
+#: accounts/admin_page_admin.html:9
+msgid "admin_page_Users_Districts_quide"
+msgstr "Districts quide"
+
+#: accounts/admin_page_admin.html:10
+msgid "admin_page_Sales_chanels_quide"
+msgstr "Sales chanels quide"
+
+#: accounts/first_page.html:5
+msgid "first_page_Login"
+msgstr "Login"
+
+#: accounts/first_page.html:10
+msgid "first_page_Enter"
+msgstr "Enter"
+
+#: accounts/first_page.html:13
+msgid "first_page_Forgot_password"
+msgstr "Forgot password"
+
+#: accounts/password_change_form.html:9
+msgid "change_password_page_Change_password"
+msgstr "Change password"
+
+#: accounts/password_change_form.html:10
+msgid "change_password_page_Set_new_password"
+msgstr "Set new password"
+
+#: accounts/password_change_form.html:16
+msgid "change_password_page_Change_my_password "
+msgstr "Change password"
+
+#: accounts/password_reset_confim_form.html:3
+msgid "confim_password_page_Enter_new_password"
+msgstr "Enter new password"
+
+#: accounts/password_reset_confim_form.html:10
+msgid "confim_password_page_Set_a_new_password"
+msgstr "Set a new password"
+
+#: accounts/password_reset_confim_form.html:14
+msgid "confim_password_page_Change_my_password"
+msgstr "Change my password"
+
+#: accounts/password_reset_confim_form.html:20
+msgid "confim_password_page_TetxtIn_page"
+msgstr ""
+"The password reset link was invalid, possibly because it has already been "
+"used.  Please request a new password reset."
+
+#: accounts/password_reset_done_form.html:3
+msgid "reset_password_done_page_Email Sent"
+msgstr "Email Sent"
+
+#: accounts/password_reset_done_form.html:7
+msgid "reset_password_done_page_Check_your_inbox"
+msgstr "Check your inbox"
+
+#: accounts/password_reset_done_form.html:9
+msgid "reset_password_done_page_Text"
+msgstr ""
+"We've emailed you instructions for setting your password. You should receive "
+"the email shortly!"
+
+#: accounts/password_reset_email.html:3
+msgid "Please go to the following page and choose a new password:"
+msgstr "Please go to the following page and choose a new password:"
+
+#: accounts/password_reset_email.html:7
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Your username, in case you’ve forgotten:"
+
+#: accounts/password_reset_email.html:9
+msgid "Thanks for using our site!"
+msgstr "Thanks for using our site!"
+
+#: accounts/password_reset_email.html:11
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "The %(site_name)s team"
+
+#: accounts/password_reset_form.html:5 accounts/password_reset_form.html:6
+msgid "reset_form_page_Forgot_Your_Password?"
+msgstr "Forgot Your Password?"
+
+#: accounts/password_reset_form.html:8
+msgid "reset_form_page_Text"
+msgstr ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+
+#: accounts/password_reset_form.html:13
+msgid "reset_form_page_Send_me_instructions!"
+msgstr "Send me instructions!"
+
+#: accounts/user_edit.html:5 accounts/user_subject_list_edit.html:12
+#: real_estate/client_detail.html:6
+msgid "Edit"
+msgstr "Edit"
+
+#: accounts/user_edit.html:5
+msgid "Create"
+msgstr "Create"
+
+#: accounts/user_edit.html:23 accounts/user_subject_list_edit.html:19
+#: real_estate/client_edit.html:22
+msgid "Save"
+msgstr "Save"
+
+#: accounts/user_edit.html:29
+msgid "Change_Password"
+msgstr "Change Password"
+
+#: accounts/user_subject_list_edit.html:7
+msgid "Citys quide"
+msgstr "Citys quide"
+
+#: accounts/user_subject_list_edit.html:8
+msgid "Departments quide"
+msgstr "Departments quide"
+
+#: accounts/user_subject_list_edit.html:9
+msgid "Districts quide"
+msgstr "Districts quide"
+
+#: accounts/user_subject_list_edit.html:10
+msgid "Sales Chanels quide"
+msgstr "Sales Chanels quide"
+
+#: accounts/user_subject_trasfer.html:6
+msgid "User_Realty_and_Clients_trasfer"
+msgstr "User Realty and Clients trasfer"
+
+#: accounts/user_subject_trasfer.html:14
+msgid "Trasfer_realtys"
+msgstr "Trasfer realtys"
+
+#: accounts/user_subject_trasfer.html:19
+msgid "Trasfer_Clients"
+msgstr "Trasfer Clients"
+
+#: accounts/users_list.html:6
+msgid "Users_List"
+msgstr "Users List"
+
+#: accounts/users_list.html:7
+msgid "New_user"
+msgstr "New user"
+
+#: accounts/users_list.html:16
+msgid "is_active"
+msgstr "is_active"
+
+#: accounts/users_list.html:17 boss_statistics/user_detail.html:9
+msgid "Department_boss"
+msgstr "Department boss"
+
+#: boss_statistics/instanses_list.html:6
+msgid "Cityes"
+msgstr "Cityes"
+
+#: boss_statistics/instanses_list.html:7
+msgid "Departments"
+msgstr "Departments"
+
+#: boss_statistics/instanses_list.html:8
+msgid "Realtors"
+msgstr "Realtors"
+
+#: boss_statistics/instanses_list.html:9
+msgid "All Realtors"
+msgstr "All Realtors"
+
+#: boss_statistics/instanses_list.html:18 boss_statistics/user_detail.html:45
+msgid "Search_Data"
+msgstr "Search Data"
+
+#: boss_statistics/instanses_list.html:22
+msgid "realtes_without_contract(all)"
+msgstr "Realtes without contract(all)"
+
+#: boss_statistics/instanses_list.html:22
+msgid "realtes_without_contract(New)"
+msgstr "Realtes without contract(New)"
+
+#: boss_statistics/instanses_list.html:23
+msgid "realtes_with_contract(all)"
+msgstr "Realtes with contract(all)"
+
+#: boss_statistics/instanses_list.html:23
+msgid "realtes_with_contract(new)"
+msgstr "Realtes with contract(new)"
+
+#: boss_statistics/instanses_list.html:24
+msgid "open_deals_sum"
+msgstr "Open deals sum"
+
+#: boss_statistics/instanses_list.html:24
+msgid "open_deals_count"
+msgstr "Open deals count"
+
+#: boss_statistics/instanses_list.html:25
+msgid "close_deals_sum"
+msgstr "Close deals sum"
+
+#: boss_statistics/instanses_list.html:25
+msgid "close_deals_count"
+msgstr "Close deals count"
+
+#: boss_statistics/user_detail.html:5
+msgid "Flats"
+msgstr "Flats"
+
+#: boss_statistics/user_detail.html:6 real_estate/client_list.html:8
+msgid "Clients"
+msgstr "Clients"
+
+#: boss_statistics/user_detail.html:7
+msgid "Phone_calls"
+msgstr "Phone calls"
+
+#: boss_statistics/user_detail.html:8
+msgid "Employee_position"
+msgstr "Employee position"
+
+#: boss_statistics/user_detail.html:50
+msgid "Income_call"
+msgstr "Income call"
+
+#: boss_statistics/user_detail.html:51
+msgid "Duration_of_the_call"
+msgstr "Duration of the call"
+
+#: boss_statistics/user_detail.html:58
+msgid "There_is_no_subscriber_for_the_specified_ID"
+msgstr "There is no subscriber for the specified ID"
+
+#: boss_statistics/user_detail.html:62
+msgid "minutes"
+msgstr "minutes"
+
+#: boss_statistics/user_detail.html:63
+msgid "Download"
+msgstr "Download"
+
+#: deals/deals_reiting.html:4
+msgid "Reitings(all)"
+msgstr "Reitings(all)"
+
+#: deals/deals_reiting.html:5
+msgid "Reitings(by_department)"
+msgstr "Reitings(by_department)"
+
+#: deals/deals_reiting.html:6
+msgid "Reitings(by_city)"
+msgstr "Reitings(by_city)"
+
+#: deals/deals_reiting.html:8
+msgid "Deal reitings"
+msgstr "Deal reitings"
+
+#: deals/dials_detail.html:4
+msgid "Deal_detail"
+msgstr "Deal detail"
+
+#: deals/dials_detail.html:5
+msgid "Date_open_deal"
+msgstr "Date open deal"
+
+#: deals/dials_detail.html:6
+msgid "Date_close_deal"
+msgstr "Date close deal"
+
+#: deals/dials_detail.html:7
+msgid "Name_of_object"
+msgstr "Name of object"
+
+#: deals/dials_detail.html:8
+msgid "Type_of_pbject"
+msgstr "Type of object"
+
+#: deals/dials_detail.html:9 real_estate/client_detail.html:16
+#: real_estate/instances_detail.html:31
+msgid "District"
+msgstr "District"
+
+#: deals/dials_detail.html:10 real_estate/client_detail.html:10
+#: real_estate/client_list.html:13
+msgid "Client_name"
+msgstr "Client name"
+
+#: deals/dials_detail.html:11 real_estate/client_detail.html:12
+msgid "Client_phone"
+msgstr "Client phone"
+
+#: deals/dials_detail.html:12 deals/dials_detail.html:13
+msgid "Seller_name"
+msgstr "Sellers name"
+
+#: deals/dials_detail.html:15
+msgid "Brokers_name"
+msgstr "Brokers name"
+
+#: deals/dials_detail.html:16
+msgid "Brokers_tel"
+msgstr "Brokers phone"
+
+#: deals/dials_detail.html:19
+msgid "Name_agency"
+msgstr "Agency name"
+
+#: deals/dials_detail.html:21
+msgid "Sales_chanel"
+msgstr "Sales chanel"
+
+#: deals/dials_detail.html:22 real_estate/client_detail.html:34
+#: real_estate/instances_detail.html:34
+msgid "Square"
+msgstr "Square"
+
+#: deals/dials_detail.html:23
+msgid "Price"
+msgstr "Price"
+
+#: deals/dials_detail.html:24
+msgid "Commission"
+msgstr "Commission"
+
+#: deals/dials_detail.html:25
+msgid "Mortgage"
+msgstr "Mortgage"
+
+#: deals/dials_detail.html:25 deals/dials_detail.html:26
+#: real_estate/instances_detail.html:26 real_estate/instances_detail.html:46
+#: real_estate/instances_detail.html:62 real_estate/instances_detail.html:63
+#: real_estate/instances_detail.html:65 real_estate/instances_detail.html:66
+msgid "Yes"
+msgstr "Yes"
+
+#: deals/dials_detail.html:25 deals/dials_detail.html:26
+#: real_estate/instances_detail.html:26 real_estate/instances_detail.html:47
+#: real_estate/instances_detail.html:62 real_estate/instances_detail.html:64
+#: real_estate/instances_detail.html:65 real_estate/instances_detail.html:66
+msgid "No"
+msgstr "No"
+
+#: deals/dials_detail.html:26
+msgid "Installment"
+msgstr "Installment"
+
+#: deals/dials_detail.html:27 real_estate/client_detail.html:17
+#: real_estate/instances_detail.html:39
+msgid "Discription"
+msgstr "Discription"
+
+#: deals/dials_detail.html:28
+msgid "Status"
+msgstr "Status"
+
+#: deals/dials_detail.html:30
+msgid "Reeltor"
+msgstr "Realtor"
+
+#: deals/dials_detail.html:30
+msgid "Percent"
+msgstr "Percent"
+
+#: deals/dials_detail.html:33
+msgid "Commission_date"
+msgstr "Date of commission receipt"
+
+#: deals/dials_detail.html:33
+msgid "Commission_sum"
+msgstr "Commission"
+
+#: deals/dials_detail.html:38
+msgid "Close"
+msgstr "Close"
+
+#: deals/dials_detail.html:39
+msgid "Disruption"
+msgstr "Disription"
+
+#: deals/dials_list.html:5
+msgid "Open_deals"
+msgstr "Open deals"
+
+#: deals/dials_list.html:6
+msgid "Installment_deals"
+msgstr "Installment deals"
+
+#: deals/dials_list.html:7
+msgid "Closed deals"
+msgstr "Closed_deals"
+
+#: deals/dials_list.html:8
+msgid "Installment_Closed_deals"
+msgstr "Installment Closed deals"
+
+#: deals/dials_list.html:9
+msgid "Disruption_deals"
+msgstr "Disruption deals"
+
+#: deals/dials_list.html:27
+msgid "Deal_Edit"
+msgstr "Edit Deal"
+
+#: deals/dials_new.html:6
+msgid "Deal"
+msgstr "Deal"
+
+#: deals/dials_new.html:7 real_estate/client_edit.html:7
+msgid "(New)"
+msgstr "New"
+
+#: deals/dials_new.html:8 real_estate/client_edit.html:8
+msgid "(Edit)"
+msgstr "Edit"
+
+#: deals/dials_new.html:50 deals/dials_new.html:51 deals/dials_new.html:52
+msgid "Close_Page"
+msgstr "Close Page"
+
+#: main.html:14
+msgid "Exit"
+msgstr "Exit"
+
+#: main.html:15
+msgid "Change_password"
+msgstr "Change Password"
+
+#: main.html:16
+msgid "New_flat"
+msgstr "Number of flats"
+
+#: main.html:17
+msgid "New_house"
+msgstr "New user"
+
+#: main.html:18
+msgid "New_plot_of_land"
+msgstr "New plot of land"
+
+#: main.html:19
+msgid "New_commerce"
+msgstr "New user"
+
+#: main.html:20
+msgid "New_client"
+msgstr "Aviable clients"
+
+#: main.html:23
+msgid "My_flat"
+msgstr "My flats"
+
+#: main.html:24
+msgid "My_house"
+msgstr "My houses"
+
+#: main.html:25
+msgid "My_plot_of_landt"
+msgstr "My plots of land"
+
+#: main.html:26
+msgid "My_commerce"
+msgstr "My commerce"
+
+#: main.html:28
+msgid "My_clients"
+msgstr "My clients"
+
+#: main.html:29
+msgid "All_clients"
+msgstr "Aviable clients"
+
+#: main.html:31
+msgid "Deal_New"
+msgstr "New Deal"
+
+#: main.html:32
+msgid "Deals_List"
+msgstr "Deals List"
+
+#: main.html:36
+msgid "Admin_adminstration"
+msgstr "Admin adminstration"
+
+#: main.html:39
+msgid "Boss_statistic"
+msgstr "Boss statistic"
+
+#: main.html:42
+
+msgid "Department_statistic"
+msgstr "Department statistic"
+
+#: main.html:44
+msgid "Reiting"
+msgstr "Reiting"
+
+#: real_estate/client_detail.html:4
+msgid "Client_detail"
+msgstr "Client detail"
+
+#: real_estate/client_detail.html:8 real_estate/client_list.html:13
+#: real_estate/instances_detail.html:22
+msgid "Creation_date"
+msgstr "Creation date"
+
+#: real_estate/client_detail.html:9
+msgid "Author_name"
+msgstr "Author name"
+
+#: real_estate/client_detail.html:13
+msgid "Client_email"
+msgstr "Client email"
+
+#: real_estate/client_detail.html:15 real_estate/client_list.html:16
+#: real_estate/instances_detail.html:30
+msgid "Estate_type"
+msgstr "Type of estate"
+
+#: real_estate/client_detail.html:18 real_estate/client_list.html:16
+msgid "Min_price"
+msgstr "Min. price"
+
+#: real_estate/client_detail.html:19 real_estate/client_list.html:17
+msgid "Max_price"
+msgstr "Max. price"
+
+#: real_estate/client_detail.html:21
+msgid "Aviablse_estates"
+msgstr "Aviable_estates"
+
+#: real_estate/client_detail.html:32
+msgid "Adress"
+msgstr "Adress"
+
+#: real_estate/client_detail.html:33 real_estate/instances_detail.html:38
+msgid "Agency_price"
+msgstr "Agency price"
+
+#: real_estate/client_edit.html:6
+msgid "Client"
+msgstr "Client"
+
+#: real_estate/client_list.html:6
+msgid "My "
+msgstr "Mey "
+
+#: real_estate/client_list.html:7
+msgid "All  "
+msgstr "All "
+
+#: real_estate/client_list.html:14
+msgid "Districts"
+msgstr "Districts"
+
+#: real_estate/client_list.html:26 real_estate/instances_all.html:26
+msgid "Previous"
+msgstr "Previous"
+
+#: real_estate/client_list.html:34 real_estate/instances_all.html:34
+msgid "Next"
+msgstr "Next"
+
+#: real_estate/instance_new.html:6
+msgid "New "
+msgstr "New"
+
+#: real_estate/instance_new.html:7
+msgid "Edit "
+msgstr "Edit "
+
+#: real_estate/instance_new.html:8
+msgid " Estate"
+msgstr " Estate"
+
+#: real_estate/instance_new.html:22
+msgid "Save "
+msgstr "Save "
+
+#: real_estate/instance_new.html:27
+msgid "Delete Image"
+msgstr "Delete Image"
+
+#: real_estate/instances_all.html:4
+msgid "All_Real_Estates"
+msgstr "All Estates"
+
+#: real_estate/instances_all.html:4
+msgid "Instanses"
+msgstr "Estates"
+
+#: real_estate/instances_detail.html:4
+msgid "Detail"
+msgstr "Detail"
+
+#: real_estate/instances_detail.html:17
+msgid "author"
+msgstr "Author"
+
+#: real_estate/instances_detail.html:19
+msgid "Name_of_the_owner"
+msgstr "Name of the owner"
+
+#: real_estate/instances_detail.html:20
+msgid "Phone_of_the_owner"
+msgstr "Phone of the owner"
+
+#: real_estate/instances_detail.html:23
+msgid "Date_of_change"
+msgstr "Date of change"
+
+#: real_estate/instances_detail.html:24
+msgid "Contract"
+msgstr "Contract"
+
+#: real_estate/instances_detail.html:24
+msgid "Contract_number"
+msgstr "Contract number"
+
+#: real_estate/instances_detail.html:25
+msgid "Contract_date_end"
+msgstr "Date when contract ending"
+
+#: real_estate/instances_detail.html:26
+msgid "new_building"
+msgstr "New building"
+
+#: real_estate/instances_detail.html:28
+msgid "Youtube"
+msgstr "Youtube"
+
+#: real_estate/instances_detail.html:32
+msgid "Street"
+msgstr "Street"
+
+#: real_estate/instances_detail.html:33
+msgid "Street_number"
+msgstr "Street number"
+
+#: real_estate/instances_detail.html:36
+msgid "Owners_price"
+msgstr "Owners price"
+
+#: real_estate/instances_detail.html:40
+msgid "Gaz"
+msgstr "Gaz"
+
+#: real_estate/instances_detail.html:42
+msgid "Cadastral_number"
+msgstr "Cadastral number"
+
+#: real_estate/instances_detail.html:44
+msgid "Type_of_law"
+msgstr "Type of law"
+
+#: real_estate/instances_detail.html:45
+msgid "Use_of_the_plot"
+msgstr "Use of the plot"
+
+#: real_estate/instances_detail.html:46
+msgid "Domclick_published"
+msgstr "Domclick published"
+
+#: real_estate/instances_detail.html:50
+msgid "Flat_number"
+msgstr "Flat number"
+
+#: real_estate/instances_detail.html:52
+msgid "Stage_of_delivery"
+msgstr "Stage of delivery"
+
+#: real_estate/instances_detail.html:53
+msgid "Housing_status"
+msgstr "Housing status"
+
+#: real_estate/instances_detail.html:54
+msgid "Housing_class"
+msgstr "Housing class"
+
+#: real_estate/instances_detail.html:55
+msgid "Repair"
+msgstr "Repair"
+
+#: real_estate/instances_detail.html:56
+msgid "Flat_rooms"
+msgstr "Flat rooms"
+
+#: real_estate/instances_detail.html:57
+msgid "Floor"
+msgstr "Floor"
+
+#: real_estate/instances_detail.html:58 real_estate/instances_detail.html:68
+msgid "Number_of_floors"
+msgstr "Number of floors"
+
+#: real_estate/instances_detail.html:59
+msgid "View_from_the_windows"
+msgstr "View from the windows"
+
+#: real_estate/instances_detail.html:60
+msgid "Bathroom"
+msgstr "Bathroom"
+
+#: real_estate/instances_detail.html:61
+msgid "Parking"
+msgstr "Parking"
+
+#: real_estate/instances_detail.html:62
+msgid "Security"
+msgstr "Security"
+
+#: real_estate/instances_detail.html:63
+msgid "Rubbish_chute"
+msgstr "Rubbish chute"
+
+#: real_estate/instances_detail.html:65
+msgid "Elevator"
+msgstr "Elevator"
+
+#: real_estate/instances_detail.html:66
+msgid "Balcony"
+msgstr "Balcony"
+
+#: real_estate/instances_detail.html:69
+msgid "Number_of_flats"
+msgstr "Number of flats"
+
+#: real_estate/instances_detail.html:70
+msgid "Type_of_house"
+msgstr "Type of house"
+
+#: real_estate/instances_detail.html:71
+msgid "Plot_area"
+msgstr "Plot area"
+
+#: real_estate/instances_detail.html:73
+msgid "Relief"
+msgstr "Relief"
+
+#: real_estate/instances_detail.html:74
+msgid "View"
+msgstr "View"
+
+#: real_estate/instances_detail.html:76
+msgid "Type_of_building"
+msgstr "Type of building"
+
+#: real_estate/instances_detail.html:77
+msgid "Type_deal"
+msgstr "Type deal"
+
+#: real_estate/instances_detail.html:85
+msgid "Aviable_clients"
+msgstr "Aviable clients"
+
+#: real_estate/instances_detail.html:93
+msgid "Main_photo"
+msgstr "Main photo"
+
+#: real_estate/instances_detail.html:94
+msgid "Galery"
+msgstr "Galery"
+
+#, python-format
+#~ msgid ""
+#~ "You're receiving this email because you requested a password reset for "
+#~ "your user account at %(site_name)s."
+#~ msgstr ""
+#~ "You're receiving this email because you requested a password reset for "
+#~ "your user account at %(site_name)s."

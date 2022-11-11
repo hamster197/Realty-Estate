@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
@@ -144,7 +145,7 @@ class DealEdit(LoginRequiredMixin, UpdateView):
                 return self.form_invalid(form, deal_realtors_formset, deal_commision_formset)
 
     def form_valid(self, form, deal_realtors_formset, deal_commision_formset):
-        messages.success(self.request, 'Your instance was updated successfully!')
+        messages.success(self.request, _('Your instance was updated successfully!'))
         form.save()
         deal_realtors_formset.save()
         deal_commision_formset.save()

@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 import django_filters
 
 from django_filters import ModelChoiceFilter
@@ -12,7 +14,7 @@ class UserListFilter(django_filters.FilterSet):
     is_active = django_filters.BooleanFilter()
     departament__city = ModelChoiceFilter(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -22,7 +24,7 @@ class UserListFilter(django_filters.FilterSet):
 
     departament = ModelChoiceFilter(
         queryset=Departament.objects.all(),
-        label="Отдел",
+        label=_("Отдел"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"departament__city": "city"},

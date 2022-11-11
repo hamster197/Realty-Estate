@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 from django import forms
 from django_select2.forms import ModelSelect2Widget, ModelSelect2TagWidget
 
@@ -8,7 +10,7 @@ class RealtyEstateForm(forms.ModelForm):
 
     city = forms.ModelChoiceField(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -18,7 +20,7 @@ class RealtyEstateForm(forms.ModelForm):
 
     district = forms.ModelChoiceField(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"city": "city"},
@@ -59,7 +61,7 @@ class ClientNewForm(forms.ModelForm):
 
     city = forms.ModelChoiceField(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -69,7 +71,7 @@ class ClientNewForm(forms.ModelForm):
 
     district = forms.ModelMultipleChoiceField(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2TagWidget(
             search_fields=["name__icontains"],
             dependent_fields={"city": "city"},

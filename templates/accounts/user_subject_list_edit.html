@@ -1,16 +1,22 @@
 {% extends 'main.html' %}
-
+{% load i18n %}
 {% block content %}
     {% include 'accounts/admin_page_admin.html' %}
 
-    <h1>{{ view.action }} edit</h1>
+    <h1>
+        {% if view.action == 'City quide' %} {% trans 'Citys quide' %}
+        {% elif view.action == 'Departments quide' %} {% trans 'Departments quide' %}
+        {% elif view.action == 'District quide' %}    {% trans 'Districts quide' %}
+        {% elif view.action == 'Sales Chanels quide' %}   {% trans 'Sales Chanels quide' %}
+        {% endif %}
+        {% trans 'Edit' %}</h1>
 <form class="" method="post">
    {% csrf_token %}
    {{ formset.management_form }}
    {% for form in formset %}
    <p>{{ form.as_p }}</p>
    {% endfor %}
-   <button type="submit" class="btn btn-primary">Save</button>
+   <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
 </form>
 
 {% endblock %}

@@ -1,0 +1,940 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-11 12:35+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: accounts/filters.py:17 accounts/models.py:10 deals/forms.py:16
+#: real_estate/filters.py:16 real_estate/filters.py:50
+#: real_estate/filters.py:96 real_estate/forms.py:13 real_estate/forms.py:64
+#: real_estate/models.py:16 real_estate/models.py:21
+msgid "Город"
+msgstr "Город"
+
+#: accounts/filters.py:27 accounts/models.py:12 accounts/models.py:18
+#: accounts/models.py:35
+msgid "Отдел"
+msgstr "Отдел"
+
+#: accounts/forms.py:22
+msgid "Имя"
+msgstr "Имя"
+
+#: accounts/forms.py:23
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: accounts/forms.py:34
+msgid "Выберите 1 группу(обязательное поле)!"
+msgstr "Выберите 1 группу(обязательное поле)!"
+
+#: accounts/forms.py:36
+msgid "Выберите отдел(обязательное поле)!"
+msgstr "Выберите отдел(обязательное поле)!"
+
+#: accounts/forms.py:38
+msgid "Выберите город для группы Начальник филиала(обязательное поле)!"
+msgstr "Выберите город для группы Начальник филиала(обязательное поле)!"
+
+#: accounts/forms.py:56
+msgid "Перенести обьекты с:"
+msgstr "Перенессти обьекты с:"
+
+#: accounts/forms.py:58
+msgid "Перенести обьекты на:"
+msgstr "Перенессти обьекты на:"
+
+#: accounts/forms.py:63
+msgid "Перенести клиентов с:"
+msgstr "Перенессти обьекты с:"
+
+#: accounts/forms.py:65
+msgid "Перенести клиентов на:"
+msgstr "Перенессти обьекты на:"
+
+#: accounts/models.py:19
+msgid "Отделы"
+msgstr "Отделы"
+
+#: accounts/models.py:24
+msgid "Oтчество"
+msgstr "Oтчество"
+
+#: accounts/models.py:25
+msgid "Телефон"
+msgstr "Телефон"
+
+#: accounts/models.py:26
+msgid "Начальник отдела"
+msgstr "Начальник отдела"
+
+#: accounts/models.py:27
+msgid "Город(для начальника филиала)"
+msgstr "Город(для начальника филиала)"
+
+#: accounts/models.py:29
+msgid "Фото"
+msgstr "Фото"
+
+#: accounts/models.py:31
+msgid "Все"
+msgstr "Все"
+
+#: accounts/models.py:31 real_estate/models.py:44 real_estate/models.py:46
+msgid "Без договора"
+msgstr "Без договора"
+
+#: accounts/models.py:32 real_estate/models.py:44
+msgid "Агентский"
+msgstr "Агентский"
+
+#: accounts/models.py:32 real_estate/models.py:44
+msgid "Эксклюзив"
+msgstr "Эксклюзив"
+
+#: accounts/models.py:33 real_estate/models.py:45
+msgid "Договор"
+msgstr "Договор"
+
+#: accounts/models.py:39
+msgid "Пользователь"
+msgstr "Пользователь"
+
+#: accounts/models.py:40
+msgid "Пользователи"
+msgstr "Пользователи"
+
+#: accounts/views.py:61
+msgid "User Passsword was updated successfully!"
+msgstr "Пароль пользователя был успешно обновлен!"
+
+#: accounts/views.py:64
+msgid "User Passsword was not updated successfully!"
+msgstr "Пароль пользователя не был успешно обновлен!"
+
+#: accounts/views.py:71
+msgid "User was updated successfully!"
+msgstr "Пользователь был успешно обновлен!"
+
+#: deals/forms.py:26 deals/models.py:35 real_estate/filters.py:25
+#: real_estate/filters.py:59 real_estate/filters.py:105 real_estate/forms.py:23
+#: real_estate/forms.py:74 real_estate/models.py:23 real_estate/models.py:29
+#: real_estate/models.py:54 real_estate/models.py:223
+msgid "Район"
+msgstr "Район"
+
+#: deals/forms.py:52
+msgid "Сумма процентов != 100 !"
+msgstr "Сумма процентов != 100 !"
+
+#: deals/forms.py:73
+msgid "Внесенная суммма коммисии больше внесенной в сделку !"
+msgstr "Внесенная суммма коммисии больше внесенной в сделку "
+
+#: deals/models.py:13
+msgid "Коммисия агента"
+msgstr "Коммисия агента"
+
+#: deals/models.py:16 deals/models.py:17
+msgid "Настройки сделок"
+msgstr "Настройки сделок"
+
+#: deals/models.py:20 deals/models.py:49
+msgid "Kанал продаж"
+msgstr "Kанал продаж"
+
+#: deals/models.py:26
+msgid "Канал продаж"
+msgstr "Канал продаж"
+
+#: deals/models.py:27
+msgid "Каналы продаж"
+msgstr "Каналы продаж"
+
+#: deals/models.py:30
+msgid "Дата создания сделки"
+msgstr "Дата создания сделки"
+
+#: deals/models.py:31
+msgid "Дата закрытия сделки"
+msgstr "Дата закрытия сделки"
+
+#: deals/models.py:32
+msgid "Название объекта"
+msgstr "Название объекта"
+
+#: deals/models.py:33 real_estate/models.py:53
+msgid "Тип недвижимости"
+msgstr "Тип недвижимости"
+
+#: deals/models.py:37
+msgid "ФИО клиента(Покупатель)"
+msgstr "ФИО клиента(Покупатель)"
+
+#: deals/models.py:38
+msgid "тел.Клиента(Покупатель)"
+msgstr "тел.Клиента(Покупатель)"
+
+#: deals/models.py:40
+msgid "ФИО клиента(Продавца)"
+msgstr "ФИО клиента(Продавца)"
+
+#: deals/models.py:41
+msgid "тел.Клиента(Продавца)"
+msgstr "тел.Клиента(Продавца)"
+
+#: deals/models.py:43
+msgid "ФИО Посрединка(ч.риелт или др аг.)"
+msgstr "тел.Клиента(Продавца)"
+
+#: deals/models.py:45
+msgid "Тел.посредника"
+msgstr "Тел.посредника"
+
+#: deals/models.py:45
+msgid "(+79881234567), если есть"
+msgstr "(+79881234567), если есть"
+
+#: deals/models.py:47
+msgid "Название агенства"
+msgstr "Название агенства"
+
+#: deals/models.py:51
+msgid "Площадь"
+msgstr "Площадь"
+
+#: deals/models.py:52
+msgid "min 5"
+msgstr "мин 5"
+
+#: deals/models.py:53
+msgid "Стоимость объекта"
+msgstr "Стоимость объекта"
+
+#: deals/models.py:54
+msgid "min 300 000"
+msgstr "мин 300 000"
+
+#: deals/models.py:55 deals/models.py:102 deals/models.py:103
+msgid "Комисия"
+msgstr "Комисия"
+
+#: deals/models.py:55
+msgid "min 1 000"
+msgstr "мин 1 000"
+
+#: deals/models.py:56
+msgid "Ипотека"
+msgstr "Ипотека"
+
+#: deals/models.py:57
+msgid "Расрочка"
+msgstr "Расрочка"
+
+#: deals/models.py:58 real_estate/models.py:224
+msgid "Примечание"
+msgstr "Примечание"
+
+#: deals/models.py:59
+msgid "Закрыта"
+msgstr "Закрыта"
+
+#: deals/models.py:59
+msgid "Закрыта-Рассрочка"
+msgstr "Закрыта-Рассрочка"
+
+#: deals/models.py:59 deals/models.py:61
+msgid "Открыта"
+msgstr "Открыта"
+
+#: deals/models.py:60
+msgid "Срыв"
+msgstr "Срыв"
+
+#: deals/models.py:60
+msgid "Рассрочка"
+msgstr "Рассрочка"
+
+#: deals/models.py:61
+msgid "Статус сделки"
+msgstr "Статус сделки"
+
+#: deals/models.py:64 deals/models.py:77 deals/models.py:97
+msgid "Сделка"
+msgstr "Сделка"
+
+#: deals/models.py:65
+msgid "Сделки"
+msgstr "Сделки"
+
+#: deals/models.py:78
+msgid "Риелтор в сделке"
+msgstr "Риелтор в сделке"
+
+#: deals/models.py:80
+msgid "Процент в сделке"
+msgstr "Процент в сделке"
+
+#: deals/models.py:80
+msgid "min 1%"
+msgstr "мин 1%"
+
+#: deals/models.py:81
+msgid "сумма коммисии"
+msgstr "Сумма коммисии"
+
+#: deals/models.py:84 deals/models.py:85
+msgid "Bсе риелторы в сделке"
+msgstr "Bсе риелторы в сделке"
+
+#: deals/models.py:88 deals/models.py:106
+msgid " rub "
+msgstr " руб."
+
+#: deals/models.py:98
+msgid "Внесенно коммисии"
+msgstr "Внесенно коммисии"
+
+#: deals/models.py:99
+msgid "Дата внесения коммисии"
+msgstr "Дата внесения коммисии"
+
+#: deals/views.py:148 real_estate/views.py:83
+msgid "Your instance was updated successfully!"
+msgstr "Ваш экземпляр сделки был успешно обновлен!"
+
+#: real_estate/models.py:10
+msgid "Название"
+msgstr "Название"
+
+#: real_estate/models.py:17
+msgid " Справочник города"
+msgstr "Справочник города"
+
+#: real_estate/models.py:30
+msgid " Справочник районы"
+msgstr " Справочник районы"
+
+#: real_estate/models.py:35 real_estate/models.py:216
+msgid "Автор"
+msgstr "Автор"
+
+#: real_estate/models.py:37
+msgid "Имя собственника"
+msgstr "Имя собственника"
+
+#: real_estate/models.py:38
+msgid "тел собственника"
+msgstr "Тел.собственника"
+
+#: real_estate/models.py:39
+msgid "Дата публикации"
+msgstr "Дата публикации"
+
+#: real_estate/models.py:40
+msgid "Дата изменения"
+msgstr "Дата изменения"
+
+#: real_estate/models.py:42
+msgid "Опубликован"
+msgstr "Опубликован"
+
+#: real_estate/models.py:42
+msgid "Не опубликован"
+msgstr "Не опубликован"
+
+#: real_estate/models.py:42
+msgid "В архиве"
+msgstr "В архиве"
+
+#: real_estate/models.py:43
+msgid "Публикация"
+msgstr "Публикация"
+
+#: real_estate/models.py:47
+msgid "Номер договора"
+msgstr "Номер договора"
+
+#: real_estate/models.py:48
+msgid "До"
+msgstr "До"
+
+#: real_estate/models.py:49
+msgid "Новостройка?"
+msgstr "Новостройка?"
+
+#: real_estate/models.py:50
+msgid "Код видео с youtube"
+msgstr "Код видео с youtube"
+
+#: real_estate/models.py:51 real_estate/models.py:121 real_estate/models.py:166
+msgid "Квартира"
+msgstr "Квартира"
+
+#: real_estate/models.py:51 real_estate/models.py:186
+msgid "Дом"
+msgstr "Дом"
+
+#: real_estate/models.py:51 real_estate/models.py:196
+msgid "Участок"
+msgstr "Участок"
+
+#: real_estate/models.py:52 real_estate/models.py:211 real_estate/models.py:212
+msgid "Коммерция"
+msgstr "Коммерция"
+
+#: real_estate/models.py:56
+msgid "Улица:"
+msgstr "Улица:"
+
+#: real_estate/models.py:56
+msgid "например: Гагарина"
+msgstr "например: Гагарина"
+
+#: real_estate/models.py:57
+msgid "Номер дома(если есть, необязательно к заполнению!):"
+msgstr "Номер дома(если есть, необязательно к заполнению!):"
+
+#: real_estate/models.py:59
+msgid "latitude"
+msgstr "широта"
+
+#: real_estate/models.py:60
+msgid "longitude"
+msgstr "долгота"
+
+#: real_estate/models.py:61
+msgid "Площадь(метры)"
+msgstr "Площадь(метры)"
+
+#: real_estate/models.py:62
+msgid "Цена собственника"
+msgstr "Цена собственника"
+
+#: real_estate/models.py:63
+msgid "Цена агентства"
+msgstr "Цена агентства"
+
+#: real_estate/models.py:64
+msgid "Описание"
+msgstr "Описание"
+
+#: real_estate/models.py:65 real_estate/models.py:148
+msgid "Нет"
+msgstr "Нет"
+
+#: real_estate/models.py:65 real_estate/models.py:148
+msgid "Есть"
+msgstr "Есть"
+
+#: real_estate/models.py:65
+msgid "Можно подключить"
+msgstr "Можно подключить"
+
+#: real_estate/models.py:66
+msgid "В процессе подключения"
+msgstr "В процессе подключения"
+
+#: real_estate/models.py:68
+msgid "Кадастровый номер"
+msgstr "Кадастровый номер"
+
+#: real_estate/models.py:69
+msgid "Необязательно к заполнению"
+msgstr "Необязательно к заполнению"
+
+#: real_estate/models.py:70
+msgid "Собственность"
+msgstr "Собственность"
+
+#: real_estate/models.py:70
+msgid "Аренда (49лет)"
+msgstr "Аренда (49лет)"
+
+#: real_estate/models.py:71 real_estate/models.py:76
+msgid "Размещение эллингов"
+msgstr "Размещение эллингов"
+
+#: real_estate/models.py:72
+msgid "Вид права:"
+msgstr "Вид права:"
+
+#: real_estate/models.py:73
+msgid "Поселений (ИЖС)"
+msgstr "Поселений (ИЖС)"
+
+#: real_estate/models.py:74
+msgid "Садовое некоммерческое товарищество"
+msgstr "Садовое некоммерческое товарищество"
+
+#: real_estate/models.py:75
+msgid "Земля промназначения"
+msgstr "Земля промназначения"
+
+#: real_estate/models.py:76
+msgid "ДНП"
+msgstr "ДНП"
+
+#: real_estate/models.py:77
+msgid "Использование участка:"
+msgstr "Использование участка:"
+
+#: real_estate/models.py:79
+msgid "Главное фото"
+msgstr "Главное фото"
+
+#: real_estate/models.py:81
+msgid "Опубликовать на Домклик"
+msgstr "Опубликовать на Домклик"
+
+#: real_estate/models.py:87
+msgid "the owners price is more than agency price"
+msgstr "цена владельцев больше, чем цена агентства"
+
+#: real_estate/models.py:95 real_estate/models.py:100
+msgid "Обьект недвижимости"
+msgstr "Обьект недвижимости"
+
+#: real_estate/models.py:96
+msgid "Обьекты недвижимости"
+msgstr "Обьекты недвижимости"
+
+#: real_estate/models.py:102
+msgid "Картинка"
+msgstr "Картинка"
+
+#: real_estate/models.py:107 real_estate/models.py:108
+msgid "Галерея"
+msgstr "Галерея"
+
+#: real_estate/models.py:113
+msgid "Номер квартиры (необязательное поле):"
+msgstr "Номер квартиры (необязательное поле):"
+
+#: real_estate/models.py:113
+msgid "например: 11"
+msgstr "например: 11"
+
+#: real_estate/models.py:115
+msgid "Не сдан"
+msgstr "Не сдан"
+
+#: real_estate/models.py:115
+msgid "Рег.УФРС"
+msgstr "Рег.УФРС"
+
+#: real_estate/models.py:115
+msgid "ФЗ-214"
+msgstr "ФЗ-214"
+
+#: real_estate/models.py:116
+msgid "ФЗ-215"
+msgstr "ФЗ-215"
+
+#: real_estate/models.py:116
+msgid "Сдан"
+msgstr "Сдан"
+
+#: real_estate/models.py:117
+msgid "Этап сдачи"
+msgstr "Этап сдачи"
+
+#: real_estate/models.py:119
+msgid "Жилое помещение"
+msgstr "Жилое помещение"
+
+#: real_estate/models.py:120
+msgid "Нежилое помещение((Апартаменты, подвал, коммерция))"
+msgstr "Нежилое помещение((Апартаменты, подвал, коммерция))"
+
+#: real_estate/models.py:121
+msgid "Часть жил.дома"
+msgstr "Часть жил.дома"
+
+#: real_estate/models.py:121
+msgid "Комната"
+msgstr "Комната"
+
+#: real_estate/models.py:124
+msgid "Эконом"
+msgstr "Эконом"
+
+#: real_estate/models.py:124
+msgid "Комфорт"
+msgstr "Комфорт"
+
+#: real_estate/models.py:124
+msgid "Бизнес"
+msgstr "Бизнес"
+
+#: real_estate/models.py:124
+msgid "Элит"
+msgstr "Элит"
+
+#: real_estate/models.py:125
+msgid "Класс жилья"
+msgstr "Класс жилья"
+
+#: real_estate/models.py:127
+msgid "Черновой"
+msgstr "Черновой"
+
+#: real_estate/models.py:127
+msgid "Чистовой"
+msgstr "Чистовой"
+
+#: real_estate/models.py:127
+msgid "Дизайнерский"
+msgstr "Дизайнерский"
+
+#: real_estate/models.py:128
+msgid "Жилой"
+msgstr "Жилой"
+
+#: real_estate/models.py:128
+msgid "Новый"
+msgstr "Новый"
+
+#: real_estate/models.py:128
+msgid "Косметический"
+msgstr "Косметический"
+
+#: real_estate/models.py:129
+msgid "Евроремонт"
+msgstr "Евроремонт"
+
+#: real_estate/models.py:130
+msgid "Ремонт"
+msgstr "Ремонт"
+
+#: real_estate/models.py:132
+msgid "Студия"
+msgstr "Студия"
+
+#: real_estate/models.py:132
+msgid "Однокомнатная"
+msgstr "Однокомнатная"
+
+#: real_estate/models.py:132
+msgid "Двухкомнатная"
+msgstr "Двухкомнатная"
+
+#: real_estate/models.py:133
+msgid "Трехкомнатная"
+msgstr "Трехкомнатная"
+
+#: real_estate/models.py:133
+msgid "Многокомнатная"
+msgstr "Многокомнатная"
+
+#: real_estate/models.py:134
+msgid "Кол-во комнат"
+msgstr "Кол-во комнат"
+
+#: real_estate/models.py:136
+msgid "Этаж"
+msgstr "Этаж"
+
+#: real_estate/models.py:137
+msgid "Этажность"
+msgstr "Этажность"
+
+#: real_estate/models.py:140
+msgid "Обычный"
+msgstr "Обычный"
+
+#: real_estate/models.py:140
+msgid "На стену"
+msgstr "На стену"
+
+#: real_estate/models.py:140 real_estate/models.py:192
+msgid "На море"
+msgstr "На море"
+
+#: real_estate/models.py:140 real_estate/models.py:192
+msgid "На горы"
+msgstr "На горы"
+
+#: real_estate/models.py:141
+msgid "Во двор"
+msgstr "Во двор"
+
+#: real_estate/models.py:141
+msgid "На улицу"
+msgstr "На улицу"
+
+#: real_estate/models.py:141
+msgid "На две стороны "
+msgstr "На две стороны "
+
+#: real_estate/models.py:142
+msgid "Вид из окон"
+msgstr "Вид из окон"
+
+#: real_estate/models.py:145
+msgid "Совмещенный"
+msgstr "Совмещенный"
+
+#: real_estate/models.py:145
+msgid "Раздельный"
+msgstr "Раздельный"
+
+#: real_estate/models.py:146
+msgid "Санузел"
+msgstr "Санузел"
+
+#: real_estate/models.py:148
+msgid "Подземный"
+msgstr "Подземный"
+
+#: real_estate/models.py:149
+msgid "Паркинг"
+msgstr "Паркинг"
+
+#: real_estate/models.py:150
+msgid "Наличие охраны:"
+msgstr "Наличие охраны:"
+
+#: real_estate/models.py:151
+msgid "Мусоропровод:"
+msgstr "Мусоропровод"
+
+#: real_estate/models.py:152
+msgid "Лифт:"
+msgstr "Лифт:"
+
+#: real_estate/models.py:154
+msgid "да"
+msgstr "да"
+
+#: real_estate/models.py:154 real_estate/models.py:156
+msgid "нет"
+msgstr "нет"
+
+#: real_estate/models.py:154
+msgid "2 балкона"
+msgstr "2 балкона"
+
+#: real_estate/models.py:154
+msgid "1 лоджия"
+msgstr "1 лоджия"
+
+#: real_estate/models.py:155
+msgid "2 лоджии"
+msgstr "2 лоджии"
+
+#: real_estate/models.py:156
+msgid "Балкон:"
+msgstr "Балкон:"
+
+#: real_estate/models.py:162
+msgid "the floor is more than number of floors"
+msgstr "этаж больше, чем количество этажей"
+
+#: real_estate/models.py:167
+msgid "Квартиры"
+msgstr "Квартиры"
+
+#: real_estate/models.py:171
+msgid "Этажность:"
+msgstr "Этажность:"
+
+#: real_estate/models.py:176
+msgid "Комнат:"
+msgstr "Комнат"
+
+#: real_estate/models.py:178
+msgid "Монолитный"
+msgstr "Монолитный"
+
+#: real_estate/models.py:178
+msgid "Блочный"
+msgstr "Блочный"
+
+#: real_estate/models.py:178
+msgid "Каркасно-монолитный"
+msgstr "Каркасно-монолитный"
+
+#: real_estate/models.py:179
+msgid "Кирпичный"
+msgstr "Кирпичный"
+
+#: real_estate/models.py:179
+msgid "Деревянный"
+msgstr "Деревянный"
+
+#: real_estate/models.py:179
+msgid "Панельный"
+msgstr "Панельный"
+
+#: real_estate/models.py:180
+msgid "Монолитно-кирпичный"
+msgstr "Монолитно-кирпичный"
+
+#: real_estate/models.py:181
+msgid "Тип дома"
+msgstr "Тип дома"
+
+#: real_estate/models.py:183
+msgid "Площадь участка (В МЕТРАХ!)"
+msgstr "Площадь участка (В МЕТРАХ!)"
+
+#: real_estate/models.py:187
+msgid "Дома"
+msgstr "Дома"
+
+#: real_estate/models.py:190
+msgid "Ровный"
+msgstr "Ровный"
+
+#: real_estate/models.py:190
+msgid "Уклон"
+msgstr "Уклон"
+
+#: real_estate/models.py:191
+msgid "Вид рельефа:"
+msgstr "Вид рельефа:"
+
+#: real_estate/models.py:192
+msgid "На море и горы"
+msgstr "На море и горы"
+
+#: real_estate/models.py:193
+msgid "Вид"
+msgstr "Вид"
+
+#: real_estate/models.py:197
+msgid "Участки"
+msgstr "Участки"
+
+#: real_estate/models.py:200
+msgid "Торговое помещение"
+msgstr "Торговое помещение"
+
+#: real_estate/models.py:201
+msgid "Помещение Свободного назначения"
+msgstr "Помещение Свободного назначения"
+
+#: real_estate/models.py:202
+msgid "Склад"
+msgstr "Склад"
+
+#: real_estate/models.py:202
+msgid "Офисное помещение"
+msgstr "Офисное помещение"
+
+#: real_estate/models.py:203
+msgid "Производство"
+msgstr "Производство"
+
+#: real_estate/models.py:204
+msgid "Другая коммерческая недвижимость"
+msgstr "Другая коммерческая недвижимость"
+
+#: real_estate/models.py:206
+msgid "Тип строения"
+msgstr "Тип строения"
+
+#: real_estate/models.py:207
+msgid "аренда"
+msgstr "аренда"
+
+#: real_estate/models.py:207
+msgid "продажа"
+msgstr "продажа"
+
+#: real_estate/models.py:208
+msgid "Тип Сделки"
+msgstr "Тип Сделки"
+
+#: real_estate/models.py:215
+msgid "Дата создания"
+msgstr "Дата создания"
+
+#: real_estate/models.py:218
+msgid "Клиент закрыт"
+msgstr "Клиент закрыт"
+
+#: real_estate/models.py:219
+msgid "Клиент(ФИО)"
+msgstr "Клиент(ФИО)"
+
+#: real_estate/models.py:220
+msgid "Телефон клиента"
+msgstr "Телефон клиента"
+
+#: real_estate/models.py:221
+msgid "email клиента"
+msgstr "email клиента"
+
+#: real_estate/models.py:222
+msgid "Что ищет"
+msgstr "Что ищет"
+
+#: real_estate/models.py:225
+msgid "Бюджет от:"
+msgstr "Бюджет от:"
+
+#: real_estate/models.py:226
+msgid "Бюджет до:"
+msgstr "Бюджет до:"
+
+#: real_estate/models.py:235
+msgid "the min price is more than max price"
+msgstr "минимальная цена больше максимальной цены"
+
+#: real_estate/models.py:239 real_estate/models.py:240
+msgid " Клиенты"
+msgstr " Клиенты"
+
+#: real_estate/views.py:51
+msgid "New "
+msgstr "Новый "
+
+#: real_estate/views.py:55
+msgid "Edit "
+msgstr "Редактировать "
+
+#: real_estate/views.py:87
+msgid "Your instance was not updated successfully!"
+msgstr "Ваш экземпляр не был успешно обновлен"
+
+#: real_estate/views.py:129
+msgid "instances"
+msgstr "экземпляры"
+
+#: real_estate/views.py:148 real_estate/views.py:168
+msgid "Your new client was updated successfully!"
+msgstr "Ваш новый клиент был успешно обновлен!"
+
+#: real_estate/views.py:152 real_estate/views.py:172
+msgid "Your new client was not updated successfully!"
+msgstr "Ваш экземпляр сделки был успешно обновлен!"
+
+#: real_estate/views.py:158
+msgid "(Edit)"
+msgstr "(Редактировать)"
+
+#: real_estate/views.py:182
+msgid "My "
+msgstr "Мои "
+
+#: real_estate/views.py:186
+msgid "All  "
+msgstr "Все "

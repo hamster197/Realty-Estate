@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
-<h1>Detail</h1> {{ instance.author }} {{ user }}
+<h1>{% trans 'Detail' %}</h1>
     {% if user == instance.author %}
    {% if instance.type == 'Квартира' %}
    <a href="{% url "real_estates_urls:edit_flat_url" pk=instance.pk %}" >
@@ -13,62 +14,67 @@
    {% endif %} Edit</a>
     {% endif %}
 
-    <p>Автор {{ instance.author.first_name }} {{ instance.author.last_name }} {{ instance.author.departament }}</p>
+    <p>{% trans 'author' %} {{ instance.author.first_name }} {{ instance.author.last_name }} {{ instance.author.departament }}</p>
     {% if instance.author == user %}
-    <p>Имя собственника {{ instance.client_name }}</p>
-    <p>тел собственника {{ instance.client_tel }}</p>
+    <p>{% trans 'Name_of_the_owner' %} {{ instance.client_name }}</p>
+    <p>{% trans 'Phone_of_the_owner' %} {{ instance.client_tel }}</p>
     {% endif %}
-    <p>Дата публикации {{ instance.creation_date }}</p>
-    <p>Дата изменения {{ instance.date_of_change }}</p>
-    <p>Договор {{ instance.contract  }} Номер договора {{ instance.contract_number }} До {{ instance.contract_date_end }}</p>
-    <p>Новостройка? {% if instance.new_building  %} Yes{% else %} No {% endif %}</p>
-    <p>Код видео с youtube {{ instance.youtube }}</p>
-    <p>Тип недвижимости {{ instance.type }}</p>
-    <p>Район {{ instance.district }}</p>
-    <p>Улица {{ instance.street }}</p>
-    {% if street_number %} <p>Номер дома {{ instance.street_number }}</p>{% endif %}
-    <p>Площадь(метры) {{ instance.ploshad }}</p>
+    <p>{% trans 'Creation_date' %} {{ instance.creation_date }}</p>
+    <p>{% trans 'Date_of_change' %} {{ instance.date_of_change }}</p>
+    <p>{% trans 'Contract' %} {{ instance.contract  }} {% trans 'Contract_number' %} {{ instance.contract_number }}
+        {% trans 'Contract_date_end' %} {{ instance.contract_date_end }}</p>
+    <p>{% trans 'new_building' %} {% if instance.new_building  %} {% trans 'Yes' %}{% else %} {% trans 'No' %} {% endif %}</p>
+    {% if instance.youtube %}
+        <p>{% trans 'Youtube' %} {{ instance.youtube }}</p>
+    {% endif %}
+    <p>{% trans 'Estate_type' %} {{ instance.type }}</p>
+    <p>{% trans 'District' %} {{ instance.district }}</p>
+    <p>{% trans 'Street' %} {{ instance.street }}</p>
+    {% if street_number %} <p>{% trans 'Street_number' %} {{ instance.street_number }}</p>{% endif %}
+    <p>{% trans 'Square' %}{{ instance.ploshad }}</p>
     {% if instance.author == user %}
-    <p>Цена собственника {{ instance.owners_price }}</p>
+    <p>{% trans 'Owners_price' %} {{ instance.owners_price }}</p>
     {% endif %}
-    <p>Цена агентства {{ instance.agency_price }}</p>
-    <p>Описание {{ instance.discription }}</p>
-    <p>Газ {{ instance.gaz }}</p>
+    <p>{% trans 'Agency_price' %} {{ instance.agency_price }}</p>
+    <p>{% trans 'Discription' %}Описание {{ instance.discription }}</p>
+    <p>{% trans 'Gaz' %} {{ instance.gaz }}</p>
     {% if instance.cadastral_number %}
-    <p>Кадастровый номер {{ instance.cadastral_number }}</p>
+    <p>{% trans 'Cadastral_number' %} {{ instance.cadastral_number }}</p>
     {% endif %}
-    <p>Вид права: {{ instance.type_of_law }}</p>
-    <p>Использование участка: {{ instance.use_of_the_plot }}</p>
-    <p>Опубликовать на Домклик {% if instance.domclick_pub == True %}Yes {% else %} no {% endif %}</p>
+    <p>{% trans 'Type_of_law' %} {{ instance.type_of_law }}</p>
+    <p>{% trans 'Use_of_the_plot' %} {{ instance.use_of_the_plot }}</p>
+    <p>{% trans 'Domclick_published' %} {% if instance.domclick_pub == True %}{% trans 'Yes' %}
+        {% else %} {% trans 'No' %}{% endif %}</p>
     {% if instance.flat.type == 'Квартира' %}
          {% if user == instance.author and instance.flat.flat_number %}
-        <p>Номер квартиры {{ instance.flat.flat_number }}</p>
+        <p>{% trans 'Flat_number' %} {{ instance.flat.flat_number }}</p>
          {% endif %}
-        <p>Этап сдачи {{ instance.flat.stage_of_delivery }}</p>
-        <p>Статус жилья {{ instance.flat.housing_status }}</p>
-        <p>Класс жилья {{ instance.flat.housing_class }}</p>
-        <p>Ремонт {{ instance.flat.repair }}</p>
-        <p>Кол-во комнат {{ instance.flat.rooms }}</p>
-        <p>Этаж {{ instance.flat.floor }}</p>
-        <p>Этажность {{ instance.flat.number_of_floors }}</p>
-        <p>Вид из окон {{ instance.flat.view_from_the_windows }}</p>
-        <p>Санузел {{ instance.flat.bathroom }}</p>
-        <p>Паркинг {{ instance.flat.parking }}</p>
-        <p>Наличие охраны: {% if instance.flat.security %} Yes{% else %} No {% endif %}</p>
-        <p>Мусоропровод {% if instance.flat.rubbish_chute %} Yes{% else %} No {% endif %}</p>
-        <p>Лифт {% if instance.flat.elevator %} Yes{% else %} No {% endif %}</p>
-        <p>Балкон {% if instance.flat.balcony %} Yes{% else %} No {% endif %}</p>
+        <p>{% trans 'Stage_of_delivery' %} {{ instance.flat.stage_of_delivery }}</p>
+        <p>{% trans 'Housing_status' %} {{ instance.flat.housing_status }}</p>
+        <p>{% trans 'Housing_class' %} {{ instance.flat.housing_class }}</p>
+        <p>{% trans 'Repair' %} {{ instance.flat.repair }}</p>
+        <p>{% trans 'Flat_rooms' %} {{ instance.flat.rooms }}</p>
+        <p>{% trans 'Floor' %} {{ instance.flat.floor }}</p>
+        <p>{% trans 'Number_of_floors' %} {{ instance.flat.number_of_floors }}</p>
+        <p>{% trans 'View_from_the_windows' %} {{ instance.flat.view_from_the_windows }}</p>
+        <p>{% trans 'Bathroom' %} {{ instance.flat.bathroom }}</p>
+        <p>{% trans 'Parking' %} {{ instance.flat.parking }}</p>
+        <p>{% trans 'Security' %} {% if instance.flat.security %} {% trans 'Yes' %}{% else %} {% trans 'No' %} {% endif %}</p>
+        <p>{% trans 'Rubbish_chute' %} {% if instance.flat.rubbish_chute %} {% trans 'Yes' %}
+                {% else %} {% trans 'No' %}{% endif %}</p>
+        <p>{% trans 'Elevator' %} {% if instance.flat.elevator %}{% trans 'Yes' %}{% else %} {% trans 'No' %}{% endif %}</p>
+        <p>{% trans 'Balcony' %} {% if instance.flat.balcony %} {% trans 'Yes' %}{% else %} {% trans 'No' %}{% endif %}</p>
     {% elif instance.house.type == 'Дом' %}
-        <p>Этажность {{ instance.house.number_of_floors }} </p>
-        <p>Комнат {{ instance.house.number_of_flats }}</p>
-        <p>Тип дома {{ instance.house.type_of_house }}</p>
-        <p>Площадь участка {{ instance.house.plot_area }}</p>
+        <p>{% trans 'Number_of_floors' %} {{ instance.house.number_of_floors }} </p>
+        <p>{% trans 'Number_of_flats' %} {{ instance.house.number_of_flats }}</p>
+        <p>{% trans 'Type_of_house' %} {{ instance.house.type_of_house }}</p>
+        <p>{% trans 'Plot_area' %} {{ instance.house.plot_area }}</p>
     {% elif instance.plotofland.type == 'Учаток' %}
-        <p>Вид рельефа: {{ instance.plotofland.relief }} </p>
-        <p> Вид {{ instance.plotofland.view }} </p>
+        <p>{% trans 'Relief' %} {{ instance.plotofland.relief }} </p>
+        <p>{% trans 'View' %} {{ instance.plotofland.view }} </p>
     {% elif instance.type == 'Коммерция' %}
-        <p>Тип строения {{ instance.commerce.type_of_building }} </p>
-        <p>Тип Сделки {{ instance.commerce.type_deal }}</p>
+        <p>{% trans 'Type_of_building' %} {{ instance.commerce.type_of_building }} </p>
+        <p>{% trans 'Type_deal' %} {{ instance.commerce.type_deal }}</p>
     {% endif %}
 
 
@@ -76,7 +82,7 @@
 {{ instance.longitude }}, {{ instance.latitude }} for map
 {% endif %}
 {% if clients %}
-<h1>Aviable clients</h1>
+<h1>{% trans 'Aviable_clients' %}</h1>
     {% for client in clients %}
         <a href="{% url "real_estates_urls:client_detail_url" pk=client.pk %}" >
         <p>{{ client.author.first_name }} {{ client.author.last_name }}
@@ -84,8 +90,8 @@
         </a>
     {% endfor %}
 {% endif %}
-    <p>Главное фото <img src="{{ instance.image.url }}" /></p>
-    <h1>Galery</h1>
+    <p>{% trans 'Main_photo' %} <img src="{{ instance.image.url }}" /></p>
+    <h1>{% trans 'Galery' %}</h1>
     {% for image in instance.galery_real_estate_id.all %}
         <p> <img src="{{ image.image.url }}" /></p>
     {% endfor %}

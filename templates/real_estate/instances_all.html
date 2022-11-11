@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
-<h1>All Real Estates {{ instances.all.count }} instanses</h1>
+<h1>{% trans 'All_Real_Estates' %} {{ instances.all.count }} {% trans 'Instanses' %}</h1>
 {% for instance in instances %}
 <p>
    {% if instance.type == 'Квартира' %}
@@ -22,7 +23,7 @@
 <ul class="pagination">
    {% if page_obj.has_previous %}
    <li>
-      <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+      <span><a href="?page={{ page_obj.previous_page_number }}">{% trans 'Previous' %}</a></span>
    </li>
    {% endif %}
    <li class="">
@@ -30,7 +31,7 @@
    </li>
    {% if page_obj.has_next %}
    <li>
-      <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+      <span><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></span>
    </li>
    {% endif %}
 </ul>

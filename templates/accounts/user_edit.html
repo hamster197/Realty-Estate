@@ -1,8 +1,8 @@
 {% extends 'main.html' %}
-
+{% load i18n %}
 {% block content %}
     {% include 'accounts/admin_page_admin.html' %}
-<h1>User {{ action }}</h1>
+<h1>User  {% if action == 'edit' %}{% trans 'Edit' %}{% else %}{% trans 'Create' %}{% endif %}</h1>
 <ul class="messages">
    {% for message in messages %}
    <li class="{{ message.tags }}">{{ message|striptags  }}</li>
@@ -20,13 +20,13 @@
         {% endif %}
     </div>
 {% endfor %}
-   <input type="submit" value="Save Profile" >
+   <input type="submit" value="{% trans 'Save' %}" >
 </form>
 {% if password_form %}
     <form  method="post" enctype="multipart/form-data">
    {% csrf_token %}
     {{ password_form.as_p }}
-   <input type="submit" name="_change_password" value="Change Password" >
+   <input type="submit" name="_change_password" value="{% trans 'Change_Password' %}" >
 </form>
 {% endif %}
     

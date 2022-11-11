@@ -1,3 +1,5 @@
+from django.utils.translation import gettext_lazy as _
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
@@ -46,11 +48,11 @@ class InstanseSaveMixin(object):
 class InstanceNew(LoginRequiredMixin, InstanseSaveMixin, CreateView):
     template_name = 'real_estate/instance_new.html'
     success_url = reverse_lazy('real_estates_urls:all_real_estates_url')
-    action = 'New '
+    action = _('New ')
 
 class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
     template_name = 'real_estate/instance_new.html'
-    action = 'Edit '
+    action = _('Edit ')
 
     def get_queryset(self):
         if self.form_class == FlatEditForm:
@@ -78,11 +80,11 @@ class InstanceEdit(LoginRequiredMixin, InstanseSaveMixin, UpdateView):
         return super().post(request, *args, **kwargs)
 
     def form_valid(self, form):
-        messages.success(self.request, 'Your instance was updated successfully!')
+        messages.success(self.request, _('Your instance was updated successfully!'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, 'Your instance was not updated successfully!')
+        messages.success(self.request, _('Your instance was not updated successfully!'))
         return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):
@@ -124,7 +126,7 @@ class MyRealtyDetail(LoginRequiredMixin, DetailView):
 
 class YandexFeed(ListView):
     template_name = 'real_estate/yandex_feed.html'
-    context_object_name = 'instances'
+    context_object_name = _('instances')
 
     def get_queryset(self):
         return RealtyEstate.objects.filter(status_obj='Опубликован')
@@ -143,17 +145,17 @@ class ClientNew(LoginRequiredMixin, CreateView):
         client  = form.save(commit=False)
         client.author = self.request.user
         client.save()
-        messages.success(self.request, 'Your new client was updated successfully!')
+        messages.success(self.request, _('Your new client was updated successfully!'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, 'Your new client was not updated successfully!')
+        messages.success(self.request, _('Your new client was not updated successfully!'))
         return self.render_to_response(self.get_context_data(form=form))
 
 class ClientEdit(LoginRequiredMixin, UpdateView):
     template_name = 'real_estate/client_edit.html'
     form_class = ClientNewForm
-    action = '(Edit)'
+    action = _('(Edit)')
 
     def get_queryset(self):
         return Client.objects.filter(author=self.request.user)
@@ -163,11 +165,11 @@ class ClientEdit(LoginRequiredMixin, UpdateView):
         return {'city': sity_instance}
 
     def form_valid(self, form):
-        messages.success(self.request, 'Your new client was updated successfully!')
+        messages.success(self.request, _('Your new client was updated successfully!'))
         return super().form_valid(form)
 
     def form_invalid(self, form):
-        messages.success(self.request, 'Your new client was not updated successfully!')
+        messages.success(self.request, _('Your new client was not updated successfully!'))
         return self.render_to_response(self.get_context_data(form=form))
 
     def get_success_url(self):
@@ -177,11 +179,11 @@ class ClientEdit(LoginRequiredMixin, UpdateView):
 class MyClientsList(LoginRequiredMixin, FilterView):
     template_name = 'real_estate/client_list.html'
     context_object_name = 'clients_list'
-    action = 'My '
+    action = _('My ')
     paginate_by = 10
 
 class AllClientsList(MyClientsList):
-    action = 'All  '
+    action = _('All  ')
 
 class ClientDetail(LoginRequiredMixin, DetailView):
     template_name = 'real_estate/client_detail.html'

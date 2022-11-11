@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 
 from django import forms
 from django.forms import BaseInlineFormSet
@@ -12,7 +13,7 @@ from app.apps.real_estate.models import CityQuide, DistrictQuide
 class DealEditForm(forms.ModelForm):
     city = forms.ModelChoiceField(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -22,7 +23,7 @@ class DealEditForm(forms.ModelForm):
 
     district = forms.ModelChoiceField(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"city": "city"},
@@ -48,7 +49,7 @@ class BaseRealtorFormSet(BaseInlineFormSet):
             if data.get('percent') != None:
                 total_percentage += data.get('percent')
         if total_percentage != 100:
-            raise forms.ValidationError('Сумма процентов != 100 !')
+            raise forms.ValidationError(_('Сумма процентов != 100 !'))
 
 DealFormset = inlineformset_factory(
     Deal,
@@ -69,7 +70,7 @@ class BaseCommisionFormSet(BaseInlineFormSet):
                 total_sum += data.get('commission_sum')
         if self.forms:
             if total_sum > deal.commission:
-                raise forms.ValidationError('Внесенная суммма коммисии больше внесенной в сделку !')
+                raise forms.ValidationError(_('Внесенная суммма коммисии больше внесенной в сделку !'))
 
 DealCommissionFormset = inlineformset_factory(
     Deal,

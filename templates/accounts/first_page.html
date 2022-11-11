@@ -1,12 +1,14 @@
- {% extends 'main.html' %}
+{% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
-<h1>Login</h1>
+
+<h1>{% trans 'first_page_Login' %}</h1>
 <form  method="post" enctype="multipart/form-data">
    {% csrf_token %} {{ form.non_field_errors }}
    <p>{{ form.username.label }} {{ form.username }} {{ form.username.errors }}</p>
    <p>{{ form.password.label }} {{ form.password }} {{ form.password.errors }}</p>
-   <input type="submit" value="Войти" >
+   <input type="submit" value="{% trans 'first_page_Enter' %}" >
 </form>
 
-    <a href="{% url 'accounts_urls:reset_password_url'  %}">Forgot password</a>
+    <a href="{% url 'accounts_urls:reset_password_url'  %}">{% trans 'first_page_Forgot_password' %}</a>
 {% endblock %}

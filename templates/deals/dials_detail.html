@@ -1,41 +1,42 @@
  {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
-    <h1>Deal detail</h1>
-    <p>Дата создания сделки {{ instance.date_open_deal }}</p>
-    <p>Дата закрытия сделки {{ instance.date_close_deal }}</p>
-    <p>Название объекта {{ instance.name_of_object }}</p>
-    <p>Тип недвижимости {{ instance.type_of_pbject }}</p>
-    <p>Район {{ instance.district }}</p>
-    <p>ФИО клиента(Покупатель) {{ instance.client_name }}</p>
-    <p>тел.Клиента(Покупатель) {{ instance.client_phone }}</p>
-    <p>ФИО клиента(Продавца) {{ instance.seller_name }}</p>
-    <p>тел.Клиента(Продавца) {{ instance.seller_phone }}</p>
+    <h1>{% trans 'Deal_detail' %}</h1>
+    <p>{% trans 'Date_open_deal' %} {{ instance.date_open_deal }}</p>
+    <p>{% trans 'Date_close_deal' %}{{ instance.date_close_deal }}</p>
+    <p>{% trans 'Name_of_object' %} {{ instance.name_of_object }}</p>
+    <p>{% trans 'Type_of_pbject' %}{{ instance.type_of_pbject }}</p>
+    <p>{% trans 'District' %} {{ instance.district }}</p>
+    <p>{% trans 'Client_name' %} {{ instance.client_name }}</p>
+    <p>{% trans 'Client_phone' %} {{ instance.client_phone }}</p>
+    <p>{% trans 'Seller_name' %} {{ instance.seller_name }}</p>
+    <p>{% trans 'Seller_name' %} {{ instance.seller_phone }}</p>
     {% if  instance.brokers_name %}
-        <p>ФИО Посрединка(ч.риелт или др аг.) {{ instance.brokers_name }}</p>
-        <p>Тел.посредника {{ instance.brokers_tel }}</p>
+        <p>{% trans 'Brokers_name' %} {{ instance.brokers_name }}</p>
+        <p>{% trans 'Brokers_tel' %} {{ instance.brokers_tel }}</p>
     {% endif %}
     {% if instance.name_agency %}
-        <p>Название агенства {{ instance.name_agency }}</p>
+        <p>{% trans 'Name_agency' %}{{ instance.name_agency }}</p>
     {% endif %}
-    <p>Kанал продаж {{ instance.sales_chanel }}</p>
-    <p>Площадь {{ instance.square }}</p>
-    <p>Стоимость объекта {{ instance.price }}</p>
-    <p>Комисия {{ instance.commission }}</p>
-    <p>Ипотека {% if instance.mortgage  %} Yes {% else %} No{% endif %}</p>
-    <p>Расрочка {% if instance.installment  %} Yes {% else %} No{% endif %}</p>
-    <p>Примечание {{ instance.discription }}</p>
-    <p>Статус сделки {{ instance.status }}</p>
+    <p>{% trans 'Sales_chanel' %}{{ instance.sales_chanel }}</p>
+    <p>{% trans 'Square' %} {{ instance.square }}</p>
+    <p>{% trans 'Price' %}{{ instance.price }}</p>
+    <p>{% trans 'Commission' %} {{ instance.commission }}</p>
+    <p>{% trans 'Mortgage' %} {% if instance.mortgage  %} {% trans 'Yes' %} {% else %}{% trans 'No' %} {% endif %}</p>
+    <p>{% trans 'Installment' %} {% if instance.installment  %} {% trans 'Yes' %} {% else %} {% trans 'No' %}{% endif %}</p>
+    <p>{% trans 'Discription' %} {{ instance.discription }}</p>
+    <p>{% trans 'Status' %} {{ instance.status }}</p>
     {% for reeltor in instance.realtor_in_deal_deal_id.all %}
-        {{ reeltor }} {{ reeltor.percent }}
+        {% trans 'Reeltor' %}{{ reeltor }} {% trans 'Percent' %}{{ reeltor.percent }}
     {% endfor %}
     {% for commision in instance.commision_deal_id.all %}
-        <p>{{ commision.commission_date }} {{ commision.commission_sum }}</p>
+        <p>{% trans 'Commission_date' %}{{ commision.commission_date }} {% trans 'Commission_sum' %}{{ commision.commission_sum }}</p>
     {% endfor %}
     {% if user.groups.get.name == 'Генеральный директор' %}
     <form  method="post" enctype="multipart/form-data">{% csrf_token %}
    {% if instance.status != 'Закрыта' and instance.status != 'Закрыта-Рассрочка' and instance.status != 'Срыв' %}
-    <input type="submit" name="_close" value="Close ">
-    <input type="submit" name="_disruption" value="Disruption ">
+    <input type="submit" name="_close" value="{% trans 'Close' %} ">
+    <input type="submit" name="_disruption" value="{% trans 'Disruption' %} ">
    {% endif %}
     </form>
     {% endif %}

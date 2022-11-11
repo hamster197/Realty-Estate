@@ -1,0 +1,811 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-09 14:42+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: accounts/admin_page_admin.html:5
+msgid "admin_page_Users_adminstration"
+msgstr "Администрирование пользователей"
+
+#: accounts/admin_page_admin.html:6
+msgid "admin_page_Users_Realty_and_Clients_trasfer"
+msgstr "Перенос недвижимости и клиентов"
+
+#: accounts/admin_page_admin.html:7
+msgid "admin_page_Sityes_quide"
+msgstr "Справочник городов"
+
+#: accounts/admin_page_admin.html:8
+msgid "admin_page_Departments_quide"
+msgstr "Справочник отделов"
+
+#: accounts/admin_page_admin.html:9
+msgid "admin_page_Users_Districts_quide"
+msgstr "Справочник районов"
+
+#: accounts/admin_page_admin.html:10
+msgid "admin_page_Sales_chanels_quide"
+msgstr "Справочник каналов продаж"
+
+#: accounts/first_page.html:5
+msgid "first_page_Login"
+msgstr "Имя пользователя"
+
+#: accounts/first_page.html:10
+msgid "first_page_Enter"
+msgstr "Подтвердить"
+
+#: accounts/first_page.html:13
+msgid "first_page_Forgot_password"
+msgstr "Забыл пароль"
+
+#: accounts/password_change_form.html:9
+msgid "change_password_page_Change_password"
+msgstr "Сменить пароль"
+
+#: accounts/password_change_form.html:10
+msgid "change_password_page_Set_new_password"
+msgstr "Установить новый пароль"
+
+#: accounts/password_change_form.html:16
+msgid "change_password_page_Change_my_password "
+msgstr "Сменить пароль"
+
+#: accounts/password_reset_confim_form.html:3
+msgid "confim_password_page_Enter_new_password"
+msgstr "Введите новый пароль"
+
+#: accounts/password_reset_confim_form.html:10
+msgid "confim_password_page_Set_a_new_password"
+msgstr "Установить новый пароль"
+
+#: accounts/password_reset_confim_form.html:14
+msgid "confim_password_page_Change_my_password"
+msgstr "Сменить мой пароль"
+
+#: accounts/password_reset_confim_form.html:20
+msgid "confim_password_page_TetxtIn_page"
+msgstr ""
+"Ссылка для сброса пароля была недействительной, возможно, потому, что она "
+"уже использовалась. Пожалуйста, запросите сброс нового пароля."
+
+#: accounts/password_reset_done_form.html:3
+msgid "reset_password_done_page_Email Sent"
+msgstr "Email отправить"
+
+#: accounts/password_reset_done_form.html:7
+msgid "reset_password_done_page_Check_your_inbox"
+msgstr "Проверьте входяшие"
+
+#: accounts/password_reset_done_form.html:9
+msgid "reset_password_done_page_Text"
+msgstr ""
+"Мы отправили вам по электронной почте инструкции по установке вашего пароля. "
+"Вы должны получить электронное письмо в ближайшее время!"
+
+#: accounts/password_reset_email.html:3
+msgid "Please go to the following page and choose a new password:"
+msgstr "Пожалуйста, перейдите на следующую страницу и выберите новый пароль:"
+
+#: accounts/password_reset_email.html:7
+msgid "Your username, in case you’ve forgotten:"
+msgstr "Ваше имя пользователя, на случай, если вы забыли:"
+
+#: accounts/password_reset_email.html:9
+msgid "Thanks for using our site!"
+msgstr "Спасибо за использование нашего сайта!"
+
+#: accounts/password_reset_email.html:11
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: accounts/password_reset_form.html:5 accounts/password_reset_form.html:6
+msgid "reset_form_page_Forgot_Your_Password?"
+msgstr "Забыли пароль?"
+
+#: accounts/password_reset_form.html:8
+msgid "reset_form_page_Text"
+msgstr ""
+"Enter your email address below, and we'll email instructions for setting a "
+"new one."
+
+#: accounts/password_reset_form.html:13
+msgid "reset_form_page_Send_me_instructions!"
+msgstr "Вышлите инструкции"
+
+#: accounts/user_edit.html:5 accounts/user_subject_list_edit.html:12
+#: real_estate/client_detail.html:6
+msgid "Edit"
+msgstr "Редактировать"
+
+#: accounts/user_edit.html:5
+msgid "Create"
+msgstr "Создать"
+
+#: accounts/user_edit.html:23 accounts/user_subject_list_edit.html:19
+#: real_estate/client_edit.html:22
+msgid "Save"
+msgstr "Сохранить"
+
+#: accounts/user_edit.html:29
+msgid "Change_Password"
+msgstr "Сменить пароль"
+
+#: accounts/user_subject_list_edit.html:7
+msgid "Citys quide"
+msgstr "Справочник городов"
+
+#: accounts/user_subject_list_edit.html:8
+msgid "Departments quide"
+msgstr "Справочник отделов"
+
+#: accounts/user_subject_list_edit.html:9
+msgid "Districts quide"
+msgstr "Справочник раонов"
+
+#: accounts/user_subject_list_edit.html:10
+msgid "Sales Chanels quide"
+msgstr "Справочник каналов продаж"
+
+#: accounts/user_subject_trasfer.html:6
+msgid "User_Realty_and_Clients_trasfer"
+msgstr "Перенос недвижимости и клиентов"
+
+#: accounts/user_subject_trasfer.html:14
+msgid "Trasfer_realtys"
+msgstr "Перенести обьекты недвижимости"
+
+#: accounts/user_subject_trasfer.html:19
+msgid "Trasfer_Clients"
+msgstr "Перенести клиентов"
+
+#: accounts/users_list.html:6
+msgid "Users_List"
+msgstr "Спиоск пользователей"
+
+#: accounts/users_list.html:7
+msgid "New_user"
+msgstr "Новый пользователь"
+
+#: accounts/users_list.html:16
+msgid "is_active"
+msgstr "Активен?"
+
+#: accounts/users_list.html:17 boss_statistics/user_detail.html:9
+msgid "Department_boss"
+msgstr "Начальник отдела"
+
+#: boss_statistics/instanses_list.html:6
+msgid "Cityes"
+msgstr "Города"
+
+#: boss_statistics/instanses_list.html:7
+msgid "Departments"
+msgstr "Отделы"
+
+#: boss_statistics/instanses_list.html:8
+msgid "Realtors"
+msgstr "Риелторы"
+
+#: boss_statistics/instanses_list.html:9
+msgid "All Realtors"
+msgstr "Все риелторы"
+
+#: boss_statistics/instanses_list.html:18 boss_statistics/user_detail.html:45
+msgid "Search_Data"
+msgstr "Поиск"
+
+#: boss_statistics/instanses_list.html:22
+msgid "realtes_without_contract(all)"
+msgstr "Обьекты без договора(все)"
+
+#: boss_statistics/instanses_list.html:22
+msgid "realtes_without_contract(New)"
+msgstr "Обьекты без договора(новые)"
+
+#: boss_statistics/instanses_list.html:23
+msgid "realtes_with_contract(all)"
+msgstr "Обьекты с договором(все)"
+
+#: boss_statistics/instanses_list.html:23
+msgid "realtes_with_contract(new)"
+msgstr "Обьекты с договором(новые)"
+
+#: boss_statistics/instanses_list.html:24
+msgid "open_deals_sum"
+msgstr "Открытые сделки(сумма)"
+
+#: boss_statistics/instanses_list.html:24
+msgid "open_deals_count"
+msgstr "Открытые сделки(кол-во)"
+
+#: boss_statistics/instanses_list.html:25
+msgid "close_deals_sum"
+msgstr "Закрытые сделки(сумма)"
+
+#: boss_statistics/instanses_list.html:25
+msgid "close_deals_count"
+msgstr "Закрытые сделки(кол-во)"
+
+#: boss_statistics/user_detail.html:5
+msgid "Flats"
+msgstr "Квартиры"
+
+#: boss_statistics/user_detail.html:6 real_estate/client_list.html:8
+msgid "Clients"
+msgstr "Клиенты"
+
+#: boss_statistics/user_detail.html:7
+msgid "Phone_calls"
+msgstr "Звонки"
+
+#: boss_statistics/user_detail.html:8
+msgid "Employee_position"
+msgstr "Должность"
+
+#: boss_statistics/user_detail.html:50
+msgid "Income_call"
+msgstr "Входяший"
+
+#: boss_statistics/user_detail.html:51
+msgid "Duration_of_the_call"
+msgstr "Продолжительность"
+
+#: boss_statistics/user_detail.html:58
+msgid "There_is_no_subscriber_for_the_specified_ID"
+msgstr "Нет информации"
+
+#: boss_statistics/user_detail.html:62
+msgid "minutes"
+msgstr "Мин"
+
+#: boss_statistics/user_detail.html:63
+msgid "Download"
+msgstr "Загрузить"
+
+#: deals/deals_reiting.html:4
+msgid "Reitings(all)"
+msgstr "Рейтинг(Общий)"
+
+#: deals/deals_reiting.html:5
+msgid "Reitings(by_department)"
+msgstr "Рейтинг(по отделам)"
+
+#: deals/deals_reiting.html:6
+msgid "Reitings(by_city)"
+msgstr "Рейтинг(по городам)"
+
+#: deals/deals_reiting.html:8
+msgid "Deal reitings"
+msgstr "Рейтинг сделок"
+
+#: deals/dials_detail.html:4
+msgid "Deal_detail"
+msgstr "Сделка подробно"
+
+#: deals/dials_detail.html:5
+msgid "Date_open_deal"
+msgstr "Дата открытия сделки"
+
+#: deals/dials_detail.html:6
+msgid "Date_close_deal"
+msgstr "Дата закрытия сделки"
+
+#: deals/dials_detail.html:7
+msgid "Name_of_object"
+msgstr "Название обьекта продажи"
+
+#: deals/dials_detail.html:8
+msgid "Type_of_pbject"
+msgstr "Тип обьекта"
+
+#: deals/dials_detail.html:9 real_estate/client_detail.html:16
+#: real_estate/instances_detail.html:31
+msgid "District"
+msgstr "Район"
+
+#: deals/dials_detail.html:10 real_estate/client_detail.html:10
+#: real_estate/client_list.html:13
+msgid "Client_name"
+msgstr "Имя клиента"
+
+#: deals/dials_detail.html:11 real_estate/client_detail.html:12
+msgid "Client_phone"
+msgstr "Телефон клиента"
+
+#: deals/dials_detail.html:12 deals/dials_detail.html:13
+msgid "Seller_name"
+msgstr "Имя продавца"
+
+#: deals/dials_detail.html:15
+msgid "Brokers_name"
+msgstr "Имя посредника"
+
+#: deals/dials_detail.html:16
+msgid "Brokers_tel"
+msgstr "Телефон посредника"
+
+#: deals/dials_detail.html:19
+msgid "Name_agency"
+msgstr "Название АН"
+
+#: deals/dials_detail.html:21
+msgid "Sales_chanel"
+msgstr "Канал продаж"
+
+#: deals/dials_detail.html:22 real_estate/client_detail.html:34
+#: real_estate/instances_detail.html:34
+msgid "Square"
+msgstr "Плошадь"
+
+#: deals/dials_detail.html:23
+msgid "Price"
+msgstr "Цена"
+
+#: deals/dials_detail.html:24
+msgid "Commission"
+msgstr "Коммиссия"
+
+#: deals/dials_detail.html:25
+msgid "Mortgage"
+msgstr "Ипотека"
+
+#: deals/dials_detail.html:25 deals/dials_detail.html:26
+#: real_estate/instances_detail.html:26 real_estate/instances_detail.html:46
+#: real_estate/instances_detail.html:62 real_estate/instances_detail.html:63
+#: real_estate/instances_detail.html:65 real_estate/instances_detail.html:66
+msgid "Yes"
+msgstr "Да"
+
+#: deals/dials_detail.html:25 deals/dials_detail.html:26
+#: real_estate/instances_detail.html:26 real_estate/instances_detail.html:47
+#: real_estate/instances_detail.html:62 real_estate/instances_detail.html:64
+#: real_estate/instances_detail.html:65 real_estate/instances_detail.html:66
+msgid "No"
+msgstr "Нет"
+
+#: deals/dials_detail.html:26
+msgid "Installment"
+msgstr "Рассрочка"
+
+#: deals/dials_detail.html:27 real_estate/client_detail.html:17
+#: real_estate/instances_detail.html:39
+msgid "Discription"
+msgstr "Описание"
+
+#: deals/dials_detail.html:28
+msgid "Status"
+msgstr "Статус"
+
+#: deals/dials_detail.html:30
+msgid "Reeltor"
+msgstr "Риелтор"
+
+#: deals/dials_detail.html:30
+msgid "Percent"
+msgstr "Проценты"
+
+#: deals/dials_detail.html:33
+msgid "Commission_date"
+msgstr "Дата получения коммиссии"
+
+#: deals/dials_detail.html:33
+msgid "Commission_sum"
+msgstr "Сумма коммиссии"
+
+#: deals/dials_detail.html:38
+msgid "Close"
+msgstr "Закрыть"
+
+#: deals/dials_detail.html:39
+msgid "Disruption"
+msgstr "Срыв"
+
+#: deals/dials_list.html:5
+msgid "Open_deals"
+msgstr "Открытые сделки"
+
+#: deals/dials_list.html:6
+msgid "Installment_deals"
+msgstr "Рассрочка"
+
+#: deals/dials_list.html:7
+msgid "Closed deals"
+msgstr "Закрытые сделки"
+
+#: deals/dials_list.html:8
+msgid "Installment_Closed_deals"
+msgstr "Закрытые рассрочка"
+
+#: deals/dials_list.html:9
+msgid "Disruption_deals"
+msgstr "Срыв"
+
+#: deals/dials_list.html:27
+msgid "Deal_Edit"
+msgstr "Редактировать сделку"
+
+#: deals/dials_new.html:6
+msgid "Deal"
+msgstr "Сделка"
+
+#: deals/dials_new.html:7 real_estate/client_edit.html:7
+msgid "(New)"
+msgstr "Новый"
+
+#: deals/dials_new.html:8 real_estate/client_edit.html:8
+msgid "(Edit)"
+msgstr "Редактировать"
+
+#: deals/dials_new.html:50 deals/dials_new.html:51 deals/dials_new.html:52
+msgid "Close_Page"
+msgstr "Закрыть страницу"
+
+#: main.html:14
+msgid "Exit"
+msgstr "Выйти"
+
+#: main.html:15
+msgid "Change_password"
+msgstr "Сменить пароль"
+
+#: main.html:16
+msgid "New_flat"
+msgstr "Новая квартира"
+
+#: main.html:17
+msgid "New_house"
+msgstr "Новый дом"
+
+#: main.html:18
+msgid "New_plot_of_land"
+msgstr "Новый участок"
+
+#: main.html:19
+msgid "New_commerce"
+msgstr "Новый пользователь"
+
+#: main.html:20
+msgid "New_client"
+msgstr "Доступные клиенты"
+
+#: main.html:23
+msgid "My_flat"
+msgstr "Мои квартиры"
+
+#: main.html:24
+msgid "My_house"
+msgstr "Тип дома"
+
+#: main.html:25
+msgid "My_plot_of_landt"
+msgstr "Мои участки земли"
+
+#: main.html:26
+msgid "My_commerce"
+msgstr "Моя комерция"
+
+#: main.html:28
+
+msgid "My_clients"
+msgstr "Мои Клиенты"
+
+#: main.html:29
+msgid "All_clients"
+msgstr "Доступные клиенты"
+
+#: main.html:31
+msgid "Deal_New"
+msgstr "Сделка"
+
+#: main.html:32
+msgid "Deals_List"
+msgstr "Редактировать сделку"
+
+#: main.html:36
+msgid "Admin_adminstration"
+msgstr "Администрирование пользователей"
+
+#: main.html:39
+msgid "Boss_statistic"
+msgstr "Руководство статистика"
+
+#: main.html:42
+msgid "Department_statistic"
+msgstr "Начальник отдела"
+
+#: main.html:44
+msgid "Reiting"
+msgstr "Рейтинг(Общий)"
+
+#: real_estate/client_detail.html:4
+msgid "Client_detail"
+msgstr "Подробно"
+
+#: real_estate/client_detail.html:8 real_estate/client_list.html:13
+#: real_estate/instances_detail.html:22
+msgid "Creation_date"
+msgstr "Дата создания"
+
+#: real_estate/client_detail.html:9
+msgid "Author_name"
+msgstr "Автор"
+
+#: real_estate/client_detail.html:13
+msgid "Client_email"
+msgstr "Еmail клиента"
+
+#: real_estate/client_detail.html:15 real_estate/client_list.html:16
+#: real_estate/instances_detail.html:30
+msgid "Estate_type"
+msgstr "Тип недвижимости"
+
+#: real_estate/client_detail.html:18 real_estate/client_list.html:16
+msgid "Min_price"
+msgstr "Минимальная цена"
+
+#: real_estate/client_detail.html:19 real_estate/client_list.html:17
+msgid "Max_price"
+msgstr "Максимальная цена"
+
+#: real_estate/client_detail.html:21
+msgid "Aviablse_estates"
+msgstr "Доступные обьекты"
+
+#: real_estate/client_detail.html:32
+msgid "Adress"
+msgstr "Адрес"
+
+#: real_estate/client_detail.html:33 real_estate/instances_detail.html:38
+msgid "Agency_price"
+msgstr "Цена агенства"
+
+#: real_estate/client_edit.html:6
+msgid "Client"
+msgstr "Клиент"
+
+#: real_estate/client_list.html:6
+msgid "My "
+msgstr "Мои "
+
+#: real_estate/client_list.html:7
+msgid "All  "
+msgstr "Все "
+
+#: real_estate/client_list.html:14
+msgid "Districts"
+msgstr "Районы"
+
+#: real_estate/client_list.html:26 real_estate/instances_all.html:26
+msgid "Previous"
+msgstr "Назад"
+
+#: real_estate/client_list.html:34 real_estate/instances_all.html:34
+msgid "Next"
+msgstr "Дальше"
+
+#: real_estate/instance_new.html:6
+msgid "New "
+msgstr "Новый "
+
+#: real_estate/instance_new.html:7
+msgid "Edit "
+msgstr "Редактировать "
+
+#: real_estate/instance_new.html:8
+msgid " Estate"
+msgstr " Недвижимость"
+
+#: real_estate/instance_new.html:22
+msgid "Save "
+msgstr "Сохранить "
+
+#: real_estate/instance_new.html:27
+msgid "Delete Image"
+msgstr "Удалить изображение"
+
+#: real_estate/instances_all.html:4
+msgid "All_Real_Estates"
+msgstr "Все обьекты"
+
+#: real_estate/instances_all.html:4
+msgid "Instanses"
+msgstr "Обьекты"
+
+#: real_estate/instances_detail.html:4
+msgid "Detail"
+msgstr "Подробно"
+
+#: real_estate/instances_detail.html:17
+msgid "author"
+msgstr "Автор"
+
+#: real_estate/instances_detail.html:19
+msgid "Name_of_the_owner"
+msgstr "Имя собственика"
+
+#: real_estate/instances_detail.html:20
+msgid "Phone_of_the_owner"
+msgstr "Телефон собственика"
+
+#: real_estate/instances_detail.html:23
+msgid "Date_of_change"
+msgstr "Дата изменения"
+
+#: real_estate/instances_detail.html:24
+msgid "Contract"
+msgstr "Договор"
+
+#: real_estate/instances_detail.html:24
+msgid "Contract_number"
+msgstr "Номер договора"
+
+#: real_estate/instances_detail.html:25
+msgid "Contract_date_end"
+msgstr "Дата окончания контракта"
+
+#: real_estate/instances_detail.html:26
+msgid "new_building"
+msgstr "Новостройка"
+
+#: real_estate/instances_detail.html:28
+msgid "Youtube"
+msgstr "Youtube"
+
+#: real_estate/instances_detail.html:32
+msgid "Street"
+msgstr "Улица"
+
+#: real_estate/instances_detail.html:33
+msgid "Street_number"
+msgstr "Номер дома"
+
+#: real_estate/instances_detail.html:36
+msgid "Owners_price"
+msgstr "Цена собственика"
+
+#: real_estate/instances_detail.html:40
+msgid "Gaz"
+msgstr "Газ"
+
+#: real_estate/instances_detail.html:42
+msgid "Cadastral_number"
+msgstr "Кадастровый номер"
+
+#: real_estate/instances_detail.html:44
+msgid "Type_of_law"
+msgstr "Вид права"
+
+#: real_estate/instances_detail.html:45
+msgid "Use_of_the_plot"
+msgstr "Использование участка"
+
+#: real_estate/instances_detail.html:46
+msgid "Domclick_published"
+msgstr "Публикация на Домклик"
+
+#: real_estate/instances_detail.html:50
+msgid "Flat_number"
+msgstr "Номер квартиры"
+
+#: real_estate/instances_detail.html:52
+msgid "Stage_of_delivery"
+msgstr "Этап сдачи"
+
+#: real_estate/instances_detail.html:53
+msgid "Housing_status"
+msgstr "Статус жилья"
+
+#: real_estate/instances_detail.html:54
+msgid "Housing_class"
+msgstr "Класс жилья"
+
+#: real_estate/instances_detail.html:55
+msgid "Repair"
+msgstr "Ремонт"
+
+#: real_estate/instances_detail.html:56
+msgid "Flat_rooms"
+msgstr "Кол-во комнат"
+
+#: real_estate/instances_detail.html:57
+msgid "Floor"
+msgstr "Этаж"
+
+#: real_estate/instances_detail.html:58 real_estate/instances_detail.html:68
+msgid "Number_of_floors"
+msgstr "Этажность"
+
+#: real_estate/instances_detail.html:59
+msgid "View_from_the_windows"
+msgstr "Вид из окон"
+
+#: real_estate/instances_detail.html:60
+msgid "Bathroom"
+msgstr "Санузел"
+
+#: real_estate/instances_detail.html:61
+msgid "Parking"
+msgstr "Паркинг"
+
+#: real_estate/instances_detail.html:62
+msgid "Security"
+msgstr "Охрана"
+
+#: real_estate/instances_detail.html:63
+msgid "Rubbish_chute"
+msgstr "Мусоропровод"
+
+#: real_estate/instances_detail.html:65
+msgid "Elevator"
+msgstr "Лифт"
+
+#: real_estate/instances_detail.html:66
+msgid "Balcony"
+msgstr "Балкон"
+
+#: real_estate/instances_detail.html:69
+msgid "Number_of_flats"
+msgstr "Кол-во комнат"
+
+#: real_estate/instances_detail.html:70
+msgid "Type_of_house"
+msgstr "Тип дома"
+
+#: real_estate/instances_detail.html:71
+msgid "Plot_area"
+msgstr "Плошадь участка"
+
+#: real_estate/instances_detail.html:73
+msgid "Relief"
+msgstr "Рельеф"
+
+#: real_estate/instances_detail.html:74
+msgid "View"
+msgstr "Вид"
+
+#: real_estate/instances_detail.html:76
+msgid "Type_of_building"
+msgstr "Тип строения"
+
+#: real_estate/instances_detail.html:77
+msgid "Type_deal"
+msgstr "Тип Сделки"
+
+#: real_estate/instances_detail.html:85
+msgid "Aviable_clients"
+msgstr "Доступные клиенты"
+
+#: real_estate/instances_detail.html:93
+msgid "Main_photo"
+msgstr "Главное фото"
+
+#: real_estate/instances_detail.html:94
+msgid "Galery"
+msgstr "Галерея"
+
+#, python-format
+#~ msgid ""
+#~ "You're receiving this email because you requested a password reset for "
+#~ "your "
+#~ msgstr ""
+#~ "Вы получаете это электронное письмо, потому что запросили сброс пароля "
+#~ "для вашей учетной записи"

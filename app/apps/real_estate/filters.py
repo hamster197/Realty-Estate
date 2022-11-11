@@ -1,3 +1,6 @@
+from django.utils.translation import gettext_lazy as _
+
+
 import django_filters
 
 from django_filters import ChoiceFilter, ModelChoiceFilter
@@ -10,7 +13,7 @@ class RealtyEstateFilter(django_filters.FilterSet):
     type = ChoiceFilter(choices=RealtyEstate.type_choises)
     district__city = ModelChoiceFilter(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -19,7 +22,7 @@ class RealtyEstateFilter(django_filters.FilterSet):
     )
     district = ModelChoiceFilter(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"district__city": "city"},
@@ -44,7 +47,7 @@ class MyFlatRealtyEstateFilter(django_filters.FilterSet):
 
     district__city = ModelChoiceFilter(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -53,7 +56,7 @@ class MyFlatRealtyEstateFilter(django_filters.FilterSet):
     )
     district = ModelChoiceFilter(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"district__city": "city"},
@@ -90,7 +93,7 @@ class AllClientEstateFilter(django_filters.FilterSet):
     estate_type = ChoiceFilter(choices=RealtyEstate.type_choises)
     district__city = ModelChoiceFilter(
         queryset=CityQuide.objects.all(),
-        label="Город",
+        label=_("Город"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             max_results=500,
@@ -99,7 +102,7 @@ class AllClientEstateFilter(django_filters.FilterSet):
     )
     district = ModelChoiceFilter(
         queryset=DistrictQuide.objects.all(),
-        label="Район",
+        label=_("Район"),
         widget=ModelSelect2Widget(
             search_fields=["name__icontains"],
             dependent_fields={"district__city": "city"},

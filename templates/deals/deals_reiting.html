@@ -1,10 +1,11 @@
  {% extends 'main.html' %}
+{% load i18n %}
 {% block content %}
-    <a href="{% url "deal_urls:deal_reiting_url" %}" >Reitings(all)</a>
-    <a href="{% url "deal_urls:deal_department_reiting_url" %}" >Reitings(by department)</a>
-    <a href="{% url "deal_urls:deal_city_reiting_url" %}" >Reitings(by city)</a>
+    <a href="{% url "deal_urls:deal_reiting_url" %}" >{% trans 'Reitings(all)' %}</a>
+    <a href="{% url "deal_urls:deal_department_reiting_url" %}" >{% trans 'Reitings(by_department)' %}</a>
+    <a href="{% url "deal_urls:deal_city_reiting_url" %}" >{% trans 'Reitings(by_city)' %}</a>
 
-<h1>Deal reitings</h1>
+<h1>{% trans 'Deal reitings' %}</h1>
 
     {% if filter.form %}
 <form method="get">

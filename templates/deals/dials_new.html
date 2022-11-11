@@ -1,7 +1,13 @@
  {% extends 'main.html' %}
+{% load i18n %}
+
 {% block content %}
     {{ form.media.css }}
-    <h1>{{ view.action }} Deal</h1>
+    <h1>{% trans 'Deal' %}
+        {% if view.action == '(New)' %} {% trans '(New)' %}
+        {% elif view.action == '(Edit)' %} {% trans '(Edit)' %}
+        {% endif %}
+    </h1>
     {% if messages %}
   <ul class="messages">
     {% for message in messages %}
@@ -41,9 +47,9 @@
 
 <input type="submit"  value="Save ">
 
-    {% if form.status.value == 'Открыта' %}<a href="{% url "deal_urls:deal_open_url" %}" >Close Page</a>
-    {% elif form.status.value == 'Рассрочка' %}<a href="{% url "deal_urls:deal_installment_url" %}" >Close Page</a>
-    {% elif form.status.value == 'Закрыта-Рассрочка' %}<a href="{% url "deal_urls:deal_closed_installment_url" %}" >Close Page</a>
+    {% if form.status.value == 'Открыта' %}<a href="{% url "deal_urls:deal_open_url" %}" >{% trans 'Close_Page' %}</a>
+    {% elif form.status.value == 'Рассрочка' %}<a href="{% url "deal_urls:deal_installment_url" %}" >{% trans 'Close_Page' %}</a>
+    {% elif form.status.value == 'Закрыта-Рассрочка' %}<a href="{% url "deal_urls:deal_closed_installment_url" %}" >{% trans 'Close_Page' %}</a>
     {% endif %}
 
 

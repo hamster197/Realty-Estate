@@ -1,9 +1,10 @@
 {% extends 'main.html' %}
+{% load i18n %}
 
 {% block content %}
 {% include 'accounts/admin_page_admin.html' %}
-<h1>Users List(for edit)</h1>
-<a href="{% url "accounts_urls:users_new_url" %}" >New user</a>
+<h1>{% trans 'Users_List' %}</h1>
+<a href="{% url "accounts_urls:users_new_url" %}" >{% trans 'New_user' %}</a>
 {{ filter.form.media.css }}
 <form method="get">
    {{ filter.form.as_p }}
@@ -12,8 +13,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 {{ filter.form.media.js }}
 {% for instance in instances %}
-<p><a href="{% url "accounts_urls:users_edit_url" pk=instance.pk %}" >{{ instance }} is_active {{ instance.is_active }}
-   {{ instance.groups.get.name }} Начальник отдела {{ instance.department_boss }}</a>
+<p><a href="{% url "accounts_urls:users_edit_url" pk=instance.pk %}" >{{ instance }} {% trans 'is_active' %} {{ instance.is_active }}
+   {{ instance.groups.get.name }} {% trans 'Department_boss' %} {{ instance.department_boss }}</a>
 </p>
 {% endfor %}
 

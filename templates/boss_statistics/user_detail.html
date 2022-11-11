@@ -1,9 +1,12 @@
 {% extends 'main.html' %}
 {% block content %}
-<a href="{% url "boss_statistics_urls:realtor_detail_url" pk=instanse.pk %}" >Flats</a>
-<a href="{% url "boss_statistics_urls:realtor_clients_url" pk=instanse.pk %}" >Clients</a>
-<a href="{% url "boss_statistics_urls:realtor_detail_calls" pk=instanse.pk %}" >Phone calls</a>
-<p>{{ instanse }} Employee position {{ instanse.groups.get }} {% if instanse.department_boss %}Department boss{% endif %}</p>
+{% load i18n %}
+
+<a href="{% url "boss_statistics_urls:realtor_detail_url" pk=instanse.pk %}" >{% trans 'Flats' %}</a>
+<a href="{% url "boss_statistics_urls:realtor_clients_url" pk=instanse.pk %}" >{% trans 'Clients' %}</a>
+<a href="{% url "boss_statistics_urls:realtor_detail_calls" pk=instanse.pk %}" >{% trans 'Phone_calls' %}</a>
+<p>{{ instanse }} {% trans 'Employee_position' %} {{ instanse.groups.get }}
+    {% if instanse.department_boss %}{% trans 'Department_boss' %}{% endif %}</p>
 <p>{{ instanse.phone }}</p>
 <p>{{ instanse.avatar.url }}</p>
 <h1>{{ view.action }}</h1>
@@ -39,24 +42,25 @@
    {% csrf_token %}
    <input type="date" name="date_start" required>
    <input type="date" name="date_end" required>
-   <i class="ti-search"></i><input class="button" type='submit' value="Search Data">
+   <i class="ti-search"></i><input class="button" type='submit' value="{% trans 'Search_Data' %}">
 </form>
 <table class="table">
    <thead>
       <tr>
-         <th scope="col">Входящий</th>
-         <th scope="col">Продолжительность</th>
+         <th scope="col">{% trans 'Income_call' %}</th>
+         <th scope="col">{% trans 'Duration_of_the_call' %}</th>
          <th scope="col"></th>
       </tr>
    </thead>
    <tbody>
       {% for phone_call in calls_array %}
-      {% if phone_call.0 == 'Для заданного идентификатора нет абонента' %}{{ phone_call.0 }}
+      {% if phone_call.0 == 'Для заданного идентификатора нет абонента' %}
+          {% trans 'There_is_no_subscriber_for_the_specified_ID' %}
       {% else %}
       <tr>
          <th scope="row">{{ phone_call.0 }}</th>
-         <td>{{ phone_call.1 }} мин.</td>
-         <td><a href="{{ phone_call.2 }}" class="button" target="_blank">Скачать</a></td>
+         <td>{{ phone_call.1 }} {% trans 'minutes' %} .</td>
+         <td><a href="{{ phone_call.2 }}" class="button" target="_blank">{% trans 'Download' %}</a></td>
       </tr>
       {% endif %}
       {% endfor %}

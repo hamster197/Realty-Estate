@@ -1,12 +1,9 @@
 import django_filters
-from django_filters import DateFromToRangeFilter, ModelChoiceFilter
+from django_filters import DateFromToRangeFilter
 from django_filters.widgets import RangeWidget
 from django.utils import timezone
-from django.db.models import Sum
 
-from app.apps.accounts.models import Departament
-from app.apps.deals.models import Deal, RealtorInTheDeal
-from app.apps.real_estate.models import CityQuide
+from app.apps.deals.models import Deal
 
 
 class DealFilterMixin(django_filters.FilterSet):
