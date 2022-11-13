@@ -20,8 +20,8 @@ class InstatnseStatisticViewSet(generics.ListAPIView):
         обшей суммы по закр сделкам(close_deals_sum) их кол-во (close_deals_count)
     """
     permission_classes = (IsAuthenticated,)
-    serializer_class = InstatnseStatisticSerializer
     action = ''
+    swagger_schema = None
 
     def get_queryset(self):
         if self.action == 'Cityes':
@@ -60,6 +60,7 @@ class RealtyEstateViewSet(ListAPIView):
 
     permission_classes = (IsAuthenticated, )
     action = ''
+    swagger_schema = None
 
     def get_queryset(self):
         queryset = RealtyEstate.objects.none()
