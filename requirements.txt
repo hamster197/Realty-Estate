@@ -15,7 +15,7 @@ coreschema==0.0.4
 cryptography==37.0.4
 defusedxml==0.7.1
 Deprecated==1.2.13
-Django==4.1
+Django==3.2.16
 django-appconf==1.0.5
 django-extra-views==0.14.0
 django-filter==22.1
