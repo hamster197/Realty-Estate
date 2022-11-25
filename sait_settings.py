@@ -5,7 +5,7 @@ SAIT_KEY = 'django-insecure-%v!sq3ci$8mbrda6-#9=rjsgh_mi^gg@(t$9#95_w7ps01wd+f'
 DATABASES_SETTINGS = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': Path(__file__).resolve().parent.parent / 'db.sqlite3',
+        'NAME': Path(__file__).resolve().parent.parent / 'app/db.sqlite3',
     }
 }
 
