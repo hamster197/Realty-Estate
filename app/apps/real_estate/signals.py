@@ -27,14 +27,8 @@ def save_all_watermark(self):
 @receiver(post_save, sender=PlotOfLand)
 @receiver(post_save, sender=Commerce)
 def update_main_image(instance, **kwargs):
-    from geopy.geocoders import Nominatim
-    geolocator = Nominatim(user_agent='realty-test-app')
-    location = geolocator.geocode(instance.street + ' ' + instance.street_number, timeout=10)
-    if location:
-        instance = get_object_or_404(RealtyEstate, pk=instance.pk)
-        instance.latitude = location.latitude
-        instance.longitude = location.longitude
-        instance.save()
+    from .tasks import get_adress
+    get_adress.apply_async(args=(instance.pk,), countdown=1)
     save_all_watermark(instance)
 
 @receiver(post_save, sender=RealtyEstateGalery)

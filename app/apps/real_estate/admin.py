@@ -38,12 +38,6 @@ admin.site.register(PlotOfLand, EstateFields)
 
 admin.site.register(Commerce, EstateFields)
 
-class RealtyEstateGaleryFields(ModelAdmin):
-    list_display = ('pk', 'realty_estate', 'image', )
-    list_filter = ('realty_estate', )
-
-admin.site.register(RealtyEstateGalery, RealtyEstateGaleryFields)
-
 class ClientFields(ModelAdmin):
     list_display = ('pk', 'creation_date', 'client_name', 'estate_type', 'get_districts', 'min_price', 'max_price',
                     'status', 'author',)
