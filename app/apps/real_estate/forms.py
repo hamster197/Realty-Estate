@@ -31,7 +31,7 @@ class RealtyEstateForm(forms.ModelForm):
 
     class Meta:
         model = None
-        exclude = ('author', 'latitude', 'longitude', 'type', )
+        exclude = ('author', 'latitude', 'longitude', 'type', 'cadastral_number', )
 
 
 class FlatEditForm(RealtyEstateForm):
