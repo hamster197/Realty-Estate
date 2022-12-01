@@ -27,8 +27,11 @@ def save_all_watermark(self):
 @receiver(post_save, sender=PlotOfLand)
 @receiver(post_save, sender=Commerce)
 def update_main_image(instance, **kwargs):
-    from .tasks import get_adress
-    get_adress.apply_async(args=(instance.pk,), countdown=1)
+
+    from .tasks import get_adress, get_cadastral_number
+    get_cadastral_number.apply_async(args=(instance.pk,), countdown=1)
+
+    # get_adress.apply_async(args=(instance.pk,), countdown=1)
     save_all_watermark(instance)
 
 @receiver(post_save, sender=RealtyEstateGalery)

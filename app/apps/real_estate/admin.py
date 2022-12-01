@@ -6,7 +6,11 @@ from django.contrib.admin import ModelAdmin
 from app.apps.real_estate.models import CityQuide, DistrictQuide, Flat, House, PlotOfLand, Commerce, RealtyEstateGalery, \
     Client
 
-admin.site.register(CityQuide)
+class CityQuideeFields(ModelAdmin):
+    list_display = ('pk', 'name', 'cadastral_region_id', )
+    list_editable = ('cadastral_region_id', )
+
+admin.site.register(CityQuide, CityQuideeFields)
 
 class DistrictQuideFields(ModelAdmin):
     list_display = ('pk', 'name', 'city',)

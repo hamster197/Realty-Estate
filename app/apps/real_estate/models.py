@@ -8,6 +8,7 @@ from django.db import models
 
 class CityQuide(models.Model):
     name = models.CharField(verbose_name=_('Название'), max_length=45, unique=True,)
+    cadastral_region_id = models.CharField(verbose_name=_('cadastral_regionId'), max_length=25, blank=True)
 
     def __str__(self):
         return self.name
