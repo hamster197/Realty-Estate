@@ -38,5 +38,5 @@ urlpatterns = [
     path('real_estates/', include('app.apps.real_estate.urls')),
     path('deals/', include('app.apps.deals.urls')),
     path('boss_statistics/', include('app.apps.boss_statistics.urls')),
-
+    path('__debug__/', include('debug_toolbar.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

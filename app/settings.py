@@ -30,6 +30,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', ]
 
+INTERNAL_IPS = ['127.0.0.1', ]
 
 # Application definition
 
@@ -50,6 +51,8 @@ INSTALLED_APPS = [
     'djoser',
     'drf_yasg',
     'extra_views',
+    'debug_toolbar',
+    'cacheops',
 
     'app.apps.real_estate',
     'app.apps.accounts',
@@ -105,8 +108,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
-
+SHOW_TOOLBAR_CALLBACK=True
 ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
@@ -183,9 +187,21 @@ LOGIN_REDIRECT_URL = reverse_lazy('real_estates_urls:all_real_estates_url')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('accounts_urls:first_page_url')
 
+CACHEOPS_REDIS = 'redis://127.0.0.1:6379/0'
+
+CACHEOPS = {
+    'auth.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
+    'accounts.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
+    'boss_statistics.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
+    'deals.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
+    'real_estate.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
+}
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = '6379'
+
 # CELERY settings
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 CELERY_BROKER_TRANSPORT_OPTION = {'visibility_timeout': 3600}
@@ -207,13 +223,8 @@ MEDIA_URL = 'image/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "image")
 
 STATIC_URL = 'static/'
-import socket
-if socket.gethostname() == 'MacBook-Pro-homka.local':
-    STATICFILES_DIRS = [
-        BASE_DIR / "static"
-    ]
-else:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 

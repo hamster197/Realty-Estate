@@ -15,7 +15,7 @@ def galery_watermak(galery_ids):
 
 @shared_task(bind=True,)
 def get_adress(self, instance_pk):
-    instance = get_object_or_404(RealtyEstate, pk=instance_pk)
+    instance = RealtyEstate.objects.nocache().get(pk=instance_pk)
     from geopy.geocoders import Nominatim
     geolocator = Nominatim(user_agent='realty-test-app')
     try:
@@ -32,7 +32,7 @@ def get_adress(self, instance_pk):
 @shared_task(bind=True)
 def get_cadastral_number(self, instance_pk):
     try:
-        instance = get_object_or_404(RealtyEstate, pk=instance_pk)
+        instance = RealtyEstate.objects.nocache().get(pk=instance_pk)
         import requests
         url = 'http://rosreestr.ru/api/online/address/fir_objects?macroRegionId=103000000000&RegionId='\
               + instance.district.city.cadastral_region_id

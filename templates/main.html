@@ -1,6 +1,7 @@
 {% load static %}
 {% load i18n %}
-
+<html>
+ <body>
 <p>{{  LANGUAGE_CODE }} </p>
 {% get_available_languages as LANGUAGES %}
 {% for lang in LANGUAGES %}
@@ -49,3 +50,5 @@
 {% block content %}
 
 {% endblock %}
+</body>
+</html>
