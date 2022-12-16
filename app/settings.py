@@ -19,18 +19,21 @@ from sait_settings import SAIT_KEY, DATABASES_SETTINGS, EMAIL_USER, EMAIL_PASSWO
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = SAIT_KEY
+SECRET_KEY = env('SAIT_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', ]
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
-INTERNAL_IPS = ['127.0.0.1', ]
+INTERNAL_IPS = env.list('INTERNAL_IPS')
 
 # Application definition
 
@@ -137,7 +140,12 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = DATABASES_SETTINGS
+DATABASES = {
+    'default': {
+        'ENGINE': env('DATABASE_ENGINE'),
+        "NAME": BASE_DIR / env('DATABASE_NAME'),
+    }
+}
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -187,7 +195,7 @@ LOGIN_REDIRECT_URL = reverse_lazy('real_estates_urls:all_real_estates_url')
 
 LOGOUT_REDIRECT_URL = reverse_lazy('accounts_urls:first_page_url')
 
-CACHEOPS_REDIS = 'redis://127.0.0.1:6379/0'
+CACHEOPS_REDIS = env('CACHEOPS_REDIS')
 
 CACHEOPS = {
     'auth.*': {'ops': {'fetch', 'get'}, 'timeout': 60 * 60},
@@ -199,8 +207,8 @@ CACHEOPS = {
 
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
-REDIS_HOST = '127.0.0.1'
-REDIS_PORT = '6379'
+REDIS_HOST = env('REDIS_HOST')
+REDIS_PORT = env('REDIS_PORT')
 
 # CELERY settings
 CELERY_BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
@@ -211,11 +219,11 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_HOST_USER =  EMAIL_USER
-EMAIL_HOST_PASSWORD = EMAIL_PASSWORD
+EMAIL_HOST_USER =  env('EMAIL_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'hamstertest197@yandex.ru'
+DEFAULT_FROM_EMAIL = env('EMAIL_USER')#'hamstertest197@yandex.ru'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 

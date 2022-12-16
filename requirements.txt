@@ -19,6 +19,7 @@ Django==4.1
 django-appconf==1.0.5
 django-cacheops==6.1
 django-debug-toolbar==3.7.0
+django-environ==0.9.0
 django-extra-views==0.14.0
 django-filter==22.1
 django-jazzmin==2.5.0
