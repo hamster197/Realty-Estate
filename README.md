@@ -1,11 +1,13 @@
 # Realty-Estate
 Small crm for estate agency(in development)
 # Instalation
-1. Create sait_settings.py with settings
+1. Create .env with settings
 SAIT_KEY (SECRET_KEY)
-DATABASES_SETTINGS (YOU DATABASES SETTINGS)
+ALLOWED_HOSTS and INTERNAL_IPS (YOU HOST & IP)
 EMAIL_USER & EMAIL_PASSWORD (FOR MAILING)
 BEELINE_TOKEN & BEELINE_COOKIE
+DATABASE_ENGINE & DATABASE_NAME
+CACHEOPS_REDIS & REDIS_HOST , REDIS_PORT
 2. pip install -r requirements.txt
 3. install redis and start redis-server
 4. python manage.py makemigrations
