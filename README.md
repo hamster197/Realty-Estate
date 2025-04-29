@@ -16,4 +16,4 @@ CACHEOPS_REDIS & REDIS_HOST , REDIS_PORT
 7. celery -A app worker -l INFO
 8. python manage.py runserver
 
- https://deepwiki.com/hamster197/Realty-Estate/2.3-client-management
+ https://deepwiki.com/hamster197/Realty-Estate/
